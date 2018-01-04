@@ -8965,7 +8965,7 @@ public class Move106 : BattleMove {
 		if (attacker.effects[Effects.FirstPledge] == 0x107 || attacker.effects[Effects.FirstPledge] == 0x108) {
 			battle.Display(string.Format("The two moves have become one! It's a combined move!"));
 			doubleDamage = true;
-			if (attacker.effects[Effects.FirstPledge] -- 0x107) {
+			if (attacker.effects[Effects.FirstPledge] == 0x107) {
 				overrideType = true;
 			}
 		}
@@ -8988,9 +8988,55 @@ public class Move106 : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
-			attacker.effects[Effects.FirstPledge] = 0x107;
+			attacker.effects[Effects.FirstPledge] = 0;
 			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		}
+		if (attacker.effects[Effects.FirstPledge] == 0x107) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.SeaOfFire] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A sea of fire enveloped the opposing team!"));
+					battle.CommonAnimation("SeaOfFireOpp", null, null);
+				} else {
+					battle.Display(string.Format("A sea of fire enveloped your team!"));
+					battle.CommonAnimation("SeaOfFire", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		} else if (attacker.effects[Effects.FirstPledge]==0x108) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.Swamp] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A swamp enveloped the opposing team!"));
+					battle.CommonAnimation("SwampOpp", null, null);
+				} else {
+					battle.Display(string.Format("A swamp enveloped your team!"));
+					battle.CommonAnimation("Swamp", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		}
+		attacker.effects[Effects.FirstPledge] = 0;
+		int partnerMove = -1;
+		if (battle.useMoveChoice[attacker.Partner().index] == 1) {
+			if (!attacker.Partner().HasMovedThisRound()) {
+				BattleMove m = battle.moveChoice[attacker.Partner().index];
+				if (m != null && m.id > 0) {
+					partnerMove = battle.moveChoice[attacker.Partner().index].function;
+				}
+			}
+		}
+		if (partnerMove == 0x107 || partnerMove == 0x108) {
+			battle.Display(string.Format("{0} is waiting for {1}'s move...",attacker.String(), attacker.Partner().String()));
+			attacker.Partner().effects[Effects.FirstPledge] = function;
+			attacker.Partner().effects[Effects.MoveNext] = 1;
+			return 0;
+		}
+		return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
@@ -9007,26 +9053,95 @@ public class Move106 : BattleMove {
 *  causes either a sea of fire on the opposing side or a rainbow on the user's side. *
 *************************************************************************************/
 public class Move107 : BattleMove {
+	bool doubleDamage;
+	bool overrideType;
 	public Move107(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool OnStartUse(Battler attacker) {
+		doubleDamage = false;
+		overrideType = false;
+		if (attacker.effects[Effects.FirstPledge] == 0x106 || attacker.effects[Effects.FirstPledge] == 0x108) {
+			battle.Display(string.Format("The two moves have become one! It's a combined move!"));
+			doubleDamage = true;
+			if (attacker.effects[Effects.FirstPledge] == 0x108) {
+				overrideType = true;
+			}
+		}
 		return true;
 	}
 
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
-		return 0;
+		if (doubleDamage) {
+			return baseDamage * 2;
+		}
+		return baseDamage;
 	}
 
 	public new int ModifyType(int type, Battler attacker, Battler opponent) {
-		return 0;
+		if (overrideType) {
+			type = Types.WATER;
+		}
+		return base.ModifyType(type, attacker, opponent);
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+			attacker.effects[Effects.FirstPledge] = 0;
+			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		if (attacker.effects[Effects.FirstPledge] == 0x106) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.SeaOfFire] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A sea of fire enveloped the opposing team!"));
+					battle.CommonAnimation("SeaOfFireOpp", null, null);
+				} else {
+					battle.Display(string.Format("A sea of fire enveloped your team!"));
+					battle.CommonAnimation("SeaOfFire", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		} else if (attacker.effects[Effects.FirstPledge]==0x108) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.Swamp] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A rainbow appeared in the sky on your team's side!"));
+					battle.CommonAnimation("Rainbow", null, null);
+				} else {
+					battle.Display(string.Format("A rainbow appeared in the sky on the opposing team's side!"));
+					battle.CommonAnimation("RainbowOpp", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		}
+		attacker.effects[Effects.FirstPledge] = 0;
+		int partnerMove = -1;
+		if (battle.useMoveChoice[attacker.Partner().index] == 1) {
+			if (!attacker.Partner().HasMovedThisRound()) {
+				BattleMove m = battle.moveChoice[attacker.Partner().index];
+				if (m != null && m.id > 0) {
+					partnerMove = battle.moveChoice[attacker.Partner().index].function;
+				}
+			}
+		}
+		if (partnerMove == 0x106 || partnerMove == 0x108) {
+			battle.Display(string.Format("{0} is waiting for {1}'s move...",attacker.String(), attacker.Partner().String()));
+			attacker.Partner().effects[Effects.FirstPledge] = function;
+			attacker.Partner().effects[Effects.MoveNext] = 1;
+			return 0;
+		}
+		return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-
+		if (overrideType) {
+			return base.ShowAnimation(Moves.WATERPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9036,26 +9151,95 @@ public class Move107 : BattleMove {
 *  causes either a swamp on the opposing side or a rainbow on the user's side.     *
 ***********************************************************************************/
 public class Move108 : BattleMove {
+	bool doubleDamage;
+	bool overrideType;
 	public Move108(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool OnStartUse(Battler attacker) {
+		doubleDamage = false;
+		overrideType = false;
+		if (attacker.effects[Effects.FirstPledge] == 0x106 || attacker.effects[Effects.FirstPledge] == 0x108) {
+			battle.Display(string.Format("The two moves have become one! It's a combined move!"));
+			doubleDamage = true;
+			if (attacker.effects[Effects.FirstPledge] == 0x108) {
+				overrideType = true;
+			}
+		}
 		return true;
 	}
 
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
-		return 0;
+		if (doubleDamage) {
+			return baseDamage * 2;
+		}
+		return baseDamage;
 	}
 
 	public new int ModifyType(int type, Battler attacker, Battler opponent) {
-		return 0;
+		if (overrideType) {
+			type = Types.GRASS;
+		}
+		return base.ModifyType(type, attacker, opponent);
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+			attacker.effects[Effects.FirstPledge] = 0;
+			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		if (attacker.effects[Effects.FirstPledge] == 0x106) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.Swamp] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A swamp enveloped the opposing team!"));
+					battle.CommonAnimation("SwampOpp", null, null);
+				} else {
+					battle.Display(string.Format("A swamp enveloped your team!"));
+					battle.CommonAnimation("Swamp", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		} else if (attacker.effects[Effects.FirstPledge]==0x107) {
+			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+			if (opponent.damageState.CalculatedDamage > 0) {
+				attacker.OpposingSide().effects[Effects.Swamp] = 4;
+				if (!battle.IsOpposing(attacker.index)) {
+					battle.Display(string.Format("A rainbow appeared in the sky on your team's side!"));
+					battle.CommonAnimation("Rainbow", null, null);
+				} else {
+					battle.Display(string.Format("A rainbow appeared in the sky on the opposing team's side!"));
+					battle.CommonAnimation("RainbowOpp", null, null);
+				}
+			}
+			attacker.effects[Effects.FirstPledge] = 0;
+			return 0;
+		}
+		attacker.effects[Effects.FirstPledge] = 0;
+		int partnerMove = -1;
+		if (battle.useMoveChoice[attacker.Partner().index] == 1) {
+			if (!attacker.Partner().HasMovedThisRound()) {
+				BattleMove m = battle.moveChoice[attacker.Partner().index];
+				if (m != null && m.id > 0) {
+					partnerMove = battle.moveChoice[attacker.Partner().index].function;
+				}
+			}
+		}
+		if (partnerMove == 0x106 || partnerMove == 0x107) {
+			battle.Display(string.Format("{0} is waiting for {1}'s move...",attacker.String(), attacker.Partner().String()));
+			attacker.Partner().effects[Effects.FirstPledge] = function;
+			attacker.Partner().effects[Effects.MoveNext] = 1;
+			return 0;
+		}
+		return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-
+		if (overrideType) {
+			return base.ShowAnimation(Moves.GRASSPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9066,7 +9250,17 @@ public class Move109 : BattleMove {
 	public Move109(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		if (opponent.damageState.CalculatedDamage > 0) {
+			if (battle.OwnedByPlayer(attacker.index)) {
+				battle.extraMoney += 5*attacker.level;
+				if (battle.extraMoney > Settings.MAX_MONEY) {
+					battle.extraMoney = Settings.MAX_MONEY;
+				}
+			}
+			battle.Display(string.Format("Coins were scattered everywhere!"));
+		}
+		return ret;
 	}
 }
 
@@ -9077,15 +9271,35 @@ public class Move10A : BattleMove {
 	public Move10A(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public bool CalcDamage(Battler attacker, Battler opponent) {
-		return true;
+		return base.CalcDamage(attacker, opponent, NOREFLECT);
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		if (attacker.OpposingSide().effects[Effects.Reflect] > 0) {
+			attacker.OpposingSide().effects[Effects.Reflect] = 0;
+			if (!battle.IsOpposing(attacker.index)) {
+				battle.Display(string.Format("The opposing team's Reflect wore off!"));
+			} else {
+				battle.Display(string.Format("Your team's Reflect wore off!"));
+			}
+		}
+		if (attacker.OpposingSide().effects[Effects.LightScreen] > 0) {
+			attacker.OpposingSide().effects[Effects.LightScreen] = 0;
+			if (!battle.IsOpposing(attacker.index)) {
+				battle.Display(string.Format("The opposing team's Light Screen wore off!"));
+			} else {
+				battle.Display(string.Format("Your team's Light Screen wore off!"));
+			}
+		}
+		return ret;
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-
+		if (attacker.OpposingSide().effects[Effects.Reflect]>0 || attacker.OpposingSide().effects[Effects.LightScreen]>0) {
+			return base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+		}
+		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9112,6 +9326,21 @@ public class Move10C : BattleMove {
 	public Move10C(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.Substitute]>0) {
+			battle.Display(string.Format("{0} already has a substitute!",attacker.String()));
+			return -1;
+		}
+		int sublife = (int)Math.Max(attacker.totalHP/4, 1);
+		if (attacker.hp <= sublife) {
+			battle.Display(string.Format("It was too weak to make a substitute!"));
+			return -1;
+		}
+		attacker.ReduceHP(sublife, false, false);
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.MultiTurn] = 0;
+		attacker.effects[Effects.MultiTurnAttack] = 0;
+		attacker.effects[Effects.Substitute] = sublife;
+		battle.Display(string.Format("{0} put in a substitute!",attacker.String()));
 		return 0;
 	}
 }
@@ -9127,7 +9356,43 @@ public class Move10D : BattleMove {
 	public Move10D(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		bool failed = false;
+		if (attacker.HasType(Types.GHOST)) {
+			if (opponent.effects[Effects.Curse] != 0 || opponent.OwnSide().effects[Effects.CraftyShield] != 0) {
+				failed = true;
+			} else {
+				ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+				battle.Display(string.Format("{0} cut its own HP and laid a curse on {1}!",attacker.String(), opponent.String(true)));
+				opponent.effects[Effects.Curse] = 1;
+				attacker.ReduceHP(attacker.totalHP/2);
+			}
+		} else {
+			bool lowerSpeed = attacker.CanReduceStatStage(Stats.SPEED, attacker, false, this);
+			bool raiseAtk = attacker.CanIncreaseStatStage(Stats.ATTACK, attacker, false, this);
+			bool raiseDef = attacker.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this);
+			if (!lowerSpeed && !raiseAtk && !raiseDef) {
+				failed = true;
+			} else {
+				ShowAnimation(id, attacker, null, 1, allTargets, showAnimation);
+				if (lowerSpeed) {
+					attacker.ReduceStat(Stats.SPEED, 1, attacker, false, this);
+				}
+				bool showAnim = true;
+				if (raiseAtk) {
+					attacker.IncreaseStat(Stats.ATTACK, 1, attacker, false, this, showAnim);
+					showAnim = false;
+				}
+				if (raiseAtk) {
+					attacker.IncreaseStat(Stats.DEFENSE, 1, attacker, false, this, showAnim);
+					showAnim = false;
+				}
+			}
+		}
+		if (failed) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		return failed ? -1 : 0;
 	}
 }
 
@@ -9138,7 +9403,19 @@ public class Move10E : BattleMove {
 	public Move10E(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		for (int i=0; i<opponent.moves.Length; i++) 
+		{
+			BattleMove m = opponent.moves[i];
+			if (m.id == opponent.lastMoveUsed && i.id > 0 && i.pp > 0) {
+				showAnim
+				int reduction = (int)Math.Min(4, m.pp);
+				opponent.SetPP(m, m.pp-reduction);
+				battle.Display(string.Format("It reduced the PP of {0}'s {1} by {2}!",opponent.String(true), m.name, reduction));
+				return 0;
+			}
+		}
+		battle.Display(string.Format("But it failed!"));
+		return -1;
 	}
 }
 
@@ -9149,6 +9426,13 @@ public class Move10F : BattleMove {
 	public Move10F(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (opponent.status != Statuses.SLEEP || opponent.effects[Effects.Nightmare] != 0 || (opponent.effects[Effects.Substitute] > 0 && !IgnoresSubstitute(attacker))) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.Nightmare] = 1;
+		battle.Display(string.Format("{0} began having a nightmare!",opponent.String()));
 		return 0;
 	}
 }
@@ -9161,7 +9445,36 @@ public class Move110 : BattleMove {
 	public Move110(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new void EffectAfterHit(Battler attacker, Battler opponent, Dictionary<int, int> turneffects) {
-
+		if (!attacker.Fainted() && turneffects[Effects.TotalDamage]>0) {
+			if (attacker.effects[Effects.MultiTurn] > 0) {
+				string mtattack = Moves.GetName(attacker.effects[Effects.MultiTurnAttack]);
+				Battler mtuser = battle.battlers[attacker.effects[Effects.MultiTurnUser]];
+				battle.Display(string.Format("{0} got free of {1}'s {2}!",attacker.String(), mtuser.String(true), mtattack));
+				attacker.effects[Effects.MultiTurn] = 0;
+				attacker.effects[Effects.MultiTurnAttack] = 0;
+				attacker.effects[Effects.MultiTurnUser] = -1;
+			}
+			if (attacker.effects[Effects.LeechSeed] >= 0) {
+				attacker.effects[Effects.LeechSeed] = -1;
+				battle.Display(string.Format("{0} shed Leech Seed!",attacker.String()));
+			}
+			if (attacker.effects[Effects.StealthRock] != 0) {
+				attacker.effects[Effects.StealthRock] = 0;
+				battle.Display(string.Format("{0} blew away stealth rocks!",attacker.String()));
+			}
+			if (attacker.effects[Effects.Spikes] > 0) {
+				attacker.effects[Effects.Spikes] = 0;
+				battle.Display(string.Format("{0} blew away spikes!",attacker.String()));
+			}
+			if (attacker.effects[Effects.ToxicSpikes] > 0) {
+				attacker.effects[Effects.ToxicSpikes] = 0;
+				battle.Display(string.Format("{0} blew away poison spikes!",attacker.String()));
+			}
+			if (attacker.effects[Effects.StickyWeb] != 0) {
+				attacker.effects[Effects.StickyWeb] = 0;
+				battle.Display(string.Format("{0} blew away sticky webs!",attacker.String()));
+			}
+		}
 	}
 }
 
@@ -9172,15 +9485,38 @@ public class Move111 : BattleMove {
 	public Move111(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int DisplayUseMessage(Battler attacker) {
-		return 0;
+		if (battle.futureSight) {
+			return 0;
+		}
+		return base.DisplayUseMessage(attacker);
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (opponent.effects[Effects.FutureSight]>0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		if (battle.futureSight) {
+			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.FutureSight] = 3;
+		opponent.effects[Effects.FutureSightMove] = id;
+		opponent.effects[Effects.FutureSightUser] = attacker.pokemonIndex;
+		opponent.effects[Effects.FutureSightUserPos] = attacker.index;
+		if (id == Moves.FUTURESIGHT) {
+			battle.Display(string.Format("{0} foresaw an attack!",attacker.String()));
+		} else {
+			battle.Display(string.Format("{0} chose Doom Desire as its destiny!",attacker.String()));
+		}
 		return 0;
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-
+		if (battle.futureSight) {
+			return base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+		}
+		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9192,6 +9528,24 @@ public class Move112 : BattleMove {
 	public Move112(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.Stockpile]>=3) {
+			battle.Display(string.Format("{0} can't stockpile any more!",attacker.String()));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.Stockpile]++;
+		battle.Display(string.Format("{0} stockpiled {1}!",attacker.String(), attacker.effects[Effects.Stockpile]));
+		bool showAnim = true;
+		if (attacker.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this)) {
+			attacker.IncreaseStat(Stats.DEFENSE, 1, attacker, false, this, showAnim);
+			attacker.effects[Effects.StockpileDef]++;
+			showAnim = false;
+		}
+		if (attacker.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+			attacker.IncreaseStat(Stats.SPDEF, 1, attacker, false, this, showAnim);
+			attacker.effects[Effects.StockpileSpDef]++;
+			showAnim = false;
+		}
 		return 0;
 	}
 }
@@ -9204,15 +9558,33 @@ public class Move113 : BattleMove {
 	public Move113(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		return attacker.effects[Effects.Stockpile]==0;
 	}
 
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
-		return 0;
+		return 100*attacker.effects[Effects.Stockpile];
 	}
 
 	public new void EffectAfterHit(Battler attacker, Battler opponent, Dictionary<int, int> turneffects) {
-
+		if (!attacker.Fainted() && turneffects[Effects.TotalDamage] > 0) {
+			bool showAnim;
+			if (attacker.effects[Effects.StockpileDef]>0) {
+				if (attacker.CanReduceStatStage(Stats.DEFENSE, attacker, false, this)) {
+					attacker.ReduceStat(Stats.DEFENSE, attacker.effects[Effects.StockpileDef], attacker, false, this, showAnim);
+					showAnim = false;
+				}
+			}
+			if (attacker.effects[Effects.StockpileSpDef]>0) {
+				if (attacker.CanReduceStatStage(Stats.SPDEF, attacker, false, this)) {
+					attacker.ReduceStat(Stats.SPDEF, attacker.effects[Effects.StockpileSpDef], attacker, false, this, showAnim);
+					showAnim = false;
+				}
+			}
+			attacker.effects[Effects.Stockpile] = 0;
+			attacker.effects[Effects.StockpileDef] = 0;
+			attacker.effects[Effects.StockpileSpDef] = 0;
+			battle.Display(string.Format("{0}'s stockpiled effect wore off!",attacker.String()));
+		}
 	}
 }
 
@@ -9228,6 +9600,47 @@ public class Move114 : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		int hpGain = 0;
+		switch (attacker.effects[Effects.Stockpile]) 
+		{
+			case 0:
+				battle.Display(string.Format("But it failed to swallow a thing!"));
+				return -1;
+			case 1:
+				hpGain = attacker.totalHP/4;
+				break;
+			case 2:
+				hpGain = attacker.totalHP/2;
+				break;
+			case 3:
+				hpGain = attacker.totalHP;
+				break;
+		}
+		if (attacker.hp == attacker.totalHP && attacker.effects[Effects.StockpileDef] == 0 && attacker.effects[Effects.StockpileSpDef] == 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		if (attacker.ReduceHP(hpGain, true) > 0) {
+			battle.Display(string.Format("{0}'s HP was restored.",attacker.String()));
+		}
+		bool showAnim = true;
+		if (attacker.effects[Effects.StockpileDef]>0) {
+			if (attacker.CanReduceStatStage(Stats.DEFENSE, attacker, false, this)) {
+				attacker.ReduceStat(Stats.DEFENSE, attacker.effects[Effects.StockpileDef], attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		if (attacker.effects[Effects.StockpileSpDef]>0) {
+			if (attacker.CanReduceStatStage(Stats.SPDEF, attacker, false, this)) {
+				attacker.ReduceStat(Stats.SPDEF, attacker.effects[Effects.StockpileSpDef], attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		attacker.effects[Effects.Stockpile] = 0;
+		attacker.effects[Effects.StockpileDef] = 0;
+		attacker.effects[Effects.StockpileSpDef] = 0;
+		battle.Display(string.Format("{0}'s stockpiled effect wore off!",attacker.String()));
 		return 0;
 	}
 }
@@ -9239,7 +9652,11 @@ public class Move115 : BattleMove {
 	public Move115(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int DisplayUseMessage(Battler attacker) {
-		return 0;
+		if (attacker.lastHPLost > 0) {
+			battle.DisplayBrief(string.Format("{0} lost its focus and couldn't move!",attacker.String()));
+			return -1;
+		}
+		return base.DisplayUseMessage(attacker);
 	}
 }
 
@@ -9251,7 +9668,17 @@ public class Move116 : BattleMove {
 	public Move116(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		if (battle.useMoveChoice[opponent.index] != 1) {
+			return true;
+		}
+		BattlerMove oppMove = battle.moveChoice[opponent.index];
+		if (oppMove == null || oppMove.id <= 0 || oppMove.IsStatus()) {
+			return true;
+		}
+		if (opponent.HasMovedThisRound() && oppMove.function != 0xB0) {
+			return true;
+		}
+		return false;
 	}
 }
 
@@ -9263,7 +9690,16 @@ public class Move117 : BattleMove {
 	public Move117(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!battle.doubleBattle) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.FollowMe] = 1;
+		if (!attacker.Partner().Fainted() && attacker.Partner().effects[Effects.FollowMe]>0) {
+			attacker.effects[Effects.FollowMe] = attacker.Partner().effects[Effects.FollowMe]+1;
+		}
+		battle.Display(string.Format("{0} became the center of attention!",attacker.String()));
 	}
 }
 
@@ -9275,6 +9711,33 @@ public class Move118 : BattleMove {
 	public Move118(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.Gravity]>0) 
+		{
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.Gravity] = 5;
+		for (int i=0; i<4; i++) 
+		{
+			Battler poke = battle.battlers[i];
+			if (poke == null) {
+				continue;
+			}
+			if ((new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCC || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCE) {
+				poke.effects[Effects.TwoTurnAttack] = 0;
+			}
+			if (poke.effects[Effects.SkyDrop] != 0) {
+				poke.effects[Effects.SkyDrop] = 0;
+			}
+			if (poke.effects[Effects.MagnetRise] > 0) {
+				poke.effects[Effects.MagnetRise] = 0;
+			}
+			if (poke.effects[Effects.Telekinesis] > 0) {
+				poke.effects[Effects.Telekinesis] = 0;
+			}
+		}
+		battle.Display(string.Format("Gravity intensified!"));
 		return 0;
 	}
 }
@@ -9290,6 +9753,13 @@ public class Move119 : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.Ingrain] != 0 || attacker.effects[Effects.SmackDown] != 0 || attacker.effects[Effects.MagnetRise] > 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.MagnetRise] = 5;
+		battle.Display(string.Format("{0} levitated with electromagnetism!",attacker.String()));
 		return 0;
 	}
 }
@@ -9305,6 +9775,13 @@ public class Move11A : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.Ingrain] != 0 || attacker.effects[Effects.SmackDown] != 0 || attacker.effects[Effects.MagnetRise] > 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.MagnetRise] = 5;
+		battle.Display(string.Format("{0} was hurled into the air!",attacker.String()));
 		return 0;
 	}
 }/****
@@ -9323,11 +9800,34 @@ public class Move11C : BattleMove {
 	public Move11C(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
-		return 0;
+		if ((new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCC || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCE || opponent.effects[Effects.SkyDrop] != 0) {
+			return baseDamage*2;
+		}
+		return baseDamage;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		if (opponent.damageState.CalculatedDamage>0 && !opponent.damageState.Substitute && !opponent.effects[Effects.Roost] != 0) {
+			opponent.effects[Effects.SmackDown] = 1;
+			bool showMsg = (opponent.HasType(Types.FLYING) || opponent.HasWorkingAbility(Abilities.LEVITATE));
+			if ((new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCC) {
+				opponent.effects[Effects.TwoTurnAttack] = 0;
+				showMsg = true;
+			}
+			if (opponent.effects[Effects.MagnetRise] > 0) {
+				opponent.effects[Effects.MagnetRise] = 0;
+				showMsg = true;
+			}
+			if (opponent.effects[Effects.Telekinesis] > 0) {
+				opponent.effects[Effects.Telekinesis] = 0;
+				showMsg = true;
+			}
+			if (showMsg) {
+				battle.Display(string.Format("{0} fell straight down!",opponent.String()));
+			}
+		}
+		return ret;
 	}
 }
 
@@ -9338,10 +9838,27 @@ public class Move11D : BattleMove {
 	public Move11D(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		if (opponent.effects[Effects.MoveNext] != 0) {
+			return true;
+		}
+		if (battle.useMoveChoice[opponent.index] != 1) {
+			return true;
+		}
+		BattleMove oppMove = battle.moveChoice[opponent.index];
+		if (oppMove == null || oppMove.id <= 0) {
+			return true;
+		}
+		if (opponent.HasMovedThisRound()) {
+			return true;
+		}
+		return false;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.MoveNext] = 1;
+		opponent.effects[Effects.Quash] = 0;
+		battle.Display(string.Format("{0} took the kind offer!",opponent.String()));
 		return 0;
 	}
 }
@@ -9353,10 +9870,27 @@ public class Move11E : BattleMove {
 	public Move11E(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		if (opponent.effects[Effects.Quash] != 0) {
+			return true;
+		}
+		if (battle.useMoveChoice[opponent.index] != 1) {
+			return true;
+		}
+		BattleMove oppMove = battle.moveChoice[opponent.index];
+		if (oppMove == null || oppMove.id <= 0) {
+			return true;
+		}
+		if (opponent.HasMovedThisRound()) {
+			return true;
+		}
+		return false;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.Quash] = 1;
+		opponent.effects[Effects.MoveNext] = 0;
+		battle.Display(string.Format("{0}'s move was postponed!",opponent.String()));
 		return 0;
 	}
 }
@@ -9369,6 +9903,14 @@ public class Move11F : BattleMove {
 	public Move11F(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.TrickRoom] > 0) {
+			battle.field.effects[Effects.TrickRoom] = 0;
+			battle.Display(string.Format("{0} reverted the dimensions!",attacker.String()));
+		} else {
+			ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+			battle.field.effects[Effects.TrickRoom] = 5;
+			battle.Display(string.Format("{0} twisted the dimensions!",attacker.String()));
+		}
 		return 0;
 	}
 }
@@ -9380,7 +9922,24 @@ public class Move120 : BattleMove {
 	public Move120(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		Battler temp = battle.battlers[attacker.index];
+		battle.battlers[attacker.index] = battle.battlers[attacker.Partner().index];
+		battle.battlers[attacker.Partner().index] = temp;
+		int[] effectsToSwap = new int[6]{Effects.BideTarget, Effects.CounterTarget, Effects.LeechSeed, Effects.LockOnPos, Effects.MeanLook, Effects.MirrorCoatTarget};
+		for (int i=0; i<effectsToSwap.Length; i++) 
+		{
+			int temp = a.effects[effectsToSwap[i]];
+			battle.battlers[attacker.index].effects[effectsToSwap[i]] = battle.battlers[attacker.Partner().index].effects[effectsToSwap[i]];
+			battle.battlers[attacker.Partner().index].effects[effectsToSwap[i]] = temp;
+		}
+		attacker.Update(true);
+		opponent.Update(true);
+		battle.Display(string.Format("{0} and {1} switched places!",opponent.String(), attacker.String(true)));
 	}
 }
 
@@ -9409,7 +9968,11 @@ public class Move123 : BattleMove {
 	public Move123(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!opponent.HasType(attacker.type1) && !opponent.HasType(attacker.type2) && !opponent.HasType(attacker.effects[Effects.Type3])) {
+			battle.Display(string.Format("{0} was unaffected!",opponent.String()));
+			return -1;
+		}
+		return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9421,6 +9984,14 @@ public class Move124 : BattleMove {
 	public Move124(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.WonderRoom] > 0) {
+			battle.field.effects[Effects.WonderRoom] = 0;
+			battle.Display(string.Format("Wonder Room wore off, and the Defense and Sp. Def stats returned to normal!"));
+		} else {
+			ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+			battle.field.effects[Effects.WonderRoom] = 5;
+			battle.Display(string.Format("It created a bizarre area in which the Defense and Sp. Def stats are swapped!"));
+		}
 		return 0;
 	}
 }
@@ -9432,7 +10003,20 @@ public class Move125 : BattleMove {
 	public Move125(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		int counter = 0;
+		int numMoves = 0;
+		for (int i=0; i<attacker.moves.Length; i++) 
+		{
+			BattleMove m = attacker.moves[i];
+			if (m.id <= 0) {
+				continue;
+			}
+			if (m.id != id && !attacker.movesUsed.Contains(m.id)) {
+				counter++;
+			}
+			numMoves++;
+		}
+		return counter != 0 || numMoves == 1;
 	}
 }
 
@@ -9446,6 +10030,11 @@ public class Move133 : BattleMove {
 	public Move133(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (!battle.doublebattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 		return 0;
 	}
 }
@@ -9457,6 +10046,8 @@ public class Move134 : BattleMove {
 	public Move134(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.Display(string.Format("Congratulations, {0}!",battle.GetOwner(attacker.index).name));
 		return 0;
 	}
 }
@@ -9469,7 +10060,12 @@ public class Move135 : BattleMove {
 	public Move135(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new void AdditionalEffect(Battler attacker, Battler opponent) {
-
+		if (opponent.damageState.Substitute) {
+			return;
+		}
+		if (opponent.CanFreeze(attacker, false, this)) {
+			opponent.Freeze();
+		}
 	}
 }
 
@@ -9489,6 +10085,35 @@ public class Move137 : BattleMove {
 	public Move137(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool didSomething = false;
+		Battler[] bt = new int[2]{attacker, attacker.Partner()};
+		for (int i=0; i<b.Length; i++) 
+		{
+			Battler b = bt[i];
+			if (b == null || b.Fainted()) {
+				continue;
+			}
+			if (!b.HasWorkingAbility(Abilities.PLUS) && !b.HasWorkingAbility(Abilities.MINUS)) {
+				continue;
+			}
+			if (!b.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this) && !b.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+				ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+				didSomething = true;
+				bool showAnim = true;
+			}
+			if (b.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this)) {
+				b.IncreaseStat(Stats.DEFENSE, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+			if (b.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+				b.IncreaseStat(Stats.SPDEF, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		if (!didSomething) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
 		return 0;
 	}
 }
@@ -9500,7 +10125,12 @@ public class Move138 : BattleMove {
 	public Move138(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!battle.doubleBattle || opponent == null || !opponent.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		return attacker.IncreaseStat(Stats.SPDEF, 1, attacker, false, this) ? 0 : -1;
 	}
 }
 
@@ -9511,11 +10141,15 @@ public class Move139 : BattleMove {
 	public Move139(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool AccuracyCheck(Battler attacker, Battler opponent) {
-		return false;
+		return true;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (!opponent.CanReduceStatStage(Stats.ATTACK, attacker, true, this)) {
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		return attacker.ReduceStat(Stats.ATTACK, 1, attacker, false, this) ? 0 : -1;
 	}
 }
 
@@ -9526,7 +10160,39 @@ public class Move13A : BattleMove {
 	public Move13A(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (opponent.effects[Effects.Substitute] > 0 && !IgnoresSubstitute(attacker)) {
+			battle.Display(string.Format("{0}'s attack missed!",attacker.String()));
+			return -1;
+		}
+		if (opponent.TooLow(Stats.ATTACK) && opponent.TooLow(Stats.SPATK)) {
+			battle.Display(string.Format("{0}'s stats won't go any lower!",opponent.String()));
+			return -1;
+		}
+		if (opponent.OwnSide().effects[Effects.Mist]>0) {
+			battle.Display(string.Format("{0} is protected by Mist!",opponent.String()));
+			return -1;
+		}
+		if (!attacker.HasMoldBreaker()) {
+			if (opponent.HasWorkingAbility(Abilities.CLEARBODY) || opponent.HasWorkingAbility(Abilities.WHITESMOKE)) {
+				battle.Display(string.Format("{0}'s {1} prevents stat loss!",opponent.String(), Abilities.GetName(opponent.ability)));
+				return -1;
+			}
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		int ret = -1;
+		bool showAnim = true;
+		if (!attacker.HasMoldBreaker() && opponent.HasWorkingAbility(Abilities.HYPERCUTTER)) {
+			string abilityName = Abilities.GetName(opponent.ability);
+			battle.Display(string.Format("{0}'s {1} prevents Attack loss!",opponent.String(), abilityName));
+		} else if (opponent.ReduceStat(Stats.ATTACK,1,attacker,false,this,showAnim)) {
+			ret = 0;
+			showAnim = false;
+		}
+		if (opponent.ReduceStat(Stats.SPATK,1,attacker,false,this,showAnim)) {
+			ret = 0;
+			showAnim = false;
+		}
+		return ret;
 	}
 }
 
@@ -9537,15 +10203,26 @@ public class Move13B : BattleMove {
 	public Move13B(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
-	}
-
-	public new bool AccuracyCheck(Battler attacker, Battler opponent) {
+		if (attacker.species != Species.HOOPA) {
+			return true;
+		}
+		if (attacker.form != 1) {
+			return true;
+		}
 		return false;
 	}
 
-	public new void AdditionalEffect(Battler attacker, Battler opponent) {
+	public new bool AccuracyCheck(Battler attacker, Battler opponent) {
+		return true;
+	}
 
+	public new void AdditionalEffect(Battler attacker, Battler opponent) {
+		if (opponent.damageState.Substitute) {
+			return;
+		}
+		if (opponent.CanReduceStatStage(Stats.DEFENSE, attacker, false, this)) {
+			opponent.ReduceStat(Stats.DEFENSE, 1, attacker, false, this);
+		}
 	}
 }
 
@@ -9556,11 +10233,15 @@ public class Move13C : BattleMove {
 	public Move13C(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool AccuracyCheck(Battler attacker, Battler opponent) {
-		return false;
+		return true;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (opponent.CanReduceStatStage(Stats.DEFENSE, attacker, false, this)) {
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		return opponent.ReduceStat(Stats.SPATK, 1, attacker, false, this) ? 0 : -1;
 	}
 }
 
@@ -9571,11 +10252,27 @@ public class Move13D : BattleMove {
 	public Move13D(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (IsDamaging()) {
+			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		}
+		if (TypeImmunityByAbility(GetType(type, attacker, opponent), attacker, opponent)) {
+			return -1;
+		}
+		if (!opponent.CanReduceStatStage(Stats.SPATK, attacker, true, this)) {
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		return opponent.ReduceStat(Stats.SPATK, 2, attacker, false, this) ? 0 : -1;
 	}
 
-	public new void AdditionalEffect(Battler attacker, Battler opponent) {
 
+	public new void AdditionalEffect(Battler attacker, Battler opponent) {
+		if (opponent.damageState.Substitute) {
+			return;
+		}
+		if (opponent.CanReduceStatStage(Stats.SPATK, attacker, false, this)) {
+			opponent.ReduceStat(Stats.SPATK, 1, attacker, false, this);
+		}
 	}
 }
 
@@ -9587,6 +10284,39 @@ public class Move13E : BattleMove {
 	public Move13E(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool didSomething = false;
+		Battler[] bt = new Battler[4]{attacker, attacker.Partner(), attacker.Opposing1(), attacker.Opposing2()};
+		for (int i=0; i<bt.Length; i++) 
+		{
+			Battler b = bt[i];
+			if (b == null || b.Fainted()) {
+				continue;
+			}
+			if (!b.HasType(Types.GRASS)) {
+				continue;
+			}
+			if (b.IsAirborne(attacker.HasMoldBreaker())) {
+				continue;
+			}
+			if (!b.CanIncreaseStatStage(Stats.ATTACK, attacker, false, this) && !b.CanIncreaseStatStage(Stats.SPATK, attacker, false, this)) {
+				continue;
+			}
+			ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+			didSomething = true;
+			bool showAnim = true;
+			if (b.CanIncreaseStatStage(Stats.ATTACK, attacker, false, this)) {
+				b.IncreaseStat(Stats.ATTACK, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+			if (b.CanIncreaseStatStage(Stats.SPATK, attacker, false, this)) {
+				b.IncreaseStat(Stats.SPATK, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		if (!didSomething) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
 		return 0;
 	}
 }
@@ -9599,6 +10329,32 @@ public class Move13F : BattleMove {
 	public Move13F(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool didSomething = false;
+		Battler[] bt = new Battler[4]{attacker, attacker.Partner(), attacker.Opposing1(), attacker.Opposing2()};
+		for (int i=0; i<bt.Length; i++) 
+		{
+			Battler b = bt[i];
+			if (b == null || b.Fainted()) {
+				continue;
+			}
+			if (!b.HasType(Types.GRASS)) {
+				continue;
+			}
+			if (!b.CanIncreaseStatStage(Stats.ATTACK, attacker, false, this) && !b.CanIncreaseStatStage(Stats.SPATK, attacker, false, this)) {
+				continue;
+			}
+			ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+			didSomething = true;
+			bool showAnim = true;
+			if (b.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this)) {
+				b.IncreaseStat(Stats.DEFENSE, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		if (!didSomething) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
 		return 0;
 	}
 }
@@ -9611,6 +10367,40 @@ public class Move140 : BattleMove {
 	public Move140(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool didSomething = false;
+		Battler[] bt = new int[2]{attacker.Opposing1(), attacker.Opposing2()};
+		for (int i=0; i<bt.Length; i++) 
+		{
+			Battler b = bt[i];
+			if (b == null || b.Fainted()) {
+				continue;
+			}
+			if (!b.status == Statuses.POISON) {
+				continue;
+			}
+			if (!b.CanReduceStatStage(Stats.ATTACK, attacker, false, this) && !b.CanReduceStatStage(Stats.SPATK, attacker, false, this) && !b.CanReduceStatStage(Stats.SPEED, attacker, false, this)) {
+				continue;
+			}
+			ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+			didSomething = true;
+			bool showAnim = true;
+			if (b.CanReduceStatStage(Stats.ATTACK, attacker, false, this)) {
+				b.ReduceStat(Stats.ATTACK, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+			if (b.CanReduceStatStage(Stats.SPATK, attacker, false, this)) {
+				b.ReduceStat(Stats.SPATK, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+			if (b.CanReduceStatStage(Stats.SPEED, attacker, false, this)) {
+				b.ReduceStat(Stats.SPEED, 1, attacker, false, this, showAnim);
+				showAnim = false;
+			}
+		}
+		if (!didSomething) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
 		return 0;
 	}
 }
@@ -9622,6 +10412,24 @@ public class Move141 : BattleMove {
 	public Move141(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool nonzero = false;
+		int[] stats = new int[7]{Stats.ATTACK, Stats.DEFENSE, Stats.SPEED, Stats.SPATK, Stats.SPDEF, Stats.ACCURACY, Stats.EVASION};
+		for (int i=0; i<stats.Length; i++) 
+		{
+			if (opponent.stages[stats[i]] != 0) {
+				nonzero = true;
+				break;
+			}
+		}
+		if (!nonzero) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		for (int i=0; i<stats.Length; i++) {
+			opponent.stages[stats[i]] *= -1;
+		}
+		battle.Display(string.Format("{0}'s stats were reversed!",opponent.String()));
 		return 0;
 	}
 }
@@ -9633,6 +10441,14 @@ public class Move142 : BattleMove {
 	public Move142(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if ((opponent.effects[Effects.Substitute] > 0 && !IgnoresSubstitute(attacker)) || opponent.HasType(Types.GHOST) || opponent.ability == Abilities.MULTITYPE) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.Type3] = Types.GHOST;
+		string typeName = Types.GetName(Types.GHOST);
+		battle.Display(string.Format("{0} transformed into the {1} type!",opponent.String(), typeName));
 		return 0;
 	}
 }
@@ -9644,6 +10460,25 @@ public class Move143 : BattleMove {
 	public Move143(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (opponent.effects[Effects.Substitute]>0 && !IgnoresSubstitute(attacker)) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		if (TypeImmunityByAbility(GetType(type, attacker, opponent), attacker, opponent)) {
+			return -1;
+		}
+		if (opponent.effects[Effects.LeechSeed]>=0) {
+			battle.Display(string.Format("{0} evaded the attack!",opponent.String()));
+			return -1;
+		}
+		if (opponent.HasType(Types.GRASS) || opponent.ability == Abilities.MULTITYPE) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.Type3] = Types.GRASS;
+		string typeName = Types.GetName(Types.GRASS);
+		battle.Display(string.Format("{0} transformed into the {1} type!",opponent.String(), typeName));
 		return 0;
 	}
 }
@@ -9656,11 +10491,22 @@ public class Move144 : BattleMove {
 	public Move144(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int ModifyDamage(int damageMult, Battler attacker, Battler opponent) {
-		return 0;
+		int t = Types.FLYING;
+		if (t >= 0) {
+			int mult = Types.GetCombinedEffectiveness(t, opponent.type1, opponent.type2, opponent.effects[Effects.Type3]);
+			return (int)Math.Round((damageMult*mult)/8.0);
+		}
+		return damageMult;
 	}
 
 	public new bool TramplesMinimize(int param=1) {
-		return true;
+		if (param==1 && Settings.USE_NEW_BATTLE_MECHANICS) {
+			return true;
+		}
+		if (param == 2) {
+			return true;
+		}
+		return false;
 	}
 }
 
@@ -9671,7 +10517,20 @@ public class Move145 : BattleMove {
 	public Move145(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (TypeImmunityByAbility(GetType(type, attacker, opponent), attacker, opponent)) {
+			return -1;
+		}
+		if (opponent.effects[Effects.Electrify] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		if (battle.useMoveChoice[opponent.index]!=1 || battle.moveChoice[opponent.index] == null || battle.moveChoice[opponent.index].id <= 0 || opponent.HasMovedThisRound()) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		effects[Effects.Electrify] = 1;
+		battle.Display(string.Format("{0} was electrified!",opponent.String()));
 	}
 }
 
@@ -9683,6 +10542,25 @@ public class Move146 : BattleMove {
 	public Move146(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		bool unmoved = false;
+		for (int i=0; i<battle.battlers.Length; i++) 
+		{
+			Battler poke = battle.battlers[i];
+			if (poke.index == attacker.index) {
+				continue;
+			}
+			if (battle.useMoveChoice[poke.index] == 1 && !poke.HasMovedThisRound()) {
+				unmoved = true;
+				break;
+			}
+		}
+		if (!unmoved || battle.field.effects[Effects.IonDeluge] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.IonDeluge] = 1;
+		battle.Display(string.Format("The Ion Deluge started!"));
 		return 0;
 	}
 }
@@ -9695,7 +10573,7 @@ public class Move147 : BattleMove {
 	public Move147(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool AccuracyCheck(Battler attacker, Battler opponent) {
-		return false;
+		return true;
 	}
 }
 
@@ -9707,6 +10585,13 @@ public class Move148 : BattleMove {
 	public Move148(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (opponent.effects[Effects.Powder] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		opponent.effects[Effects.Powder] = 1;
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		battle.Display(string.Format("{0} is covered in powder!",attacker.String()));
 		return 0;
 	}	
 }
@@ -9718,10 +10603,13 @@ public class Move149 : BattleMove {
 	public Move149(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool MoveFailed(Battler attacker, Battler opponent) {
-		return true;
+		return attacker.turnCount > 1;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		attacker.OwnSide().effects[Effects.MatBlock] = 1;
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.Display(string.Format("{0} intends to flip up a mat and block incoming attacks!",attacker.String()));
 		return 0;
 	}
 }
@@ -9733,6 +10621,33 @@ public class Move14A : BattleMove {
 	public Move14A(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.OwnSide().effects[Effects.CraftyShield]) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		bool unmoved = false;
+		for (int i=0; i<battle.battlers.Length; i++) 
+		{
+			Battler poke = battle.battlers[i];
+			if (poke.index == attacker.index) {
+				continue;
+			}
+			if (battle.useMoveChoice[poke.index] == 1 && !poke.HasMovedThisRound()) {
+				unmoved = true;
+				break;
+			}
+		}
+		if (!unmoved) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.OwnSide().effects[Effects.CraftyShield] = 1;
+		if (!battle.IsOpposing(attacker.index)) {
+			battle.Display(string.Format("Crafty Shield protected your team!"));
+		} else {
+			battle.Display(string.Format("Crafty Shield protected the opposing team!"));
+		}
 		return 0;
 	}
 }
@@ -9745,6 +10660,35 @@ public class Move14B : BattleMove {
 	public Move14B(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.KingsShield] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		int[] ratesharers = new int[6]{0xAA,0xAB,0xAC,0xE8,0x14B,0x14C};
+		if (Array.IndexOf(ratesharers, (new Moves.Move(attacker.lastMoveUsed)).Function()) > -1) {
+			attacker.effects[Effects.ProtectRate] = 1;
+		}
+		bool unmoved = false;
+		for (int i=0; i<battle.battlers.Length; i++) 
+		{
+			Battler poke = battle.battlers[i];
+			if (poke.index == attacker.index) {
+				continue;
+			}
+			if (battle.useMoveChoice[poke.index] == 1 && !poke.HasMovedThisRound()) {
+				unmoved = true;
+				break;
+			}
+		}
+		if (!unmoved || (!Settings.USE_NEW_BATTLE_MECHANICS && battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate]))) {
+			attacker.effects[Effects.ProtectRate] = 1;
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.KingsShield] = 1;
+		attacker.effects[Effects.ProtectRate] *= 2;
+		battle.Display(string.Format("{0} protected itself!",attacker.String()));
 		return 0;
 	}
 }
@@ -9757,6 +10701,35 @@ public class Move14C : BattleMove {
 	public Move14C(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.effects[Effects.SpikyShield] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		int[] ratesharers = new int[6]{0xAA,0xAB,0xAC,0xE8,0x14B,0x14C};
+		if (Array.IndexOf(ratesharers, (new Moves.Move(attacker.lastMoveUsed)).Function()) > -1) {
+			attacker.effects[Effects.ProtectRate] = 1;
+		}
+		bool unmoved = false;
+		for (int i=0; i<battle.battlers.Length; i++) 
+		{
+			Battler poke = battle.battlers[i];
+			if (poke.index == attacker.index) {
+				continue;
+			}
+			if (battle.useMoveChoice[poke.index] == 1 && !poke.HasMovedThisRound()) {
+				unmoved = true;
+				break;
+			}
+		}
+		if (!unmoved || battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
+			attacker.effects[Effects.ProtectRate] = 1;
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.effects[Effects.SpikyShield] = 1;
+		attacker.effects[Effects.ProtectRate] *= 2;
+		battle.Display(string.Format("{0} protected itself!",attacker.String()));
 		return 0;
 	}
 }
@@ -9769,18 +10742,47 @@ public class Move14C : BattleMove {
 *  Does double damage and has perfect accuracy if the target is Minimized.     *
 *******************************************************************************/
 public class Move14D : BattleMove {
+	bool immediate;
 	public Move14D(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool TwoTurnAttack(Battler attacker) {
-		return true;
+		immediate = false;
+		if (!immediate && attacker.HasWorkingItem(Items.POWERHERB)) {
+			immediate = true;
+		}
+		if (immediate) {
+			return false;
+		}
+		return attacker.effects[Effects.TwoTurnAttack] == 0;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		if (immediate || attacker.effects[Effects.TwoTurnAttack] > 0) {
+			ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+			battle.Display(string.Format("{0} vanished immediately!",attacker.String()));
+		}
+		if (immediate) {
+			battle.CommonAnimation("UseItem", attacker, null);
+			battle.Display(string.Format("{0} became fully charged due to its Power Herb!",attacker.String()));
+			attacker.ConsumeItem();
+		}
+		if (attacker.effects[Effects.TwoTurnAttack]>0) {
+			return 0;
+		}
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		opponent.effects[Effects.ProtectNegation] = 1;
+		opponent.OwnSide().effects[Effects.CraftyShield] = 0;
+		return ret;
 	}
 
 	public new bool TramplesMinimize(int param=1) {
-		return true;
+		if (param==1 && Settings.USE_NEW_BATTLE_MECHANICS) {
+			return true;
+		}
+		if (param == 2) {
+			return true;
+		}
+		return false;
 	}
 }
 
@@ -9789,13 +10791,51 @@ public class Move14D : BattleMove {
 *  Special Defense and Speed by 2 stages each second turn. (Geomancy)      *
 ***************************************************************************/
 public class Move14E : BattleMove {
+	bool immediate;
 	public Move14E(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool TwoTurnAttack(Battler attacker) {
-		return true;
+		immediate = false;
+		if (!immediate && attacker.HasWorkingItem(Items.POWERHERB)) {
+			immediate = true;
+		}
+		if (immediate) {
+			return false;
+		}
+		return attacker.effects[Effects.TwoTurnAttack] == 0;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (immediate || attacker.effects[Effects.TwoTurnAttack] > 0) {
+			ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+			battle.Display(string.Format("{0} is absorbing power!",attacker.String()));
+		}
+		if (immediate) {
+			battle.CommonAnimation("UseItem", attacker, null);
+			battle.Display(string.Format("{0} became fully charged due to its Power Herb!",attacker.String()));
+			attacker.ConsumeItem();
+		}
+		if (attacker.effects[Effects.TwoTurnAttack]>0) {
+			return 0;
+		}
+		if (!attacker.CanIncreaseStatStage(Stats.SPATK, attacker, false, this) && !attacker.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this) && !attacker.CanIncreaseStatStage(Stats.SPEED, attacker, false, this)) {
+			battle.Display(string.Format("{0}'s stats won't go any higher!",attacker.String()));
+			return -1;
+		}
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		bool showAnim = true;
+		if (attacker.CanIncreaseStatStage(Stats.SPATK, attacker, false, this)) {
+			attacker.IncreaseStat(Stats.SPATK, 2, attacker, false, this, showAnim);
+			showAnim = false;
+		}
+		if (attacker.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+			attacker.IncreaseStat(Stats.SPDEF, 2, attacker, false, this, showAnim);
+			showAnim = false;
+		}
+		if (attacker.CanIncreaseStatStage(Stats.SPEED, attacker, false, this)) {
+			attacker.IncreaseStat(Stats.SPEED, 2, attacker, false, this, showAnim);
+			showAnim = false;
+		}
 		return 0;
 	}
 }
@@ -9807,11 +10847,25 @@ public class Move14F : BattleMove {
 	public Move14F(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new bool IsHealingMove() {
-		return true;
+		return Settings.USE_NEW_BATTLE_MECHANICS;
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		if (opponent.damageState.CalculatedDamage > 0) {
+			int hpGain = (int)Math.Round(opponent.damageState.HPLost*3.0/4);
+			if (opponent.HasWorkingAbility(Abilities.LIQUIDOOZE)) {
+				attacker.ReduceHP(hpGain, true);
+				battle.Display(string.Format("{0} sucked up the liquid ooze!",attacker.String()));
+			} else if (attacker.effects[Effects.HealBlock] == 0) {
+				if (attacker.HasWorkingItem(Items.BIGROOT)) {
+					hpGain = (int)(hpGain*1.3);
+					attacker.ReduceHP(hpGain, true);
+					battle.Display(string.Format("{0} had its energy drained!",opponent.String()));
+				}
+			}
+		}
+		return ret;
 	}
 }
 
@@ -9823,7 +10877,13 @@ public class Move150 : BattleMove {
 	public Move150(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
+		if (opponent.damageState.CalculatedDamage > 0 && opponent.Fainted()) {
+			if (attacker.CanIncreaseStatStage(Stats.ATTACK, attacker, false, this)) {
+				attacker.IncreaseStat(Stats.ATTACK, 2, attacker, false, this);
+			}
+		}
+		return ret;
 	}
 }
 
@@ -9836,7 +10896,24 @@ public class Move151 : BattleMove {
 	public Move151(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		return 0;
+		int ret = -1;
+		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		if (!IsSoundbased() || attacker.HasMoldBreaker() || !opponent.HasWorkingAbility(Abilities.SOUNDPROOF)) {
+			bool showAnim = true;
+			if (opponent.ReduceStat(Stats.ATTACK, 1, attacker, false, this, showAnim)) {
+				showAnim = false;
+				ret = 0;
+			}
+			if (opponent.ReduceStat(Stats.SPATK, 1, attacker, false, this, showAnim)) {
+				showAnim = false;
+				ret = 0;
+			}
+		}
+		if (!attacker.Fainted() && battle.CanChooseNonActive(attacker.index) && !battle.AllFainted(battle.Party(opponent.index))) {
+			attacker.effects[Effects.Uturn] = true;
+			ret = 0;
+		}
+		return ret;
 	}
 }
 
@@ -9848,6 +10925,13 @@ public class Move152 : BattleMove {
 	public Move152(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.FairyLock] > 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.FairyLock] = 2;
+		battle.Display(string.Format("No one will be able to run away during the next turn!"));
 		return 0;
 	}
 }
@@ -9859,6 +10943,17 @@ public class Move153 : BattleMove {
 	public Move153(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (attacker.OpposingSide().effects[Effects.StickyWeb] != 0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		attacker.OpposingSide().effects[Effects.StickyWeb] = 1;
+		if (!battle.IsOpposing(attacker.index)) {
+			battle.Display(string.Format("A sticky web has been laid out beneath the opposing team's feet!"));
+		} else {
+			battle.Display(string.Format("A sticky web has been laid out beneath your team's feet!"));
+		}
 		return 0;
 	}
 }
@@ -9872,6 +10967,15 @@ public class Move154 : BattleMove {
 	public Move154(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.ElectricTerrain]>0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.GrassyTerrain] = 0;
+		battle.field.effects[Effects.MistyTerrain] = 0;
+		battle.field.effects[Effects.ElectricTerrain] = 5;
+		battle.Display(string.Format("An electric current runs across the battlefield!"));
 		return 0;
 	}
 }
@@ -9885,6 +10989,15 @@ public class Move155 : BattleMove {
 	public Move155(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.GrassyTerrain]>0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.GrassyTerrain] = 5;
+		battle.field.effects[Effects.MistyTerrain] = 0;
+		battle.field.effects[Effects.ElectricTerrain] = 0;
+		battle.Display(string.Format("Grass grew to cover the battlefield!"));
 		return 0;
 	}
 }
@@ -9898,6 +11011,15 @@ public class Move156 : BattleMove {
 	public Move156(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.field.effects[Effects.MistyTerrain]>0) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.field.effects[Effects.GrassyTerrain] = 0;
+		battle.field.effects[Effects.MistyTerrain] = 5;
+		battle.field.effects[Effects.ElectricTerrain] = 0;
+		battle.Display(string.Format("Mist swirled about the battlefield!"));
 		return 0;
 	}
 }
@@ -9909,6 +11031,13 @@ public class Move157 : BattleMove {
 	public Move157(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
+		if (battle.IsOpposing(attacker.index) || battle.doubleMoney) {
+			battle.Display(string.Format("But it failed!"));
+			return -1;
+		}
+		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
+		battle.doubleMoney = true;
+		battle.Display(string.Format("Everyone is caught up in the happy atmosphere!"));
 		return 0;
 	}
 }

@@ -115,11 +115,17 @@ public class Pokemon {
 	}
 
 	public int GrowthRate() {
-		return 0;
+		switch (Species.GetSpecies(species).GrowthRate) 
+		{
+			case :
+				return ;
+			default:
+			  return -1;
+		}
 	}
 
 	public int BaseExp() {
-		return 0;
+		return Species.GetSpecies(species).BaseEXP;
 	}
 
 	public int Gender() {
