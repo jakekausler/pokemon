@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -809,7 +817,7 @@
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 52.0
 	},
 	"find_in_files":
 	{
@@ -1117,8 +1125,40 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"default_dir": "C:\\Users\\jakek\\Documents\\workspace\\Pokemon\\Assets\\lib",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -1129,11 +1169,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 47.0
+		"height": 52.0
 	},
 	"input":
 	{
-		"height": 47.0
+		"height": 52.0
 	},
 	"layout":
 	{
@@ -1181,7 +1221,7 @@
 	"project": "pokemon.sublime-project",
 	"replace":
 	{
-		"height": 86.0
+		"height": 96.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1215,7 +1255,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
@@ -1223,7 +1263,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 664.0,
+	"side_bar_width": 129.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
