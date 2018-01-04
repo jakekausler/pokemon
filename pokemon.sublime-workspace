@@ -1,0 +1,1231 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Tox",
+				"ToxicSpikes\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"ABIL",
+				"ABILITYCAPSULE\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Spi",
+				"Spikes"
+			],
+			[
+				"Sand",
+				"Sandstorm"
+			],
+			[
+				"DAMP",
+				"DAMPROCK\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"weather",
+				"weatherduration\t(battle.cs)"
+			],
+			[
+				"wea",
+				"weatherduration\t(battle.cs)"
+			],
+			[
+				"Weather",
+				"Weather.SUNNYDAY"
+			],
+			[
+				"rega",
+				"regardless\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"myst",
+				"mysterious\t(battler.cs)"
+			],
+			[
+				"less",
+				"lessened\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"HasWor",
+				"HasWorkingAbility\t(battler.cs)"
+			],
+			[
+				"redu",
+				"reducedstats\t(battler.cs)"
+			],
+			[
+				"HasWio",
+				"HasWorkingBerry\t(battler.cs)"
+			],
+			[
+				"Fling",
+				"FlingArray"
+			],
+			[
+				"Opp",
+				"Opposing1\t(battler.cs)"
+			],
+			[
+				"itemname",
+				"itemname"
+			],
+			[
+				"ab",
+				"ability"
+			],
+			[
+				"Acti",
+				"ActivateBerryEffect\t(battler.cs)"
+			],
+			[
+				"pok",
+				"pokemon\t(battler.cs)"
+			],
+			[
+				"oldatt",
+				"oldattitemname"
+			],
+			[
+				"oldoppitem",
+				"oldoppitemname"
+			],
+			[
+				"abil",
+				"abilityname\t(battle.cs)"
+			],
+			[
+				"Bato",
+				"BatonPass\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"dec",
+				"decision\t(battle.cs)"
+			],
+			[
+				"HasWork",
+				"HasWorkingAbility\t(battler.cs)"
+			],
+			[
+				"HasM",
+				"HasMoldBreaker\t(battler.cs)"
+			],
+			[
+				"fail",
+				"failed"
+			],
+			[
+				"CanCh",
+				"CanChooseNonActive\t(battle.cs)"
+			],
+			[
+				"Healing",
+				"HealingWish\t(battle.cs)"
+			],
+			[
+				"Red",
+				"ReduceHP\t(battler.cs)"
+			],
+			[
+				"bear",
+				"bearer"
+			],
+			[
+				"Redu",
+				"ReduceHPDamage"
+			],
+			[
+				"Leec",
+				"LeechSeed\t(battle.cs)"
+			],
+			[
+				"opp",
+				"opponent"
+			],
+			[
+				"Igno",
+				"IgnoresSubstitute"
+			],
+			[
+				"CanS",
+				"CanSleep\t(battler.cs)"
+			],
+			[
+				"tot",
+				"totalHP\t(battler.cs)"
+			],
+			[
+				"Bide",
+				"BideDamage\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"CanCo",
+				"CanConfuseSelf\t(battler.cs)"
+			],
+			[
+				"Out",
+				"Outrage"
+			],
+			[
+				"Multi",
+				"MultiTurnUser\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Mult",
+				"MultiTurnAttack\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Settings",
+				"Settings.USE_NEW_BATTLE_MECHANICS"
+			],
+			[
+				"SANDTO",
+				"SANDTOMB\t(move.cs)"
+			],
+			[
+				"FIRESP",
+				"FIRESPIN\t(move.cs)"
+			],
+			[
+				"MultiTu",
+				"MultiTurnUser\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Su",
+				"Substitute"
+			],
+			[
+				"hitn",
+				"hitNum"
+			],
+			[
+				"beca",
+				"became"
+			],
+			[
+				"imm",
+				"immediate"
+			],
+			[
+				"curr",
+				"currentMove\t(battler.cs)"
+			],
+			[
+				"partici",
+				"participants"
+			],
+			[
+				"SKILL",
+				"SKILLLINK\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Ab",
+				"Abilities.MULTITYPE"
+			],
+			[
+				"AR",
+				"AROMAVEIL\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"blackList",
+				"blacklistMoves"
+			],
+			[
+				"Status",
+				"Statuses.SLEEP"
+			],
+			[
+				"SEED",
+				"SEEDBOMB\t(move.cs)"
+			],
+			[
+				"UseMov",
+				"UseMoveSimple\t(battler.cs)"
+			],
+			[
+				"hasMo",
+				"hasMovedThisRound\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"FAIR",
+				"FAIRYWIND\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Prot",
+				"ProtectNegation\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Quick",
+				"QuickGuard\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Qui",
+				"QuickGuard\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"rate",
+				"ratesharers"
+			],
+			[
+				"set",
+				"seteffect\tseteffect"
+			],
+			[
+				"WATE",
+				"WATERPULSE\t(move.cs)"
+			],
+			[
+				"THUN",
+				"THUNDERSHOCK\t(move.cs)"
+			],
+			[
+				"showAni",
+				"showAnimation"
+			],
+			[
+				"def",
+				"default\tDefault"
+			],
+			[
+				"Vol",
+				"Volcano\t(environment.cs)"
+			],
+			[
+				"Luck",
+				"LuckyChant\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"TECH",
+				"TECHNOBLAST\t(move.cs)"
+			],
+			[
+				"USE_",
+				"USE_NEW_BATTLE_MECHANICS"
+			],
+			[
+				"MudS",
+				"MudSport\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Electric",
+				"Electricity's\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Help",
+				"HelpingHand\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"turneff",
+				"turneffects"
+			],
+			[
+				"HEAVYR",
+				"HEAVYRAIN\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"doub",
+				"doubled"
+			],
+			[
+				"Statu",
+				"Statuses.PARALYSIS"
+			],
+			[
+				"Fusi",
+				"FusionFlare\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"dou",
+				"doubled"
+			],
+			[
+				"Fusion",
+				"FusionBolt\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Recu",
+				"ReduceHPDamage"
+			],
+			[
+				"MirrorC",
+				"MirrorCoatTarget\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Mirr",
+				"MirrorCoat\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Coun",
+				"CounterTarget\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Abi",
+				"Ability"
+			],
+			[
+				"Gast",
+				"GastroAcid\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"IMP",
+				"IMPOSTER\t(abilities.cs)"
+			],
+			[
+				"gete",
+				"geteffect\tgeteffect"
+			],
+			[
+				"SIMP",
+				"SIMPLE\t(abilities.cs)"
+			],
+			[
+				"SIM",
+				"SIMPLE\t(abilities.cs)"
+			],
+			[
+				"Ele",
+				"ElectricTerrain\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"lastMoveU",
+				"lastMoveUsedType\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"lastMove",
+				"lastMoveUsed\t(battle.cs)"
+			],
+			[
+				"eff",
+				"effect"
+			],
+			[
+				"Crafty",
+				"CraftyShield\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"stats",
+				"statsarray\tstatsarray"
+			],
+			[
+				"but",
+				"butitfailed\tbutitfailed"
+			],
+			[
+				"DEF",
+				"DEFENSE\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"HYPER",
+				"HYPERCUTTER\t(abilities.cs)"
+			],
+			[
+				"CLEAR",
+				"CLEARBODY\t(abilities.cs)"
+			],
+			[
+				"Reduce",
+				"ReduceStat"
+			],
+			[
+				"EV",
+				"EVASION\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"incre",
+				"increment"
+			],
+			[
+				"GRASSY",
+				"GrassyTerrain\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"hitN",
+				"hitNum"
+			],
+			[
+				"showa",
+				"showanimation\tshowanimation"
+			],
+			[
+				"Defe",
+				"DefenseCurl\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"DEFE",
+				"DEFENSE\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"allt",
+				"allTargets"
+			],
+			[
+				"ATTA",
+				"ATTACK\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Statues",
+				"Statuses.PARALYSIS"
+			],
+			[
+				"acti",
+				"activePokemon"
+			],
+			[
+				"batt",
+				"battle"
+			],
+			[
+				"allTarg",
+				"allTargets"
+			],
+			[
+				"Conf",
+				"Confuses"
+			],
+			[
+				"Calc",
+				"CalculatedDamage\t(damagestate.cs)"
+			],
+			[
+				"Par",
+				"Paralyzes"
+			],
+			[
+				"showA",
+				"showAnimation"
+			],
+			[
+				"allT",
+				"allTargets"
+			],
+			[
+				"ShowA",
+				"ShowAnimation"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"rec",
+				"recoil"
+			],
+			[
+				"PIX",
+				"PIXILATE\t(Pokebattle_Move.rb)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Anaconda Python Builder",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 302.0,
+		"last_filter": "instal",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"mcc",
+				"Anaconda: McCabe complexity check"
+			],
+			[
+				"snippet",
+				"Snippet: __magic__"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Method"
+			],
+			[
+				"INSTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"code comp",
+				"Anaconda: McCabe complexity check"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git diff",
+				"Git: Diff All Files"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git chan",
+				"Git: Change Branch"
+			],
+			[
+				"git ",
+				"Git: Fetch"
+			],
+			[
+				"git bra",
+				"Git: Change Branch"
+			],
+			[
+				"jshint",
+				"JSHint: Set Plugin Options"
+			]
+		],
+		"width": 492.0
+	},
+	"console":
+	{
+		"height": 367.0,
+		"history":
+		[
+			"python",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib"
+	],
+	"file_history":
+	[
+		"/C/Users/jakek/Documents/workspace/Pokemon/.gitignore",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/items.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/move.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/damagestate.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battle.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/environment.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/Pokemon.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battler.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/items.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/abilities.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_Move.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_Battler.rb",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/returnfalse.sublime-snippet",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battler.cs",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/butitfailed.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/statsarray.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/showanimation.sublime-snippet",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_BattlerEffects.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/9/PBMove.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battle.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/move.cs",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/display.sublime-snippet",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/moves.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/test.py",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/Pokemon.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/5/File_Mixins.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_AI.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_Battle.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_AI.rb.meta",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/7/FileTests.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Data/moves.dat",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/0.meta",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/14/PokeBattle_Pokemon.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/14/Pokemon_Evolution.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/species.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/evolution.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/types.cs",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/stagecheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/reducestatcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/scoreadd.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/damagingattackcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/physicalattackcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/specialattackcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/basedamagecheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/speedcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/statcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/skillcheck.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/geteffect.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/seteffect.sublime-snippet",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/BattleTrainer.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/colors.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battlescene.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/pokemonglobal.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/pokemontemp.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_Scene.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Globals.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/utilities.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/music.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/weather.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/13/PItem_Items.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/successstate.cs",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/log.sublime-snippit",
+		"/C/Users/jakek/Desktop/adventofcode.py",
+		"/C/Users/jakek/Desktop/input",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/damagestate.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/jsonparser.py",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/json.csv",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/json.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/activefield.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/activeside.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/fixComments.py",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/input",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/moves.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/types.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/types.txt",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/statuses.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/stats.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/types.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/ribbons.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/natures.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/moves.txt",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/move.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/items.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/items.txt",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/items.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/egggroups.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/experience.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/environment.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/jsonhelper.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/pokemon.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/berryplants.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/abilities.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/abilities.txt",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/reader.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/berryplants.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/test.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Data/Scripts.rxdata",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/ruby",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Game.ini",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/effects.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/targets.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Messaging.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Settings.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Graphics.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/sheepWolves.py",
+		"/C/Users/jakek/Desktop/output",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/Djaneiro/Settings/Python (Django).sublime-settings",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/jakek/Documents/ProPresenter6/Be Christmas 2017-12-03.pro6",
+		"/C/Users/jakek/Desktop/code.py",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/adventofcode.py",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/adventinput.py",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/trainertypes.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/trainers.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/items.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/JSON/items.json",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/pokemon.sublime-project",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/Data/Scripts.rxdata",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/JSON/types.json",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/types.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/JSON/moves.json",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/moves.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/metadata.txt",
+		"/C/Users/jakek/Downloads/Pokémon Essentials v17.2 2017-10-15/PBS/encounters.txt"
+	],
+	"find":
+	{
+		"height": 47.0
+	},
+	"find_in_files":
+	{
+		"height": 272.0,
+		"where_history":
+		[
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\rgss",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\scripts\\rgss",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\scripts\\battle",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\server",
+			"C:\\Users\\jakek\\Downloads\\test\\failed",
+			"C:\\Users\\jakek\\Downloads\\test",
+			"C:\\Users\\jakek\\Downloads\\test\\failed",
+			"C:\\Users\\jakek\\Downloads\\test",
+			"C:\\Users\\jakek\\OneDrive\\Downloads\\test\\",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web\\app",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\server",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web\\app",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\server",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\server",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild\\web\\app",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html\\OtherBuild",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\kauslerlibrary\\public_html"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"PARALYZ",
+			"abilityName",
+			"abilityname",
+			"abilityName",
+			"}\n",
+			"Taunt",
+			"ret",
+			",",
+			"0",
+			"=>",
+			"\\t{",
+			"\\[",
+			"\\],",
+			":",
+			",\\n([^\\[])",
+			",\\n",
+			" ",
+			"i",
+			"battle.opponent",
+			"1",
+			"battle.opponent",
+			"AquaRing",
+			"0",
+			"Paralyze",
+			"attack",
+			"stats\\(",
+			"stats",
+			",\\n",
+			"0B3",
+			"shadow",
+			"class PokeBattle_Mov",
+			"class PokeBattle_Move",
+			"PokeBattle_Move",
+			"PokeBattle_Move_0B1",
+			"class PokeBattle",
+			"class",
+			",\\n",
+			"Quick",
+			"Guard",
+			"WATERPULSE",
+			"MovingWater",
+			"ATTACK",
+			"SPATK",
+			"Reflect",
+			"Items.",
+			"ELECTRIC",
+			"MudSport",
+			"weight",
+			"097",
+			"098",
+			",",
+			"Items.([A-Z]+)",
+			"Types",
+			"\\[",
+			"\\],",
+			":",
+			":([A-Z]+)BERRY",
+			"(:[A-Z]+)=>(.*)",
+			" +",
+			"       ",
+			"([A-Z])$",
+			"$",
+			"^",
+			":",
+			"\\n\\n",
+			"\\]",
+			" => \\[",
+			"\\[",
+			",",
+			"\\n              ",
+			"CHERI",
+			"attacker",
+			"083",
+			"void ShowAnimation",
+			"def pbShowAni",
+			"ShowAni",
+			"def pbRandomTarget",
+			"pbRandomTarget",
+			"071",
+			"RandomTarget",
+			"int AccuracyCheck",
+			"AccuracyCheck",
+			"tookDamage",
+			"int baseDamage\\(",
+			"FusionBolt",
+			"BaseDamageMultiplier",
+			"int baseDamage",
+			"CounterTarget",
+			"static",
+			"ILLUSION",
+			"opponent",
+			"attacker",
+			"opponent",
+			"SIMPLE",
+			"NORMAL",
+			"None",
+			"Function",
+			"function",
+			"lastMoveUsed",
+			"specialAttack",
+			"attack",
+			"atk",
+			"attack",
+			"But it failed",
+			"attack",
+			"stages[stats[i]]",
+			"ATTACK",
+			"SPATK",
+			"ATTACK",
+			"SPATK",
+			"ATTACK",
+			"SPEED",
+			"DEFENSE",
+			"ATTACK",
+			"attacker, true, true",
+			"CanIncre",
+			"Reduce",
+			"Increase",
+			"ACCURACY",
+			"SPDEF",
+			"SPEED",
+			"ATTACK",
+			"SPATK",
+			"039",
+			"return super(attacker,opponent,hitnum,alltargets,showanimation) if pbIsDamaging?",
+			"SPEED",
+			"became nim",
+			"SPEED"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"ret = new int[]{",
+			"{",
+			"};",
+			"Items.",
+			",$1",
+			",",
+			"",
+			",",
+			"\\n",
+			"case Items.$1:",
+			"t = Types",
+			"",
+			"\\n\\t",
+			"Types.",
+			"Items.$1BERRY",
+			"$2$1",
+			"",
+			"$1:",
+			":",
+			"case ",
+			"\\n",
+			"",
+			"\\n",
+			"",
+			"\\n",
+			"",
+			"bool AccuracyCheck",
+			"int BaseDamage(",
+			"attacker, true, null",
+			", bool showAnimation",
+			"{}\\n\\n\\t",
+			"base(battle, move) {}",
+			"HasWorkingItem",
+			"damageState.Endured",
+			"damageState.Critical",
+			"damageState.TypeModifier",
+			" GetType(",
+			"HasWorkingAbility",
+			"return true;",
+			".GetType(",
+			".GetType",
+			"\"",
+			"battle, Moves.Move",
+			"\\n",
+			"new Moves.Move($1)",
+			"= new Moves.Move($1)",
+			"= new Moves.Move(move)",
+			".id",
+			"id",
+			" ",
+			"== Types.",
+			"Items.",
+			"opponent.H",
+			"",
+			" == ",
+			")",
+			"",
+			"Items.",
+			" ",
+			")",
+			" == ",
+			"",
+			"attacker.H",
+			" ",
+			")",
+			" == ",
+			"",
+			"attacker.H",
+			"",
+			" ",
+			")",
+			" == ",
+			"",
+			"attacker.H",
+			"",
+			":\\ncase Items.",
+			"",
+			":\\ncase Items.",
+			"\\ncase: Items.",
+			"",
+			" || ",
+			"items[i] == ",
+			"Items.",
+			"",
+			") {",
+			"totalHP",
+			"IsSpecial(attacker.moves[i].type)) {\n\t\t\t\t\t\t\t\t\thasSpecialAttack = true;",
+			"Effects.",
+			":\\n\\t\\t\\tcase ",
+			":\\n\\t\\t\\t\\t\\n\\t\\t\\t\\tbreak;",
+			"\\t\\t\\t",
+			"\\ncase",
+			"case",
+			"\\n",
+			"",
+			"Battler[]",
+			"Battler\\[\\]",
+			"Effects.",
+			"opponent.Length > 0",
+			"",
+			"Effects.",
+			"totalHP",
+			"battlers.Count",
+			"priority[i]",
+			"battle.GetWeather()",
+			"(opponent == null || opponent.Length == 0)",
+			"ownerName",
+			"addlEffect",
+			"thisMove",
+			"public  ",
+			" ",
+			";",
+			"public  ",
+			"",
+			"//",
+			"/*",
+			"*/",
+			"",
+			"\\",
+			"elif",
+			"bool CalcDamage",
+			"public bool IsRecoilMove",
+			"public bool IsHealingMove",
+			"int DisplayUseMessage",
+			"int TypeModifier",
+			"bool MoveFailed",
+			"boolMoveFailed",
+			"public bool UnusableInGravity"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 47.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 219.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 130.0
+	},
+	"pinned_build_system": "",
+	"project": "pokemon.sublime-project",
+	"replace":
+	{
+		"height": 86.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"git",
+				"web\\lib\\bower_components\\angular-material\\.gitignore"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 664.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
