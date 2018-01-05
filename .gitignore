@@ -1,2 +1,8 @@
 pokemon.sublime-project
 pokemon.sublime-workspace
+Library/*
+ProjectSettings/*
+UnityPackageManager/*
+Assembly-CSharp.csproj
+Pokemon.csproj
+Pokemon.sln
