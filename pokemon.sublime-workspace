@@ -4,248 +4,112 @@
 		"selected_items":
 		[
 			[
-				"gen",
-				"genderFlag"
+				"str",
+				"struct"
 			],
 			[
-				"Grow",
-				"GrowthRate"
+				"getFormO",
+				"getFormOnEnteringBattle"
 			],
 			[
-				"poke",
-				"pokemon"
+				"SHO",
+				"SHOCKDRIVE\t(items.cs)"
 			],
 			[
-				"Grassy",
-				"GrassyTerrain"
+				"Spe",
+				"Species.DEERLING"
 			],
 			[
-				"CanChoo",
-				"CanChooseNonActive"
+				"DeleteM",
+				"DeleteMoveAtIndex"
 			],
 			[
-				"showA",
-				"showAnim"
+				"LEAF",
+				"LEAFSTORM\t(move.cs)"
 			],
 			[
-				"show",
-				"showanimation\tshowanimation"
+				"GAST",
+				"GASTRODON\t(species.cs)"
 			],
 			[
-				"HasW",
-				"HasWorkingAbility"
+				"move",
+				"movelist"
 			],
 			[
-				"Pro",
-				"ProtectNegation"
+				"getForm",
+				"getFormOnCreation"
 			],
 			[
-				"imm",
-				"immediately"
+				"spot",
+				"spotpattern\t(Pokemon_Forms.rb)"
 			],
 			[
-				"Spik",
-				"SpikyShield"
+				"getF",
+				"getFormOnEnteringBattle\t(Pokemon_Forms.rb)"
 			],
 			[
-				"its",
-				"itself"
+				"Spec",
+				"Species.BStats"
 			],
 			[
-				"Prot",
-				"ProtectRate"
+				"obtainM",
+				"obtainMode"
 			],
 			[
-				"Elec",
-				"Electrify"
+				"obt",
+				"obtainLevel"
 			],
 			[
-				"but",
-				"butitfailed\tbutitfailed"
+				"Bat",
+				"Battle\t(items.cs)"
 			],
 			[
-				"tra",
-				"transformed"
-			],
-			[
-				"gete",
-				"geteffect\tgeteffect"
-			],
-			[
-				"get",
-				"geteffect\tgeteffect"
-			],
-			[
-				"stats",
-				"statsarray\tstatsarray"
-			],
-			[
-				"POI",
-				"POISON"
-			],
-			[
-				"HYPER",
-				"HYPERCUTTER"
-			],
-			[
-				"HasMo",
-				"HasMoldBreaker"
-			],
-			[
-				"Incre",
-				"IncreaseStat"
-			],
-			[
-				"dou",
-				"doublebattle"
-			],
-			[
-				"Won",
-				"WonderRoom"
-			],
-			[
-				"swi",
-				"switched"
-			],
-			[
-				"Cou",
-				"CounterTarget"
-			],
-			[
-				"Bide",
-				"BideDamage"
-			],
-			[
-				"eff",
-				"effects"
-			],
-			[
-				"Two",
-				"TwoTurnAttack"
-			],
-			[
-				"Calc",
-				"CalculatedDamage"
-			],
-			[
-				"Sky",
-				"SkyDrop"
-			],
-			[
-				"elec",
-				"electromagnetism\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"inten",
-				"intensified\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Gra",
-				"Gravity"
-			],
-			[
-				"Foll",
-				"FollowMe"
-			],
-			[
-				"Stock",
-				"StockpileSpDef"
-			],
-			[
-				"Rec",
-				"ReduceHP"
-			],
-			[
-				"Sto",
-				"StockpileSpDef"
-			],
-			[
-				"Stok",
-				"StockpileDef\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"FutureSi",
-				"FutureSightUserPos\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"pok",
-				"pokemonIndex"
-			],
-			[
-				"FutureS",
-				"FutureSightUser\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Fut",
-				"FutureSight"
-			],
-			[
-				"futr",
-				"futuresight\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"showa",
-				"showanimation\tshowanimation"
-			],
-			[
-				"fut",
-				"futuresight\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Stic",
-				"StickyWeb"
-			],
-			[
-				"Stick",
-				"StickyWeb\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Stealt",
-				"StealthRock"
-			],
-			[
-				"Lee",
-				"LeechSeed"
-			],
-			[
-				"Multi",
-				"MultiTurnUser\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Night",
-				"Nightmare"
-			],
-			[
-				"Stat",
-				"Statuses"
-			],
-			[
-				"lower",
-				"lowerSpeed"
-			],
-			[
-				"CanR",
-				"CanReduceStatStage"
-			],
-			[
-				"lowerS",
-				"lowerspeed\t(Pokebattle_MoveEffects.rb)"
-			],
-			[
-				"Cra",
-				"CraftyShield"
+				"tt",
+				"totalhp\t(PokeBattle_Pokemon.rb)"
 			],
 			[
 				"tot",
-				"totalhp\t(Pokebattle_MoveEffects.rb)"
+				"totalhp\t(PokeBattle_Pokemon.rb)"
 			],
 			[
-				"Opp",
-				"OpposingSide"
+				"Special",
+				"SpecialAttack\t(species.cs)"
 			],
 			[
-				"Cal",
-				"CalculatedDamage"
+				"Def",
+				"Defense\t(species.cs)"
+			],
+			[
+				"LUX",
+				"LUXURYBALL\t(items.cs)"
+			],
+			[
+				"ball",
+				"ballUsed"
+			],
+			[
+				"Eff",
+				"EffortPoints\t(species.cs)"
+			],
+			[
+				"WildI",
+				"WildItemRare\t(species.cs)"
+			],
+			[
+				"poke",
+				"pokerus"
+			],
+			[
+				"abi",
+				"ability\t(battlemove.cs)"
+			],
+			[
+				"Al",
+				"AlwaysFemale"
+			],
+			[
+				"fem",
+				"femalePercentage"
 			],
 			[
 				"Tox",
@@ -308,6 +172,10 @@
 				"FlingArray"
 			],
 			[
+				"Opp",
+				"Opposing1\t(battler.cs)"
+			],
+			[
 				"itemname",
 				"itemname"
 			],
@@ -318,6 +186,10 @@
 			[
 				"Acti",
 				"ActivateBerryEffect\t(battler.cs)"
+			],
+			[
+				"pok",
+				"pokemon\t(battler.cs)"
 			],
 			[
 				"oldatt",
@@ -388,12 +260,20 @@
 				"CanSleep\t(battler.cs)"
 			],
 			[
+				"Bide",
+				"BideDamage\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
 				"CanCo",
 				"CanConfuseSelf\t(battler.cs)"
 			],
 			[
 				"Out",
 				"Outrage"
+			],
+			[
+				"Multi",
+				"MultiTurnUser\t(Pokebattle_MoveEffects.rb)"
 			],
 			[
 				"Mult",
@@ -426,6 +306,10 @@
 			[
 				"beca",
 				"became"
+			],
+			[
+				"imm",
+				"immediate"
 			],
 			[
 				"curr",
@@ -472,6 +356,10 @@
 				"FAIRYWIND\t(Pokebattle_MoveEffects.rb)"
 			],
 			[
+				"Prot",
+				"ProtectNegation\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
 				"Quick",
 				"QuickGuard\t(Pokebattle_MoveEffects.rb)"
 			],
@@ -514,6 +402,118 @@
 			[
 				"TECH",
 				"TECHNOBLAST\t(move.cs)"
+			],
+			[
+				"USE_",
+				"USE_NEW_BATTLE_MECHANICS"
+			],
+			[
+				"MudS",
+				"MudSport\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Electric",
+				"Electricity's\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Help",
+				"HelpingHand\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"turneff",
+				"turneffects"
+			],
+			[
+				"HEAVYR",
+				"HEAVYRAIN\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"doub",
+				"doubled"
+			],
+			[
+				"Statu",
+				"Statuses.PARALYSIS"
+			],
+			[
+				"Fusi",
+				"FusionFlare\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"dou",
+				"doubled"
+			],
+			[
+				"Fusion",
+				"FusionBolt\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Recu",
+				"ReduceHPDamage"
+			],
+			[
+				"MirrorC",
+				"MirrorCoatTarget\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Mirr",
+				"MirrorCoat\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Coun",
+				"CounterTarget\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"Abi",
+				"Ability"
+			],
+			[
+				"Gast",
+				"GastroAcid\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"IMP",
+				"IMPOSTER\t(abilities.cs)"
+			],
+			[
+				"gete",
+				"geteffect\tgeteffect"
+			],
+			[
+				"SIMP",
+				"SIMPLE\t(abilities.cs)"
+			],
+			[
+				"SIM",
+				"SIMPLE\t(abilities.cs)"
+			],
+			[
+				"Ele",
+				"ElectricTerrain\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"lastMoveU",
+				"lastMoveUsedType\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"lastMove",
+				"lastMoveUsed\t(battle.cs)"
+			],
+			[
+				"eff",
+				"effect"
+			],
+			[
+				"Crafty",
+				"CraftyShield\t(Pokebattle_MoveEffects.rb)"
+			],
+			[
+				"stats",
+				"statsarray\tstatsarray"
+			],
+			[
+				"but",
+				"butitfailed\tbutitfailed"
 			]
 		]
 	},
@@ -523,16 +523,8 @@
 			"file": "Assets/lib/scripts/battle/Pokemon.cs",
 			"settings":
 			{
-				"buffer_size": 7798,
+				"buffer_size": 33309,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/lib/scripts/data/experience.cs",
-			"settings":
-			{
-				"buffer_size": 6921,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,25 +532,34 @@
 			"file": "Assets/lib/scripts/data/species.cs",
 			"settings":
 			{
-				"buffer_size": 24128,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
-			"settings":
-			{
-				"buffer_size": 367279,
+				"buffer_size": 25497,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/lib/rgss/14/PokeBattle_Pokemon.rb",
+			"file": "Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemonforms.txt",
 			"settings":
 			{
-				"buffer_size": 27315,
+				"buffer_size": 9408,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemon.txt",
+			"settings":
+			{
+				"buffer_size": 544576,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/lib/rgss/14/Pokemon_MegaEvolution.rb",
+			"settings":
+			{
+				"buffer_size": 2702,
 				"line_ending": "Windows"
 			}
 		}
@@ -606,10 +607,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 302.0,
-		"last_filter": "instal",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"git p",
+				"Git: Pull"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -695,7 +700,7 @@
 				"JSHint: Set Plugin Options"
 			]
 		],
-		"width": 492.0
+		"width": 564.0
 	},
 	"console":
 	{
@@ -717,39 +722,63 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle"
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/10",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/14",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/battle"
 	],
 	"file_history":
 	[
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/pokemontemp.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/effects.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/BattleTrainer.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/12/Pokebattle_Trainer.rb",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/Pokebattle_DamageState.rb",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/damagestate.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/successstate.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/Pokebattle_ActiveSideField.rb",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battleplayer.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/Anim.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/activefield.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/activeside.cs",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/12/PTrainerNPCTrainers.rb",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/PBTargets.rb",
-		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/Pokebattle_Move.rb",
-		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/seteffect.sublime-snippet",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/types.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/items.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/move.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/battle/battlepeer.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/Messaging.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/pokemonglobal.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/experience.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/19/Compiler.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/14/Pokemon_MegaEvolution.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemon.txt",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/test.py",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/test.py",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/test.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/9/MiscData.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/5/File_Mixins.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemonforms.txt",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Data/formspecies.dat",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/14/Pokemon_Forms.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/11/PField_Metadata.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/9/MiscData.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/battle/BattleTrainer.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/pokedex.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/utilities.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/18/PSystem_Utilities.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/18/PSystem_PokemonUtilities.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/14/PokeBattle_Pokemon.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/GameMap.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/stats.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/battle/battlemove.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/13/PItem_Items.rb",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/data/abilities.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/Assets/lib/scripts/battle/battle.cs",
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
+		"/C/Users/jakek/Documents/workspace/pokemon/.gitignore",
+		"/C/Users/jakek/Documents/workspace/pokemon/Pokemon.sln",
 		"/C/Users/jakek/Documents/workspace/Pokemon/.gitignore",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/items.cs",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/move.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/damagestate.cs",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battle.cs",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/data/environment.cs",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/Pokemon.cs",
 		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battler.cs",
+		"/C/Users/jakek/Documents/workspace/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/items.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/abilities.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_Move.rb",
@@ -765,7 +794,6 @@
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/move.cs",
 		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/display.sublime-snippet",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/moves.json",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/test.py",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/Pokemon.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/5/File_Mixins.rb",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/10/Pokebattle_AI.rb",
@@ -777,7 +805,6 @@
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/0.meta",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/14/PokeBattle_Pokemon.rb",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/14/Pokemon_Evolution.rb",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battlemove.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/species.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/evolution.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/types.cs",
@@ -792,6 +819,7 @@
 		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/statcheck.sublime-snippet",
 		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/skillcheck.sublime-snippet",
 		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/geteffect.sublime-snippet",
+		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/seteffect.sublime-snippet",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/BattleTrainer.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/colors.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/battlescene.cs",
@@ -802,7 +830,6 @@
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/utilities.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/music.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/weather.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/rgss/13/PItem_Items.rb",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/successstate.cs",
 		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/log.sublime-snippit",
 		"/C/Users/jakek/Desktop/adventofcode.py",
@@ -833,36 +860,21 @@
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/environment.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/jsonhelper.cs",
 		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/pokemon.json",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/berryplants.json",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/abilities.json",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/abilities.txt",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/data/reader.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/JSON/berryplants.json",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/test.rb",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Data/Scripts.rxdata",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/ruby",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/Pokémon Essentials v17.2 2017-10-15/Game.ini",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/effects.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/battle/targets.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Messaging.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Settings.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/scripts/Graphics.cs",
-		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/sheepWolves.py",
-		"/C/Users/jakek/Desktop/output",
-		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/Djaneiro/Settings/Python (Django).sublime-settings",
-		"/C/Users/jakek/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
-		"/C/Users/jakek/Documents/ProPresenter6/Be Christmas 2017-12-03.pro6",
-		"/C/Users/jakek/Desktop/code.py"
+		"/C/Users/jakek/OneDrive/Documents/Workspace/House/Pokemon/Assets/lib/data/berryplants.json"
 	],
 	"find":
 	{
-		"height": 80.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
 		"height": 272.0,
 		"where_history":
 		[
+			"C:\\Users\\jakek\\Documents\\workspace\\pokemon\\Assets\\lib\\rgss",
+			"C:\\Users\\jakek\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\rgss",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\rgss",
+			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\scripts",
 			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\rgss",
 			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\scripts\\rgss",
 			"C:\\Users\\jakek\\OneDrive\\Documents\\Workspace\\House\\Pokemon\\Assets\\lib\\scripts\\battle",
@@ -891,27 +903,59 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"genderFlag",
-			"species",
+			"formname",
+			"pokemonforms",
+			"mega",
+			"StringInput",
+			"  ",
+			"def fgetw",
+			"382",
+			"formsdata",
+			"pbLoadFormsData",
+			"rb",
+			"pbLoadFormsData",
+			"pokemonFormsData",
+			"pbLoadFormsData",
+			"pokemonFormsData",
+			"formsdata",
+			"pokemonFormsData",
+			"pbLoadFormsData",
+			"PLATE",
+			"FIST",
+			"FISTPLATE",
 			"id",
-			"SPATK",
-			"tram",
-			"str",
-			"Increase",
-			"DEFENSE",
-			"ATTACK",
-			"DEFENSE",
-			"MagnetRise",
-			"SkyDrop",
-			"DEFENSE",
-			"LeechSeed",
-			"Reflect",
-			"CalcDamage",
-			"bool CalcDamage",
-			"pbCalcDamage",
-			"FirePledge",
-			"FirstPledge",
-			"103",
+			"]\",",
+			":",
+			"\\n",
+			" ",
+			":",
+			"\\n",
+			" ",
+			"BURMY",
+			"MetadataOutdoor",
+			"-75",
+			"pbGetFSpeciesFromForm",
+			"pbSeenForm",
+			"seen",
+			"form",
+			"Level",
+			"fused",
+			"name",
+			"ev",
+			"  ",
+			"mail",
+			"common",
+			"\\n",
+			",",
+			"cool",
+			"SpeciesCompatible",
+			"pbSpeciesCompatible",
+			"firstMoves",
+			",",
+			"\\n",
+			",",
+			"\\n",
+			"rand",
 			"PARALYZ",
 			"abilityName",
 			"abilityname",
@@ -986,39 +1030,7 @@
 			"attacker",
 			"083",
 			"void ShowAnimation",
-			"def pbShowAni",
-			"ShowAni",
-			"def pbRandomTarget",
-			"pbRandomTarget",
-			"071",
-			"RandomTarget",
-			"int AccuracyCheck",
-			"AccuracyCheck",
-			"tookDamage",
-			"int baseDamage\\(",
-			"FusionBolt",
-			"BaseDamageMultiplier",
-			"int baseDamage",
-			"CounterTarget",
-			"static",
-			"ILLUSION",
-			"opponent",
-			"attacker",
-			"opponent",
-			"SIMPLE",
-			"NORMAL",
-			"None",
-			"Function",
-			"function",
-			"lastMoveUsed",
-			"specialAttack",
-			"attack",
-			"atk",
-			"attack",
-			"But it failed",
-			"attack",
-			"stages[stats[i]]",
-			"ATTACK"
+			"def pbShowAni"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1026,6 +1038,14 @@
 		"regex": true,
 		"replace_history":
 		[
+			"\\t",
+			"Items.",
+			"",
+			"Items.",
+			"",
+			"\\t",
+			"\",\"",
+			",",
 			"ret = new int[]{",
 			"{",
 			"};",
@@ -1145,15 +1165,7 @@
 			"*/",
 			"",
 			"\\",
-			"elif",
-			"bool CalcDamage",
-			"public bool IsRecoilMove",
-			"public bool IsHealingMove",
-			"int DisplayUseMessage",
-			"int TypeModifier",
-			"bool MoveFailed",
-			"boolMoveFailed",
-			"public bool UnusableInGravity"
+			"elif"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1173,15 +1185,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7798,
+						"buffer_size": 33309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2665,
-								2665
+								19376,
+								19376
 							]
 						],
 						"settings":
@@ -1194,8 +1206,8 @@
 								{
 									"1":
 									[
-										2365,
-										2366
+										20805,
+										20806
 									]
 								},
 								"icon":
@@ -1210,8 +1222,8 @@
 								{
 									"1":
 									[
-										2195,
-										2196
+										20786,
+										20787
 									]
 								},
 								"unmatched":
@@ -1220,56 +1232,56 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1282,8 +1294,8 @@
 								{
 									"1":
 									[
-										2667,
-										2668
+										19375,
+										19376
 									]
 								},
 								"icon":
@@ -1298,8 +1310,8 @@
 								{
 									"1":
 									[
-										2652,
-										2653
+										19356,
+										19357
 									]
 								},
 								"unmatched":
@@ -1308,67 +1320,67 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content"
 							],
-							"syntax": "Packages/C#/C#.sublime-syntax",
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3811.0,
+						"translation.y": 17574.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1376,196 +1388,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Assets/lib/scripts/data/experience.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6921,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": 49,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "Assets/lib/scripts/data/species.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 24128,
+						"buffer_size": 25497,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								22884,
+								22884
 							]
 						],
 						"settings":
@@ -1576,12 +1411,27 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										24741,
+										24742
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										23942,
+										23943
+									]
 								},
 								"unmatched":
 								{
@@ -1589,56 +1439,56 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1649,12 +1499,27 @@
 							{
 								"close":
 								{
+									"1":
+									[
+										23086,
+										23087
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										22833,
+										22834
+									]
 								},
 								"unmatched":
 								{
@@ -1662,70 +1527,70 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content"
 							],
-							"syntax": "Packages/C#/C#.sublime-syntax",
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 24014.0,
+						"translation.y": 11655.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1735,20 +1600,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
-					"file": "Assets/lib/rgss/10/Pokebattle_MoveEffects.rb",
+					"buffer": 2,
+					"file": "Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemonforms.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 367279,
+						"buffer_size": 9408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								366915,
-								366915
+								7865,
+								7865
 							]
 						],
 						"settings":
@@ -1759,27 +1624,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										367030,
-										367033
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/dot.png",
-										"region.yellowish brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										366886,
-										366891
-									]
 								},
 								"unmatched":
 								{
@@ -1787,56 +1637,56 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1847,27 +1697,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										367030,
-										367033
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/dot.png",
-										"region.yellowish brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										366886,
-										366891
-									]
 								},
 								"unmatched":
 								{
@@ -1875,88 +1710,262 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content"
 							],
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
-						"translation.x": 259.0,
-						"translation.y": 339160.0,
+						"translation.x": 0.0,
+						"translation.y": 5400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/lib/Pokémon Essentials v17.2 2017-10-15/PBS/pokemon.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 544576,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								357559,
+								357567
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 241314.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "Assets/lib/rgss/14/PokeBattle_Pokemon.rb",
+					"file": "Assets/lib/rgss/14/Pokemon_MegaEvolution.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 27315,
+						"buffer_size": 2702,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5558,
-								5558
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1967,27 +1976,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										5683,
-										5686
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/dot.png",
-										"region.yellowish brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										5544,
-										5547
-									]
 								},
 								"unmatched":
 								{
@@ -1995,56 +1989,56 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -2055,27 +2049,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										5683,
-										5686
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/dot.png",
-										"region.yellowish brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										5544,
-										5547
-									]
 								},
 								"unmatched":
 								{
@@ -2083,56 +2062,56 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -2144,10 +2123,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5618.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -2155,11 +2134,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 52.0
+		"height": 47.0
 	},
 	"input":
 	{
-		"height": 75.0
+		"height": 47.0
 	},
 	"layout":
 	{
@@ -2207,7 +2186,7 @@
 	"project": "pokemon.sublime-project",
 	"replace":
 	{
-		"height": 96.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2248,8 +2227,8 @@
 	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 420.0,
+	"side_bar_visible": true,
+	"side_bar_width": 224.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

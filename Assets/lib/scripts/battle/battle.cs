@@ -258,11 +258,11 @@ public class Battle {
 	public void DebugUpdate() {
 	}
 
-	public int Rand(int x) {
+	public static int Rand(int x) {
 		return Utilities.Rand(x);
 	}
 
-	public int AIRand(int x) {
+	public static int AIRand(int x) {
 		return Rand(x);
 	}
 

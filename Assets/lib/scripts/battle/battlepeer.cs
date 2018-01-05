@@ -30,7 +30,10 @@ public class RealBattlePeer : BattlePeer {
 	}
 
 	public override void OnEnteringBattle(Battle battle, Pokemon pokemon) {
-
+		int f = MultipleForms.Call("getFormOnEnteringBattle", pokemon);
+		if (f >= 0) {
+			pokemon.form = f;
+		}
 	}
 
 	public override int StorePokemon(BattleTrainer player, Pokemon pokemon) {

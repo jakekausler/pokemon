@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{443AEE82-87C1-8211-D5BC-E3CA1CC4F237}</ProjectGuid>
+    <ProjectGuid>{DA511180-072F-9E92-DCB8-5ACD43BD0C51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -88,6 +88,7 @@
      <Compile Include="Assets\lib\scripts\data\statuses.cs" />
      <Compile Include="Assets\lib\scripts\data\trainertypes.cs" />
      <Compile Include="Assets\lib\scripts\data\types.cs" />
+     <Compile Include="Assets\lib\scripts\GameMap.cs" />
      <Compile Include="Assets\lib\scripts\Globals.cs" />
      <Compile Include="Assets\lib\scripts\Graphics.cs" />
      <Compile Include="Assets\lib\scripts\mail.cs" />
@@ -110,7 +111,6 @@
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\trainerlists.txt" />
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\littlecuptr.txt" />
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\btpokemon.txt" />
-     <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\~$okemon.txt" />
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\trainertypes.txt" />
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\fancycupsingletr.txt" />
      <None Include="Assets\lib\Pokémon Essentials v17.2 2017-10-15\PBS\pokemonforms.txt" />

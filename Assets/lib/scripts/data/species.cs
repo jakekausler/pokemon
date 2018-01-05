@@ -671,6 +671,17 @@ public static class Species {
 		return null;
 	}
 
+	public static InternalSpecies GetForm(string species, int form) {
+		string json = System.IO.File.ReadAllText(path);
+		InternalSpecies[] species = JsonHelper.FromJson<InternalSpecies>(json);
+		for (int i = 0; i < species.Length; i++) {
+			if (species[i].Number == id) {
+				return species[i];
+			}
+		}
+		return null;
+	}
+
 	public static string GetName(int id) {
 		InternalSpecies sp = GetSpecies(id);
 		if (sp == null) {
@@ -692,12 +703,14 @@ public static class Species {
 		public BStats EffortPoints;
 		public string[] EggMoves;
 		public Evolution[] Evolutions;
+		public string FormName;
 		public string GenderRate;
 		public string GrowthRate;
 		public string Habitat;
 		public int Happiness;
 		public float Height;
 		public string HiddenAbility;
+		public string Incense;
 		public string InternalName;
 		public string Kind;
 		public LevMove[] Moves;
@@ -711,6 +724,44 @@ public static class Species {
 		public string Type1;
 		public string Type2;
 		public float Weight;
+		public string[] WildItemCommon;
+		public string[] WildItemUncommon;
+		public string[] WildItemRare;
+	}
+	[Serializable]
+	public class InternalForm {
+		public string[] Abilities;
+		public int BaseEXP;
+		public BStats BaseStats;
+		public int BattlerAltitude;
+		public int BattlerEnemyY;
+		public int BattlerPlayerY;
+		public string Color;
+		public BStats EffortPoints;
+		public string[] EggMoves;
+		public Evolution[] Evolutions;
+		public string FormName;
+		public string Habitat;
+		public int Happiness;
+		public float Height;
+		public string HiddenAbility;
+		public string Kind;
+		public int MegaMessage;
+		public string MegaMove;
+		public string MegaStone;
+		public LevMove[] Moves;
+		public int Number;
+		public string Pokedex;
+		public int Rareness;
+		public int Shape;
+		public int StepsToHatch;
+		public string Type1;
+		public string Type2;
+		public int UnmegaForm;
+		public float Weight;
+		public string[] WildItemCommon;
+		public string[] WildItemUncommon;
+		public string[] WildItemRare;
 	}
 	[Serializable]
 	public class BStats {
