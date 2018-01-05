@@ -1,30 +1,68 @@
 public class PokemonBag {
 	int lastPocket;
-	int[] pockets;
-	int[] choices;
+	List<List<int[]>> pockets;
+	List<int> registeredItems;
+	int[] registerdIndex;
 
 	public string[] PocketNames() {
-		return null;
+		return Settings.PocketNames();
 	}
 
 	public int NumPockets() {
-		return 0;
+		return PocketNames().Length;
 	}
 
 	public PokemonBag() {
-
+		lastPocket = 1;
+		pockets = new List<int>();
+		for (int i=0; i < NumPockets(); i++) 
+		{
+			pockets.Add(new List<int[]>());
+			choices.Add(0);
+		}
+		registeredItems = new List<int>();
+		registerdIndex = new int[3]{0,0,1};
 	}
 
 	public void Rearrange() {
-
+		if (pockets.Count != NumPockets()) {
+			List<List<int>> newPockets = new List<int>();
+			for (int i=0; i < NumPockets(); i++) 
+			{
+				newPockets.Add(new List<int[]>());
+				if (choices[i] < 0) {
+					choices[i] = 0;
+				}
+			}
+			for (int i=0; i < (int)Math.Min(pockets.Count, NumPockets()); i++) 
+			{
+				for (int j=0; j < pockets[i].Count; j++) {
+					int p = GetPocket(pockets[i][j][0]);
+					newPockets[p].Add(pockets[i][j]);
+				}
+			}
+			pockets = newPockets;
+		}
 	}
 
 	public void Clear() {
+		for (int i=0; i < pockets.Count; i++) 
+		{
+			pockets[i] = new List<int[]>();
+		}
+	}
 
+	public List<List<int[]>> GetPockets() {
+		Rearrange();
+		return pockets;
 	}
 
 	public int MaxPocketSize(int pocket) {
-		return 0;
+		int maxsize = Settings.MAX_POCKET_SIZE[pocket];
+		if (maxsize < 0) {
+			return -1;
+		}
+		return maxsize;
 	}
 
 	public int GetChoice(int pocket) {

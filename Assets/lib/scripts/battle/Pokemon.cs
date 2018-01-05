@@ -118,19 +118,19 @@ public class Pokemon {
 	public int GrowthRate() {
 		switch (Species.GetSpecies(species).GrowthRate) 
 		{
-			case 'Medium':
-			case 'MediumFast':
+			case "Medium":
+			case "MediumFast":
 				return 0;
-			case 'Erratic':
+			case "Erratic":
 				return 1;
-			case 'Fluctuating':
+			case "Fluctuating":
 				return 2;
-			case 'Parabolic':
-			case 'MediumSlow':
+			case "Parabolic":
+			case "MediumSlow":
 				return 3;
-			case 'Fast':
+			case "Fast":
 				return 4;
-			case 'Slow':
+			case "Slow":
 				return 5;
 			default:
 				return -1;
@@ -148,21 +148,21 @@ public class Pokemon {
 		int lowbyte = personalID&0xFF;
 		switch (Species.GetSpecies(species).GenderRate) 
 		{
-			case 'AlwaysMale':
+			case "AlwaysMale":
 				return 0;
-			case 'AlwaysFemale':
+			case "AlwaysFemale":
 				return 1;
-			case 'Genderless':
+			case "Genderless":
 				return 2;
-			case 'FemaleOneEighth':
+			case "FemaleOneEighth":
 				return isFemale(lowbyte, 0.125);
-			case 'Female25Percent':
+			case "Female25Percent":
 				return isFemale(lowbyte, 0.25);
-			case 'Female50Percent':
+			case "Female50Percent":
 				return isFemale(lowbyte, 0.5);
-			case 'Female75Percent':
+			case "Female75Percent":
 				return isFemale(lowbyte, 0.75);
-			case 'FemaleSevenEighths':
+			case "FemaleSevenEighths":
 				return isFemale(lowbyte, 0.875);
 		}
 	}
@@ -172,7 +172,7 @@ public class Pokemon {
 	}
 
 	public bool IsSingleGendered() {
-		return Species.GetSpecies(species).GenderRate == 'AlwaysMale' || Species.GetSpecies(species).GenderRate == 'AlwaysFemale' || Species.GetSpecies(species).GenderRate == 'Genderless';
+		return Species.GetSpecies(species).GenderRate == "AlwaysMale" || Species.GetSpecies(species).GenderRate == "AlwaysFemale" || Species.GetSpecies(species).GenderRate == "Genderless";
 	}
 
 	public bool IsFemale() {
@@ -992,68 +992,82 @@ public class Pokemon {
 		return Utilties.GetFormSpeciesFromForm(species, GetForm());
 	}
 
-	public int GetMegaForm(bool itemOnly=false) {
-		int[][] formdata = Utilities.LoadFormData();
-		if (formData[species] == null || formData[species].Length == 0) {
-			return 0;
+	public Species.InternalForm GetMegaForm(bool itemOnly=false) {
+		Species.InternalForm f = Species.GetForm(Species.GetSpecies(species).InternalName, 1);
+		if (f == null) {
+			return null;
 		}
-		int ret = 0;
-		for (int i=0; i<formData[species].Length; i++) {
-			if (formData[species][i] <= 0) {
-				continue;
+		if (Items.GetValueFromName(f.MegaStone) > 0 && HasItem(Items.GetValueFromName(f.MegaStone))) {
+			return f;
+		}
+		if (!itemOnly) {
+			if (Moves.GetValueFromName(f.MegaMove) > 0 && HasMove(Moves.GetValueFromName(f.MegaMove))) {
+				return f;
 			}
 		}
+		return null;
 	}
 
-	public int GetUnmegaForm() {
-		//TODO
-		return 0;
+	public Species.InternalSpecies GetUnmegaForm() {
+		return GetSpecies(species);
 	}
 
 	public bool HasMegaForm() {
-		//TODO
-		return true;
+		return GetMegaForm() != null;
+
 	}
 
 	public bool IsMega() {
-		//TODO
-		return true;
+		return GetMetaForm() != null && GetForm() == 1;
 	}
 
 	public void MakeMega() {
-		//TODO
+		Species.InternalForm mf = GetMegaForm();
+		if (mf != null) {
+			SetForm(1);
+		}
 	}
 
 	public void MakeUnmega() {
-		//TODO
+		Species.InternalSpecies uf = GetUnmegaForm();
+		SetForm(0);
 	}
 
 	public string MegaName() {
-		//TODO
-		return "";
+		Species.InternalForm mf = GetMegaForm();
+		string formname = Messaging.GetMessage(MessageTypes.FormNames, mf);
+		return (formname != "") ? formname : string.Format("Mega {0}", Species.GetName(species));
 	}
 
 	public int MegaMessage() {
-		//TODO
-		return 0;
+		Species.InternalForm mf = GetMegaForm();
+		if (mf != null) {
+			return mf.MegaMessage;
+		}
+		return -1;
 	}
 
 	public bool HasPrimalForm() {
-		//TODO
-		return true;
+		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		return v > 0;
 	}
 
 	public bool IsPrimal() {
-		//TODO
-		return true;
+		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		return v > 0 && v== form;
 	}
 
 	public void MakePrimal() {
-		//TODO
+		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		if (v > 0) {
+			SetForm(v);
+		}
 	}
 
 	public void MakeUnprimal() {
-		//TODO
+		if (mf != null) {
+			SetForm(1);
+		}
 	}
 }
 

@@ -658,10 +658,11 @@ public static class Species {
 		return 802;
 	}
 
-	private const string path = "Assets/lib/data/pokemon.json";
+	private const string speciesPath = "Assets/lib/data/pokemon.json";
+	private const string formsPath = "Assets/lib/data/forms.json";
 
 	public static InternalSpecies GetSpecies(int id) {
-		string json = System.IO.File.ReadAllText(path);
+		string json = System.IO.File.ReadAllText(speciesPath);
 		InternalSpecies[] species = JsonHelper.FromJson<InternalSpecies>(json);
 		for (int i = 0; i < species.Length; i++) {
 			if (species[i].Number == id) {
@@ -672,11 +673,20 @@ public static class Species {
 	}
 
 	public static InternalSpecies GetForm(string species, int form) {
-		string json = System.IO.File.ReadAllText(path);
-		InternalSpecies[] species = JsonHelper.FromJson<InternalSpecies>(json);
-		for (int i = 0; i < species.Length; i++) {
-			if (species[i].Number == id) {
-				return species[i];
+		string json = System.IO.File.ReadAllText(formsPath);
+		InternalForm[] forms = JsonHelper.FromJson<InternalForm>(json);
+		for (int i = 0; i < forms.Length; i++) {
+			if (forms[i].InternalName == species + "-" + form) {
+				return forms[i];
+			}
+		}
+		if (form == 0) {
+			json = System.IO.File.ReadAllText(speciesPath);
+			InternalSpecies[] species = JsonHelper.FromJson<InternalSpecies>(json);
+			for (int i = 0; i < species.Length; i++) {
+				if (species[i].InternalName == species) {
+					return species[i];
+				}
 			}
 		}
 		return null;
