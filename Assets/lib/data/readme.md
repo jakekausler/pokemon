@@ -1,0 +1,1 @@
+These json files contain game data built from the PBS files at /Assets/lib/Pok%C3%A9mon%20Essentials%20v17.2%202017-10-15/PBS. All credit goes to http://pokemonessentials.wikia.com/wiki/Pok%C3%A9mon_Essentials_Wiki
