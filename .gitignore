@@ -4,6 +4,6 @@ Library/
 ProjectSettings/
 UnityPackageManager/
 *.csproj
-.csproj
 *.sln
 Temp/
+*.meta
