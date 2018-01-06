@@ -1,0 +1,986 @@
+[
+    {
+        "Description": "The stench may cause the target to flinch.", 
+        "FriendlyName": "Stench", 
+        "Id": 1, 
+        "Name": "STENCH"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon makes it rain if it appears in battle.", 
+        "FriendlyName": "Drizzle", 
+        "Id": 2, 
+        "Name": "DRIZZLE"
+    }, 
+    {
+        "Description": "Its Speed stat is gradually boosted.", 
+        "FriendlyName": "Speed Boost", 
+        "Id": 3, 
+        "Name": "SPEEDBOOST"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon is protected against critical hits.", 
+        "FriendlyName": "Battle Armor", 
+        "Id": 4, 
+        "Name": "BATTLEARMOR"
+    }, 
+    {
+        "Description": "It cannot be knocked out with one hit.", 
+        "FriendlyName": "Sturdy", 
+        "Id": 5, 
+        "Name": "STURDY"
+    }, 
+    {
+        "Description": "Prevents the use of self-destructing moves.", 
+        "FriendlyName": "Damp", 
+        "Id": 6, 
+        "Name": "DAMP"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon is protected from paralysis.", 
+        "FriendlyName": "Limber", 
+        "Id": 7, 
+        "Name": "LIMBER"
+    }, 
+    {
+        "Description": "Boosts the Pok\u00e9mon's evasion in a sandstorm.", 
+        "FriendlyName": "Sand Veil", 
+        "Id": 8, 
+        "Name": "SANDVEIL"
+    }, 
+    {
+        "Description": "Contact with the Pok\u00e9mon may cause paralysis.", 
+        "FriendlyName": "Static", 
+        "Id": 9, 
+        "Name": "STATIC"
+    }, 
+    {
+        "Description": "Restores HP if hit by an Electric-type move.", 
+        "FriendlyName": "Volt Absorb", 
+        "Id": 10, 
+        "Name": "VOLTABSORB"
+    }, 
+    {
+        "Description": "Restores HP if hit by a Water-type move.", 
+        "FriendlyName": "Water Absorb", 
+        "Id": 11, 
+        "Name": "WATERABSORB"
+    }, 
+    {
+        "Description": "Prevents it from becoming infatuated.", 
+        "FriendlyName": "Oblivious", 
+        "Id": 12, 
+        "Name": "OBLIVIOUS"
+    }, 
+    {
+        "Description": "Eliminates the effects of weather.", 
+        "FriendlyName": "Cloud Nine", 
+        "Id": 13, 
+        "Name": "CLOUDNINE"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon's accuracy is boosted.", 
+        "FriendlyName": "Compound Eyes", 
+        "Id": 14, 
+        "Name": "COMPOUNDEYES"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from falling asleep.", 
+        "FriendlyName": "Insomnia", 
+        "Id": 15, 
+        "Name": "INSOMNIA"
+    }, 
+    {
+        "Description": "Changes the Pok\u00e9mon's type to the foe's move.", 
+        "FriendlyName": "Color Change", 
+        "Id": 16, 
+        "Name": "COLORCHANGE"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from getting poisoned.", 
+        "FriendlyName": "Immunity", 
+        "Id": 17, 
+        "Name": "IMMUNITY"
+    }, 
+    {
+        "Description": "It powers up Fire-type moves if it's hit by one.", 
+        "FriendlyName": "Flash Fire", 
+        "Id": 18, 
+        "Name": "FLASHFIRE"
+    }, 
+    {
+        "Description": "Blocks the added effects of attacks taken.", 
+        "FriendlyName": "Shield Dust", 
+        "Id": 19, 
+        "Name": "SHIELDDUST"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from becoming confused.", 
+        "FriendlyName": "Own Tempo", 
+        "Id": 20, 
+        "Name": "OWNTEMPO"
+    }, 
+    {
+        "Description": "Negates all moves that force switching out.", 
+        "FriendlyName": "Suction Cups", 
+        "Id": 21, 
+        "Name": "SUCTIONCUPS"
+    }, 
+    {
+        "Description": "Lowers the foe's Attack stat.", 
+        "FriendlyName": "Intimidate", 
+        "Id": 22, 
+        "Name": "INTIMIDATE"
+    }, 
+    {
+        "Description": "Prevents the foe from escaping.", 
+        "FriendlyName": "Shadow Tag", 
+        "Id": 23, 
+        "Name": "SHADOWTAG"
+    }, 
+    {
+        "Description": "Inflicts damage to the foe on contact.", 
+        "FriendlyName": "Rough Skin", 
+        "Id": 24, 
+        "Name": "ROUGHSKIN"
+    }, 
+    {
+        "Description": "Only super-effective moves will hit.", 
+        "FriendlyName": "Wonder Guard", 
+        "Id": 25, 
+        "Name": "WONDERGUARD"
+    }, 
+    {
+        "Description": "Gives full immunity to all Ground-type moves.", 
+        "FriendlyName": "Levitate", 
+        "Id": 26, 
+        "Name": "LEVITATE"
+    }, 
+    {
+        "Description": "Contact may poison or cause paralysis or sleep.", 
+        "FriendlyName": "Effect Spore", 
+        "Id": 27, 
+        "Name": "EFFECTSPORE"
+    }, 
+    {
+        "Description": "Passes a burn, poison, or paralysis to the foe.", 
+        "FriendlyName": "Synchronize", 
+        "Id": 28, 
+        "Name": "SYNCHRONIZE"
+    }, 
+    {
+        "Description": "Prevents other Pok\u00e9mon from lowering its stats.", 
+        "FriendlyName": "Clear Body", 
+        "Id": 29, 
+        "Name": "CLEARBODY"
+    }, 
+    {
+        "Description": "All status problems heal when it switches out.", 
+        "FriendlyName": "Natural Cure", 
+        "Id": 30, 
+        "Name": "NATURALCURE"
+    }, 
+    {
+        "Description": "Draws in all Electric-type moves to up Sp. Attack.", 
+        "FriendlyName": "Lightning Rod", 
+        "Id": 31, 
+        "Name": "LIGHTNINGROD"
+    }, 
+    {
+        "Description": "Boosts the likelihood of added effects appearing.", 
+        "FriendlyName": "Serene Grace", 
+        "Id": 32, 
+        "Name": "SERENEGRACE"
+    }, 
+    {
+        "Description": "Boosts the Pok\u00e9mon's Speed in rain.", 
+        "FriendlyName": "Swift Swim", 
+        "Id": 33, 
+        "Name": "SWIFTSWIM"
+    }, 
+    {
+        "Description": "Boosts the Pok\u00e9mon's Speed in sunshine.", 
+        "FriendlyName": "Chlorophyll", 
+        "Id": 34, 
+        "Name": "CHLOROPHYLL"
+    }, 
+    {
+        "Description": "Raises the likelihood of meeting wild Pok\u00e9mon.", 
+        "FriendlyName": "Illuminate", 
+        "Id": 35, 
+        "Name": "ILLUMINATE"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon copies a foe's Ability.", 
+        "FriendlyName": "Trace", 
+        "Id": 36, 
+        "Name": "TRACE"
+    }, 
+    {
+        "Description": "Raises the Pok\u00e9mon's Attack stat.", 
+        "FriendlyName": "Huge Power", 
+        "Id": 37, 
+        "Name": "HUGEPOWER"
+    }, 
+    {
+        "Description": "Contact with the Pok\u00e9mon may poison the attacker.", 
+        "FriendlyName": "Poison Point", 
+        "Id": 38, 
+        "Name": "POISONPOINT"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon is protected from flinching.", 
+        "FriendlyName": "Inner Focus", 
+        "Id": 39, 
+        "Name": "INNERFOCUS"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from becoming frozen.", 
+        "FriendlyName": "Magma Armor", 
+        "Id": 40, 
+        "Name": "MAGMAARMOR"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from getting a burn.", 
+        "FriendlyName": "Water Veil", 
+        "Id": 41, 
+        "Name": "WATERVEIL"
+    }, 
+    {
+        "Description": "Prevents Steel-type Pok\u00e9mon from escaping.", 
+        "FriendlyName": "Magnet Pull", 
+        "Id": 42, 
+        "Name": "MAGNETPULL"
+    }, 
+    {
+        "Description": "Gives full immunity to all sound-based moves.", 
+        "FriendlyName": "Soundproof", 
+        "Id": 43, 
+        "Name": "SOUNDPROOF"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon gradually regains HP in rain.", 
+        "FriendlyName": "Rain Dish", 
+        "Id": 44, 
+        "Name": "RAINDISH"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon summons a sandstorm in battle.", 
+        "FriendlyName": "Sand Stream", 
+        "Id": 45, 
+        "Name": "SANDSTREAM"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon raises the foe's PP usage.", 
+        "FriendlyName": "Pressure", 
+        "Id": 46, 
+        "Name": "PRESSURE"
+    }, 
+    {
+        "Description": "Ups resistance to Fire- and Ice-type moves.", 
+        "FriendlyName": "Thick Fat", 
+        "Id": 47, 
+        "Name": "THICKFAT"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon awakens quickly from sleep.", 
+        "FriendlyName": "Early Bird", 
+        "Id": 48, 
+        "Name": "EARLYBIRD"
+    }, 
+    {
+        "Description": "Contact with the Pok\u00e9mon may burn the attacker.", 
+        "FriendlyName": "Flame Body", 
+        "Id": 49, 
+        "Name": "FLAMEBODY"
+    }, 
+    {
+        "Description": "Enables a sure getaway from wild Pok\u00e9mon.", 
+        "FriendlyName": "Run Away", 
+        "Id": 50, 
+        "Name": "RUNAWAY"
+    }, 
+    {
+        "Description": "Prevents other Pok\u00e9mon from lowering accuracy.", 
+        "FriendlyName": "Keen Eye", 
+        "Id": 51, 
+        "Name": "KEENEYE"
+    }, 
+    {
+        "Description": "Prevents other Pok\u00e9mon from lowering Attack stat.", 
+        "FriendlyName": "Hyper Cutter", 
+        "Id": 52, 
+        "Name": "HYPERCUTTER"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon may pick up items.", 
+        "FriendlyName": "Pickup", 
+        "Id": 53, 
+        "Name": "PICKUP"
+    }, 
+    {
+        "Description": "Pok\u00e9mon can't attack on consecutive turns.", 
+        "FriendlyName": "Truant", 
+        "Id": 54, 
+        "Name": "TRUANT"
+    }, 
+    {
+        "Description": "Boosts the Attack stat, but lowers accuracy.", 
+        "FriendlyName": "Hustle", 
+        "Id": 55, 
+        "Name": "HUSTLE"
+    }, 
+    {
+        "Description": "Contact with the Pok\u00e9mon may cause infatuation.", 
+        "FriendlyName": "Cute Charm", 
+        "Id": 56, 
+        "Name": "CUTECHARM"
+    }, 
+    {
+        "Description": "Ups Sp. Atk if another Pok\u00e9mon has Plus or Minus.", 
+        "FriendlyName": "Plus", 
+        "Id": 57, 
+        "Name": "PLUS"
+    }, 
+    {
+        "Description": "Ups Sp. Atk if another Pok\u00e9mon has Plus or Minus.", 
+        "FriendlyName": "Minus", 
+        "Id": 58, 
+        "Name": "MINUS"
+    }, 
+    {
+        "Description": "Castform transforms with the weather.", 
+        "FriendlyName": "Forecast", 
+        "Id": 59, 
+        "Name": "FORECAST"
+    }, 
+    {
+        "Description": "Protects the Pok\u00e9mon from item theft.", 
+        "FriendlyName": "Sticky Hold", 
+        "Id": 60, 
+        "Name": "STICKYHOLD"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon may heal its own status problems.", 
+        "FriendlyName": "Shed Skin", 
+        "Id": 61, 
+        "Name": "SHEDSKIN"
+    }, 
+    {
+        "Description": "Boosts Attack if there is a status problem.", 
+        "FriendlyName": "Guts", 
+        "Id": 62, 
+        "Name": "GUTS"
+    }, 
+    {
+        "Description": "Ups Defense if there is a status problem.", 
+        "FriendlyName": "Marvel Scale", 
+        "Id": 63, 
+        "Name": "MARVELSCALE"
+    }, 
+    {
+        "Description": "Damages attackers using any draining move.", 
+        "FriendlyName": "Liquid Ooze", 
+        "Id": 64, 
+        "Name": "LIQUIDOOZE"
+    }, 
+    {
+        "Description": "Powers up Grass-type moves in a pinch.", 
+        "FriendlyName": "Overgrow", 
+        "Id": 65, 
+        "Name": "OVERGROW"
+    }, 
+    {
+        "Description": "Powers up Fire-type moves in a pinch.", 
+        "FriendlyName": "Blaze", 
+        "Id": 66, 
+        "Name": "BLAZE"
+    }, 
+    {
+        "Description": "Powers up Water-type moves in a pinch.", 
+        "FriendlyName": "Torrent", 
+        "Id": 67, 
+        "Name": "TORRENT"
+    }, 
+    {
+        "Description": "Powers up Bug-type moves in a pinch.", 
+        "FriendlyName": "Swarm", 
+        "Id": 68, 
+        "Name": "SWARM"
+    }, 
+    {
+        "Description": "Protects the Pok\u00e9mon from recoil damage.", 
+        "FriendlyName": "Rock Head", 
+        "Id": 69, 
+        "Name": "ROCKHEAD"
+    }, 
+    {
+        "Description": "Turns the sunlight harsh if it is in battle.", 
+        "FriendlyName": "Drought", 
+        "Id": 70, 
+        "Name": "DROUGHT"
+    }, 
+    {
+        "Description": "Prevents the foe from fleeing.", 
+        "FriendlyName": "Arena Trap", 
+        "Id": 71, 
+        "Name": "ARENATRAP"
+    }, 
+    {
+        "Description": "Prevents the Pok\u00e9mon from falling asleep.", 
+        "FriendlyName": "Vital Spirit", 
+        "Id": 72, 
+        "Name": "VITALSPIRIT"
+    }, 
+    {
+        "Description": "Prevents other Pok\u00e9mon from lowering its stats.", 
+        "FriendlyName": "White Smoke", 
+        "Id": 73, 
+        "Name": "WHITESMOKE"
+    }, 
+    {
+        "Description": "Raises the Pok\u00e9mon's Attack stat.", 
+        "FriendlyName": "Pure Power", 
+        "Id": 74, 
+        "Name": "PUREPOWER"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon is protected against critical hits.", 
+        "FriendlyName": "Shell Armor", 
+        "Id": 75, 
+        "Name": "SHELLARMOR"
+    }, 
+    {
+        "Description": "Eliminates the effects of weather.", 
+        "FriendlyName": "Air Lock", 
+        "Id": 76, 
+        "Name": "AIRLOCK"
+    }, 
+    {
+        "Description": "Raises evasion if the Pok\u00e9mon is confused.", 
+        "FriendlyName": "Tangled Feet", 
+        "Id": 77, 
+        "Name": "TANGLEDFEET"
+    }, 
+    {
+        "Description": "Raises Speed if hit by an Electric-type move.", 
+        "FriendlyName": "Motor Drive", 
+        "Id": 78, 
+        "Name": "MOTORDRIVE"
+    }, 
+    {
+        "Description": "Deals more damage to a foe of the same gender.", 
+        "FriendlyName": "Rivalry", 
+        "Id": 79, 
+        "Name": "RIVALRY"
+    }, 
+    {
+        "Description": "Raises Speed each time the Pok\u00e9mon flinches.", 
+        "FriendlyName": "Steadfast", 
+        "Id": 80, 
+        "Name": "STEADFAST"
+    }, 
+    {
+        "Description": "Raises evasion in a hailstorm.", 
+        "FriendlyName": "Snow Cloak", 
+        "Id": 81, 
+        "Name": "SNOWCLOAK"
+    }, 
+    {
+        "Description": "Encourages the early use of a held Berry.", 
+        "FriendlyName": "Gluttony", 
+        "Id": 82, 
+        "Name": "GLUTTONY"
+    }, 
+    {
+        "Description": "Maxes Attack after taking a critical hit.", 
+        "FriendlyName": "Anger Point", 
+        "Id": 83, 
+        "Name": "ANGERPOINT"
+    }, 
+    {
+        "Description": "Raises Speed if a held item is used.", 
+        "FriendlyName": "Unburden", 
+        "Id": 84, 
+        "Name": "UNBURDEN"
+    }, 
+    {
+        "Description": "Weakens the power of Fire-type moves.", 
+        "FriendlyName": "Heatproof", 
+        "Id": 85, 
+        "Name": "HEATPROOF"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon is prone to wild stat changes.", 
+        "FriendlyName": "Simple", 
+        "Id": 86, 
+        "Name": "SIMPLE"
+    }, 
+    {
+        "Description": "Reduces HP if it is hot. Water restores HP.", 
+        "FriendlyName": "Dry Skin", 
+        "Id": 87, 
+        "Name": "DRYSKIN"
+    }, 
+    {
+        "Description": "Adjusts power according to a foe's defenses.", 
+        "FriendlyName": "Download", 
+        "Id": 88, 
+        "Name": "DOWNLOAD"
+    }, 
+    {
+        "Description": "Boosts the power of punching moves.", 
+        "FriendlyName": "Iron Fist", 
+        "Id": 89, 
+        "Name": "IRONFIST"
+    }, 
+    {
+        "Description": "Restores HP if the Pok\u00e9mon is poisoned.", 
+        "FriendlyName": "Poison Heal", 
+        "Id": 90, 
+        "Name": "POISONHEAL"
+    }, 
+    {
+        "Description": "Powers up moves of the same type.", 
+        "FriendlyName": "Adaptability", 
+        "Id": 91, 
+        "Name": "ADAPTABILITY"
+    }, 
+    {
+        "Description": "Increases the frequency of multi-strike moves.", 
+        "FriendlyName": "Skill Link", 
+        "Id": 92, 
+        "Name": "SKILLLINK"
+    }, 
+    {
+        "Description": "Heals status problems if it is raining.", 
+        "FriendlyName": "Hydration", 
+        "Id": 93, 
+        "Name": "HYDRATION"
+    }, 
+    {
+        "Description": "In sunshine, Sp. Atk is boosted but HP decreases.", 
+        "FriendlyName": "Solar Power", 
+        "Id": 94, 
+        "Name": "SOLARPOWER"
+    }, 
+    {
+        "Description": "Boosts Speed if there is a status problem.", 
+        "FriendlyName": "Quick Feet", 
+        "Id": 95, 
+        "Name": "QUICKFEET"
+    }, 
+    {
+        "Description": "All the Pok\u00e9mon's moves become the Normal type.", 
+        "FriendlyName": "Normalize", 
+        "Id": 96, 
+        "Name": "NORMALIZE"
+    }, 
+    {
+        "Description": "Powers up moves if they become critical hits.", 
+        "FriendlyName": "Sniper", 
+        "Id": 97, 
+        "Name": "SNIPER"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon only takes damage from attacks.", 
+        "FriendlyName": "Magic Guard", 
+        "Id": 98, 
+        "Name": "MAGICGUARD"
+    }, 
+    {
+        "Description": "Ensures attacks by or against the Pok\u00e9mon land.", 
+        "FriendlyName": "No Guard", 
+        "Id": 99, 
+        "Name": "NOGUARD"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon moves after all other Pok\u00e9mon do.", 
+        "FriendlyName": "Stall", 
+        "Id": 100, 
+        "Name": "STALL"
+    }, 
+    {
+        "Description": "Powers up the Pok\u00e9mon's weaker moves.", 
+        "FriendlyName": "Technician", 
+        "Id": 101, 
+        "Name": "TECHNICIAN"
+    }, 
+    {
+        "Description": "Prevents problems with status in sunny weather.", 
+        "FriendlyName": "Leaf Guard", 
+        "Id": 102, 
+        "Name": "LEAFGUARD"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon can't use any held items.", 
+        "FriendlyName": "Klutz", 
+        "Id": 103, 
+        "Name": "KLUTZ"
+    }, 
+    {
+        "Description": "Moves can be used regardless of Abilities.", 
+        "FriendlyName": "Mold Breaker", 
+        "Id": 104, 
+        "Name": "MOLDBREAKER"
+    }, 
+    {
+        "Description": "Heightens the critical-hit ratios of moves.", 
+        "FriendlyName": "Super Luck", 
+        "Id": 105, 
+        "Name": "SUPERLUCK"
+    }, 
+    {
+        "Description": "Damages the attacker landing the finishing hit.", 
+        "FriendlyName": "Aftermath", 
+        "Id": 106, 
+        "Name": "AFTERMATH"
+    }, 
+    {
+        "Description": "Senses a foe's dangerous moves.", 
+        "FriendlyName": "Anticipation", 
+        "Id": 107, 
+        "Name": "ANTICIPATION"
+    }, 
+    {
+        "Description": "Determines what moves a foe has.", 
+        "FriendlyName": "Forewarn", 
+        "Id": 108, 
+        "Name": "FOREWARN"
+    }, 
+    {
+        "Description": "Ignores any stat changes in the Pok\u00e9mon.", 
+        "FriendlyName": "Unaware", 
+        "Id": 109, 
+        "Name": "UNAWARE"
+    }, 
+    {
+        "Description": "Powers up \\not very effective\\\" moves.\"", 
+        "FriendlyName": "Tinted Lens", 
+        "Id": 110, 
+        "Name": "TINTEDLENS"
+    }, 
+    {
+        "Description": "Reduces damage from supereffective attacks.", 
+        "FriendlyName": "Filter", 
+        "Id": 111, 
+        "Name": "FILTER"
+    }, 
+    {
+        "Description": "Temporarily halves Attack and Speed.", 
+        "FriendlyName": "Slow Start", 
+        "Id": 112, 
+        "Name": "SLOWSTART"
+    }, 
+    {
+        "Description": "Enables moves to hit Ghost-type Pok\u00e9mon.", 
+        "FriendlyName": "Scrappy", 
+        "Id": 113, 
+        "Name": "SCRAPPY"
+    }, 
+    {
+        "Description": "Draws in all Water-type moves to up Sp. Attack.", 
+        "FriendlyName": "Storm Drain", 
+        "Id": 114, 
+        "Name": "STORMDRAIN"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon gradually regains HP in a hailstorm.", 
+        "FriendlyName": "Ice Body", 
+        "Id": 115, 
+        "Name": "ICEBODY"
+    }, 
+    {
+        "Description": "Reduces damage from supereffective attacks.", 
+        "FriendlyName": "Solid Rock", 
+        "Id": 116, 
+        "Name": "SOLIDROCK"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon summons a hailstorm in battle.", 
+        "FriendlyName": "Snow Warning", 
+        "Id": 117, 
+        "Name": "SNOWWARNING"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon may gather Honey from somewhere.", 
+        "FriendlyName": "Honey Gather", 
+        "Id": 118, 
+        "Name": "HONEYGATHER"
+    }, 
+    {
+        "Description": "The Pok\u00e9mon can check a foe's held item.", 
+        "FriendlyName": "Frisk", 
+        "Id": 119, 
+        "Name": "FRISK"
+    }, 
+    {
+        "Description": "Powers up moves that have recoil damage.", 
+        "FriendlyName": "Reckless", 
+        "Id": 120, 
+        "Name": "RECKLESS"
+    }, 
+    {
+        "Description": "Changes type to match the held Plate.", 
+        "FriendlyName": "Multitype", 
+        "Id": 121, 
+        "Name": "MULTITYPE"
+    }, 
+    {
+        "Description": "Powers up party Pok\u00e9mon when it is sunny.", 
+        "FriendlyName": "Flower Gift", 
+        "Id": 122, 
+        "Name": "FLOWERGIFT"
+    }, 
+    {
+        "Description": "Reduces a sleeping foe's HP.", 
+        "FriendlyName": "Bad Dreams", 
+        "Id": 123, 
+        "Name": "BADDREAMS"
+    }, 
+    {
+        "Description": "Steals an item when hit by another Pok\u00e9mon.", 
+        "FriendlyName": "Pickpocket", 
+        "Id": 124, 
+        "Name": "PICKPOCKET"
+    }, 
+    {
+        "Description": "Removes added effects to increase move damage.", 
+        "FriendlyName": "Sheer Force", 
+        "Id": 125, 
+        "Name": "SHEERFORCE"
+    }, 
+    {
+        "Description": "Makes stat changes have an opposite effect.", 
+        "FriendlyName": "Contrary", 
+        "Id": 126, 
+        "Name": "CONTRARY"
+    }, 
+    {
+        "Description": "Makes the foe nervous and unable to eat Berries.", 
+        "FriendlyName": "Unnerve", 
+        "Id": 127, 
+        "Name": "UNNERVE"
+    }, 
+    {
+        "Description": "When its stats are lowered its Attack increases.", 
+        "FriendlyName": "Defiant", 
+        "Id": 128, 
+        "Name": "DEFIANT"
+    }, 
+    {
+        "Description": "Lowers stats when HP becomes half or less.", 
+        "FriendlyName": "Defeatist", 
+        "Id": 129, 
+        "Name": "DEFEATIST"
+    }, 
+    {
+        "Description": "May disable a move used on the Pok\u00e9mon.", 
+        "FriendlyName": "Cursed Body", 
+        "Id": 130, 
+        "Name": "CURSEDBODY"
+    }, 
+    {
+        "Description": "May heal an ally's status conditions.", 
+        "FriendlyName": "Healer", 
+        "Id": 131, 
+        "Name": "HEALER"
+    }, 
+    {
+        "Description": "Reduces damage done to allies.", 
+        "FriendlyName": "Friend Guard", 
+        "Id": 132, 
+        "Name": "FRIENDGUARD"
+    }, 
+    {
+        "Description": "Physical attacks lower Defense and raise Speed.", 
+        "FriendlyName": "Weak Armor", 
+        "Id": 133, 
+        "Name": "WEAKARMOR"
+    }, 
+    {
+        "Description": "Doubles the Pok\u00e9mon's weight.", 
+        "FriendlyName": "Heavy Metal", 
+        "Id": 134, 
+        "Name": "HEAVYMETAL"
+    }, 
+    {
+        "Description": "Halves the Pok\u00e9mon's weight.", 
+        "FriendlyName": "Light Metal", 
+        "Id": 135, 
+        "Name": "LIGHTMETAL"
+    }, 
+    {
+        "Description": "Reduces damage when HP is full.", 
+        "FriendlyName": "Multiscale", 
+        "Id": 136, 
+        "Name": "MULTISCALE"
+    }, 
+    {
+        "Description": "Powers up physical attacks when poisoned.", 
+        "FriendlyName": "Toxic Boost", 
+        "Id": 137, 
+        "Name": "TOXICBOOST"
+    }, 
+    {
+        "Description": "Powers up special attacks when burned.", 
+        "FriendlyName": "Flare Boost", 
+        "Id": 138, 
+        "Name": "FLAREBOOST"
+    }, 
+    {
+        "Description": "May create another Berry after one is used.", 
+        "FriendlyName": "Harvest", 
+        "Id": 139, 
+        "Name": "HARVEST"
+    }, 
+    {
+        "Description": "Anticipates an ally's attack and dodges it.", 
+        "FriendlyName": "Telepathy", 
+        "Id": 140, 
+        "Name": "TELEPATHY"
+    }, 
+    {
+        "Description": "Raises one stat and lowers another.", 
+        "FriendlyName": "Moody", 
+        "Id": 141, 
+        "Name": "MOODY"
+    }, 
+    {
+        "Description": "Protects the Pok\u00e9mon from damage from weather.", 
+        "FriendlyName": "Overcoat", 
+        "Id": 142, 
+        "Name": "OVERCOAT"
+    }, 
+    {
+        "Description": "May poison targets when a Pok\u00e9mon makes contact.", 
+        "FriendlyName": "Poison Touch", 
+        "Id": 143, 
+        "Name": "POISONTOUCH"
+    }, 
+    {
+        "Description": "Restores a little HP when withdrawn from battle.", 
+        "FriendlyName": "Regenerator", 
+        "Id": 144, 
+        "Name": "REGENERATOR"
+    }, 
+    {
+        "Description": "Protects from Defense-lowering attacks.", 
+        "FriendlyName": "Big Pecks", 
+        "Id": 145, 
+        "Name": "BIGPECKS"
+    }, 
+    {
+        "Description": "Boosts the Pok\u00e9mon's Speed in a sandstorm.", 
+        "FriendlyName": "Sand Rush", 
+        "Id": 146, 
+        "Name": "SANDRUSH"
+    }, 
+    {
+        "Description": "Makes status-changing moves more likely to miss.", 
+        "FriendlyName": "Wonder Skin", 
+        "Id": 147, 
+        "Name": "WONDERSKIN"
+    }, 
+    {
+        "Description": "Boosts move power when the Pok\u00e9mon moves last.", 
+        "FriendlyName": "Analytic", 
+        "Id": 148, 
+        "Name": "ANALYTIC"
+    }, 
+    {
+        "Description": "Comes out disguised as the Pok\u00e9mon in back.", 
+        "FriendlyName": "Illusion", 
+        "Id": 149, 
+        "Name": "ILLUSION"
+    }, 
+    {
+        "Description": "It transforms itself into the Pok\u00e9mon it is facing.", 
+        "FriendlyName": "Imposter", 
+        "Id": 150, 
+        "Name": "IMPOSTER"
+    }, 
+    {
+        "Description": "Passes through the foe's barrier and strikes.", 
+        "FriendlyName": "Infiltrator", 
+        "Id": 151, 
+        "Name": "INFILTRATOR"
+    }, 
+    {
+        "Description": "Contact with this Pok\u00e9mon spreads this Ability.", 
+        "FriendlyName": "Mummy", 
+        "Id": 152, 
+        "Name": "MUMMY"
+    }, 
+    {
+        "Description": "Boosts Attack after knocking out any Pok\u00e9mon.", 
+        "FriendlyName": "Moxie", 
+        "Id": 153, 
+        "Name": "MOXIE"
+    }, 
+    {
+        "Description": "Raises Attack when hit by a Dark-type move.", 
+        "FriendlyName": "Justified", 
+        "Id": 154, 
+        "Name": "JUSTIFIED"
+    }, 
+    {
+        "Description": "Some move types scare it and boost its Speed.", 
+        "FriendlyName": "Rattled", 
+        "Id": 155, 
+        "Name": "RATTLED"
+    }, 
+    {
+        "Description": "Reflects status-changing moves.", 
+        "FriendlyName": "Magic Bounce", 
+        "Id": 156, 
+        "Name": "MAGICBOUNCE"
+    }, 
+    {
+        "Description": "Boosts Attack when hit by a Grass-type move.", 
+        "FriendlyName": "Sap Sipper", 
+        "Id": 157, 
+        "Name": "SAPSIPPER"
+    }, 
+    {
+        "Description": "Gives priority to a status move.", 
+        "FriendlyName": "Prankster", 
+        "Id": 158, 
+        "Name": "PRANKSTER"
+    }, 
+    {
+        "Description": "Boosts certain moves' power in a sandstorm.", 
+        "FriendlyName": "Sand Force", 
+        "Id": 159, 
+        "Name": "SANDFORCE"
+    }, 
+    {
+        "Description": "Inflicts damage to the Pok\u00e9mon on contact.", 
+        "FriendlyName": "Iron Barbs", 
+        "Id": 160, 
+        "Name": "IRONBARBS"
+    }, 
+    {
+        "Description": "Changes the Pok\u00e9mon's shape when HP is halved.", 
+        "FriendlyName": "Zen Mode", 
+        "Id": 161, 
+        "Name": "ZENMODE"
+    }, 
+    {
+        "Description": "Boosts the accuracy of its allies and itself.", 
+        "FriendlyName": "Victory Star", 
+        "Id": 162, 
+        "Name": "VICTORYSTAR"
+    }, 
+    {
+        "Description": "Moves can be used regardless of Abilities.", 
+        "FriendlyName": "Turboblaze", 
+        "Id": 163, 
+        "Name": "TURBOBLAZE"
+    }, 
+    {
+        "Description": "Moves can be used regardless of Abilities.", 
+        "FriendlyName": "Teravolt", 
+        "Id": 164, 
+        "Name": "TERAVOLT"
+    }
+]
