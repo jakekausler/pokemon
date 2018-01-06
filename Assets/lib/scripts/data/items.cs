@@ -558,6 +558,7 @@ public static class Items {
 	private static string path = "Assets/lib/data/items.json";
 
 	public static int MaxValue() {
+		// TODO
 		return 550;
 	}
 
@@ -618,10 +619,12 @@ public static class Items {
 	public static int ITEMMACHINE = 9;
 
 	public static int GetPocket(int item) {
+		// TODO
 		return Items.GetItem(item).Pocket;
 	}
 
 	public static int GetPrice(int item) {
+		// TODO
 		return Items.GetItem(item).Price;
 	}
 
@@ -631,14 +634,17 @@ public static class Items {
 	}
 
 	public static bool IsMachine(int item) {
+		// TODO
 		return IsTechnicalMachine(item) || IsHiddenMachine(item);
 	}
 
 	public static bool IsTechnicalMachine(int item) {
+		// TODO
 		return Items.GetItem(item).OutOfBattle == 3;
 	}
 
 	public static bool IsHiddenMachnine(int item) {
+		// TODO
 		return Items.GetItem(item).OutOfBattle == 4;
 	}
 
@@ -648,6 +654,7 @@ public static class Items {
 	}
 
 	public static bool CanHoldItem(int item) {
+		// TODO
 		return !IsImportantItem(item);
 	}
 
@@ -657,46 +664,57 @@ public static class Items {
 	}
 
 	public static bool IsPokeball(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 4;
 	}
 
 	public static bool IsBerry(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 5;
 	}
 
 	public static bool IsKeyItem(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 6;
 	}
 
 	public static bool IsEvolutionStone(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 7;
 	}
 
 	public static bool IsFossil(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 8;
 	}
 
 	public static bool IsApricorn(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 9;
 	}
 
 	public static bool IsGem(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 10;
 	}
 
 	public static bool IsMulch(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 11;
 	}
 
 	public static bool IsMegaStone(int item) {
+		// TODO
 		return Items.GetItem(item).SpecialItem == 12;
 	}
 
 	public static bool CanRegisterItem(int item) {
+		// TODO
 		return HasUseInField(item);
 	}
 
 	public static bool CanUseOnPokemon(int item) {
+		// TODO
 		return HasUseOnPokemon(item) || IsMachine(item);
 	}
 
@@ -717,21 +735,642 @@ public static class Items {
 	public static Dictionary<int, Func<int, int>> UseFromBag;
 	public static Dictionary<int, Func<int, bool>> ConfirmUseInField;
 	public static Dictionary<int, Func<int, int>> UseInField;
-	public static Dictionary<int, Func<int, bool>> UseOnPokemon;
-	public static Dictionary<int, Func<int, bool>> BattleUseOnBattler;
-	public static Dictionary<int, Func<int, bool>> BattleUseOnPokemon;
-	public static Dictionary<int, Func<int, int>> UseInBattle;
+	public static Dictionary<int, Func<int, Pokemon, BattleScene, bool>> UseOnPokemon;
+	public static Dictionary<int, Func<int, Battler, BattleScene, bool>> BattleUseOnBattler;
+	public static Dictionary<int, Func<int, Pokemon, Battler, BattleScene, bool>> BattleUseOnPokemon;
+	public static Dictionary<int, Func<int, Battler, Battle, int>> UseInBattle;
 	public static Dictionary<int, Func<int, string>> UseText;
 
-	// Copy i2 to i1 in d
-	public static void Copy(Dictionary<int, Func<int, int>> d, int i1, int i2) {
-		d[i1] = d[i2];
+	public static void SetupHashes() {
+		AddUseFromBag(Items.HONEY, new Func<int, int>(int item) {
+			return 4;
+		});
+		AddUseFromBag(Items.ESCAPEROPE, new Func<int, int>(int item) {
+			if (PokemonGlobal.HasDependentEvents()) {
+				Messaging.Message("It can't be used when you have someone with you.");
+				return 0;
+			}
+			if (PokemonGlobal.escapePoint != null && PokemonGlobal.escapePoint.Length > 0) {
+				return 4;
+			} else {
+				Messaging.Message("It cant be used here.");
+				return 0;
+			}
+		});
+		AddUseFromBag(Items.BICYCLE, new Func<int, int>(int item) {
+			return BikeCheck() ? 2 : 0;
+		});
+		Copy(UseFromBag, Items.BICYCLE, Items.MACHBIKE, Items.ACROBIKE);
+		AddUseText(Items.BICYCLE, new Func<int, string>(int item) {
+			return (PokemonGlobal.bicycle) ? "Walk" : "Use";
+		});
+		Copy(UseText, Items.BICYCLE, Items.MACHBIKE, Items.ACROBIKE);
+		AddUseFromBag(Items.OLDROD, new Func<int, int>(int item) {
+			int terrain = PokemonGlobal.FacingTerrainTag();
+			bool notCliff = PokemonGlobal.Passable(PokemonGlobal.playerX, PokemonGlobal.playerY, PokemonGlobal.playerDirection); 
+			if ((Terrain.IsWater(terrain) && !PokemonGlobal.surfing && notCliff) || (Terrain.IsWater(terrain) && PokemonGlobal.surfing)) {
+				return 2;
+			} else {
+				Messaging.Message("It cant be used here.");
+				return 0;
+			}
+		});
+		Copy(UseFromBag, Items.OLDROD, Items.GOODROD, Items.SUPERROD);
+		AddUseFromBag(Items.ITEMFINDER, new Func<int, int>(int item) {
+			return 2;
+		});
+		Copy(UseFromBag, Items.ITEMFINDER, Items.DOWSINGMACHINE, Items.DOWSINGMCHN);
+		AddConfirmUseInField(Items.ESCAPEROPE, new Func<int, bool>(int item) {
+			int[] escape = PokemonGlobal.escapePoint;
+			if (escape == null || escape.Length == 0) {
+				Messaging.Message("It cant be used here.");
+				return false;
+			}
+			if (PokemonGlobal.HasDependentEvents()) {
+				Messaging.Message("It can't be used when you have someone with you.");
+				return false;
+			}
+			string mapName = Utilities.GetMapNameFromId(escape[0]);
+			return Messaging.ConfirmMessage(string.Format("Want to escape from here and return to {0}?", mapName));
+		});
+		AddUseFromBag(Items.REPEL, new Func<int, int>(int item) {
+			return Repel(item, 100);
+		});
+		AddUseFromBag(Items.SUPERREPEL, new Func<int, int>(int item) {
+			return Repel(item, 200);
+		});
+		AddUseFromBag(Items.MAXREPEL, new Func<int, int>(int item) {
+			return Repel(item, 250);
+		});
+		Events.Add(Events.OnStepTaken, new Action() {
+			if (!Terrain.IsIce(PokemonGlobal.GetTerrainTag())) {
+				if (PokemonGlobal.repel > 0) {
+					PokemonGlobal.repel--;
+					if (PokemonGlobal.repel <= 0) {
+						if (PokemonGlobal.Bag.HasItem(Items.REPEL) || PokemonGlobal.Bag.HasItem(Items.SUPERREPEL) || PokemonGlobal.Bag.HasItem(Items.MAXREPEL)) {
+							if (Messaging.ConfirmMessage("The repellent's effect wore off!\r\nWould you like to use another one?")) {
+								int ret = 0;
+								Graphics.FadeOutIn(99999, Action() {
+									BagScene scene = new BagScene();
+									BagScene.BagScreen screen = new BagScene.BagScreen();
+									ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+										return item == Items.REPEL || item == Items.SUPERREPEL || item == Items.MAXREPEL;
+									});
+								});
+								if (ret > 0) {
+									UseItem(PokemonGlobal.Bag, ret);
+								}
+							}
+						} else {
+							Messaging.Message("The repellent's effect wore off!");
+						}
+					}
+				}
+			}
+		});
+		AddUseInField(Items.BLACKFLUTE, new Func<int, int>(int item) {
+			UseItemMessage(item);
+			Messaging.Message("Wild Pokémon will be repelled.");
+			PokemonGlobal.Map.blackFluteUsed = true;
+			PokemonGlobal.Map.whiteFluteUsed = false;
+			return 1;
+		});
+		AddUseInField(Items.WHITEFLUTE, new Func<int, int>(int item) {
+			UseItemMessage(item);
+			Messaging.Message("Wild Pokémon will be lured.");
+			PokemonGlobal.Map.blackFluteUsed = false;
+			PokemonGlobal.Map.whiteFluteUsed = true;
+			return 1;
+		});
+		AddUseInField(Items.HONEY, new Func<int, int>(int item) {
+			UseItemMessage(item);
+			FieldMoves.SweetScent();
+			return 3;
+		});
+		AddUseInField(Items.ESCAPEROPE, new Func<int, int>(int item) {
+			int[] escape = PokemonGlobal.escapePoint;
+			if (escape == null || escape.Count == 0) {
+				Messaging.Message("It cant be used here.");
+				return 0;
+			}
+			if (PokemonGlobal.HasDependentEvents()) {
+				Messaging.Message("It cant be used when you have someone with you.");
+				return 0;
+			}
+			UseItemMessage(item);
+			Graphics.FadeOutIn(99999, new Action() {
+				PokemonTemp.newMapId = escape[0];
+				PokemonTemp.newX = escape[1];
+				PokemonTemp.newY = escape[2];
+				PokemonTemp.newDirection = escape[3];
+				Utilities.CancelVehicles();
+				PokemonGlobal.TransferPlayer();
+				PokemonGlobal.Map.AutoPlay();
+				PokemonGlobal.Map.Refresh();
+			});
+			Utilities.EraseEscapePoint();
+			return 3;
+		});
+		AddUseInField(Items.SACREDASH, new Func<int, int>(int item) {
+			if (PokemonGlobal.Trainer.PokemonCount() == 0) {
+				Messaging.Message("There are no Pokémon.");
+				return 0;
+			}
+			bool canRevive = false;
+			for (int i=0; i < PokemonGlobal.Trainer.pokemonParty.Length; i++) 
+			{
+				if (PokemonGlobal.Trainer.pokemonParty[i].Fainted()) {
+					canRevive = true;
+					break;
+				}
+			}
+			if (!canRevive) {
+				Messaging.Message("It won't have any effect.");
+				return 0;
+			}
+			int revived = 0;
+			Graphics.FadeOutIn(99999, new Action() {
+				PokemonPartyScene scene = new PokemonPartyScene();
+				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen(scene, PokemonGlobal.Trainer.Party);
+				screen.StartScene("Using Item...", false);
+				for (int i=0; i<PokemonGlobal.Trainer.party.Length; i++) 
+				{
+					if (PokemonGlobal.Trainer.party[i].Fainted()) {
+						revived++;
+						PokemonGlobal.Trainer.party[i].Heal();
+						screen.RefreshSingle(i);
+						screen.Display(string.Format("{0}'s HP was restored.", PokemonGlobal.Trainer.party[i].name));
+					}
+				}
+				if (revived == 0) {
+					screen.Display("It won't have any effect.");
+				}
+				screen.EndScene();
+			});
+			return revived == 0 ? 0 : 3;
+		});
+		AddUseInField(Items.BICYCLE, new Func<int, int>(int item) {
+			if (BikeCheck()) {
+				if (PokemonGlobal.bicycle) {
+					PokemonGlobal.DismountBike();
+				} else {
+					PokemonGlobal.MountBike();
+				}
+				return 1;
+			}
+			return 0;
+		});
+		Copy(UseInField, Items.BICYCLE,Items.MACHBIKE,Items.ACROBIKE);
+		AddUseInField(Items.OLDROD, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.GOODROD, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.SUPERROD, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.ITEMFINDER, new Func<int, int>(int item) {
+			
+		});
+		Copy(UseInField, Items.ITEMFINDER,Items.DOWSINGMCHN,Items.DOWSINGMACHINE);
+		AddUseInField(Items.TOWNMAP, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.COINCASE, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.EXPALL, new Func<int, int>(int item) {
+			
+		});
+		AddUseInField(Items.EXPALLOFF, new Func<int, int>(int item) {
+			
+		});
+		AddIfUseOnPokemon(new Func<int, bool>(int item) {
+			
+		}, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.POTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.SUPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.HYPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.MAXPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.BERRYJUICE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.RAGECANDYBAR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.SWEETHEART, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.FRESHWATER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.SODAPOP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.LEMONADE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.MOOMOOMILK, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ORANBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.SITRUSBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.AWAKENING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.AWAKENING,Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE);
+		AddUseOnPokemon(Items.ANTIDOTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.ANTIDOTE,Items.PECHABERRY);
+		AddUseOnPokemon(Items.BURNHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.BURNHEAL,Items.RAWSTBERRY);
+		AddUseOnPokemon(Items.PARLYZHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.PARLYZHEAL,Items.PARALYZEHEAL,Items.CHERIBERRY);
+		AddUseOnPokemon(Items.ICEHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.ICEHEAL,Items.ASPEARBERRY);
+		AddUseOnPokemon(Items.FULLHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.FULLHEAL,
+		AddUseOnPokemon(Items.FULLRESTORE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.REVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.MAXREVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ENERGYPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ENERGYROOT, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.HEALPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.REVIVALHERB, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		Copy(UseOnPokemon, Items.ETHER,Items.LEPPABERRY);
+		AddUseOnPokemon(Items.MAXETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.MAXELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.PPUP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.PPMAX, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.HPUP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.PROTEIN, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.IRON, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.CALCIUM, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ZINC, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.CARBOS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.HEALTHWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.MUSCLEWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.RESISTWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.GENIUSWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.CLEVERWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.SWIFTWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.RARECANDY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.POMEGBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.KELPSYBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.QUALOTBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.HONDEWBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.GREPABERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.TAMATOBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.GRACIDEA, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.REVEALGLASS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.DNASPLICERS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.PRISONBOTTLE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddUseOnPokemon(Items.ABILITYCAPSULE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.POTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.SUPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.HYPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.MAXPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.BERRYJUICE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.RAGECANDYBAR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.SWEETHEART, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.FRESHWATER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.SODAPOP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.LEMONADE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.MOOMOOMILK, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.ORANBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.SITRUSBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.AWAKENING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.AWAKENING,Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE);
+		AddBattleUseOnPokemon(Items.ANTIDOTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.ANTIDOTE,Items.PECHABERRY);
+		AddBattleUseOnPokemon(Items.BURNHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.BURNHEAL,Items.RAWSTBERRY);
+		AddBattleUseOnPokemon(Items.PARLYZHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.PARLYZHEAL,Items.PARALYZEHEAL,Items.CHERIBERRY);
+		AddBattleUseOnPokemon(Items.ICEHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.ICEHEAL,Items.ASPEARBERRY);
+		AddBattleUseOnPokemon(Items.FULLHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.FULLHEAL,
+		AddBattleUseOnPokemon(Items.FULLRESTORE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.REVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.MAXREVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.ENERGYPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.ENERGYROOT, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.HEALPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.REVIVALHERB, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.ETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.ETHER,Items.LEPPABERRY);
+		AddBattleUseOnPokemon(Items.MAXETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.ELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.MAXELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.REDFLUTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnPokemon(Items.YELLOWFLUTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnPokemon, Items.YELLOWFLUTE,Items.PERSIMBERRY);
+		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XDEFEND,Items.XDEFENSE);
+		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XDEFEND2,Items.XDEFENSE2);
+		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XDEFEND3,Items.XDEFENSE3);
+		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XDEFEND6,Items.XDEFENSE6);
+		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XSPECIAL,Items.XSPATK);
+		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XSPECIAL2,Items.XSPATK2);
+		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XSPECIAL3,Items.XSPATK3);
+		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.XSPECIAL6,Items.XSPATK6);
+		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.GUARDSPEC, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddBattleUseOnBattler(Items.POKEDOLL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		Copy(BattleUseOnBattler, Items.POKEDOLL,Items.FLUFFYTAIL,Items.POKETOY);
+		AddIfBattleUseOnBattler(new Func<int, bool>(int item) {
+			
+		}, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
+			
+		});
+		AddUseInBattle(Items.POKEDOLL, new Func<int, Battler, Battle, bool>(int item, Battler battler, Battle battle) {
+			
+		});
+		Copy(UseInBattle, Items.POKEDOLL,Items.FLUFFYTAIL,Items.POKETOY);
+		AddIfUseInBattle(new Func<int, bool>(int item) {
+			
+		}, new Func<int, Battler, Battle, bool>(int item, Battler battler, Battle battle) {
+			
+		});
 	}
-	public static void Copy(Dictionary<int, Func<int, bool>> d, int i1, int i2) {
-		d[i1] = d[i2];
+
+	public static int Repel(int item, int steps) {
+		if (PokemonGlobal.repel > 0) {
+			Messaging.Message("But a repellent's effect still lingers from earlier.");
+			return 0;
+		} else {
+			UseItemMessage(item);
+			PokemonGlobal.repel = steps;
+			return 3;
+		}
 	}
-	public static void Copy(Dictionary<int, Func<int, string>> d, int i1, int i2) {
-		d[i1] = d[i2];
+
+	// Copy i1 to the params in d
+	public static void Copy(Dictionary<int, Func<int, int>> d, int i1, params int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, bool>> d, int i1, params int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, string>> d, int i1, params int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
 	}
 
 	public static void AddUseFromBag(int item, Func<int, int> f) {
@@ -746,55 +1385,132 @@ public static class Items {
 		ConfirmUseInField.Add(item, f);
 	}
 
-	public static void AddUseOnPokemon(int item, Func<int, bool> f) {
+	public static void AddUseOnPokemon(int item, Func<int, Pokemon, BattleScene, bool> f) {
 		UseOnPokemon.Add(item, f);
 	}
 
-	public static void AddBattleUseOnBattler(int item, Func<int, bool> f) {
+	public static void AddBattleUseOnBattler(int item, Func<int, Battler, BattleScene, bool> f) {
 		BattleUseOnBattler.Add(item, f);
 	}
 
-	public static void AddBattleUseOnPokemon(int item, Func<int, bool> f) {
+	public static void AddBattleUseOnPokemon(int item, Func<int, Pokemon, Battler, BattleScene, bool> f) {
 		BattleUseOnPokemon.Add(item, f);
+	}
+
+	public static void AddUseInBattle(int item, Func<int, Battler, Battle, bool> f) {
+		UseInBattle.Add(item, f);
 	}
 
 	public static void AddUseText(int item, Func<int, string> f) {
 		UseText.Add(item, f);
 	}
 
+	public static void AddIfUseFromBag(Func<int, bool> condition, Func<int, int> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				UseFromBag.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfUseInField(Func<int, bool> condition, Func<int, bool> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				UseInField.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfConfirmUseInField(Func<int, bool> condition, Func<int, int> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				ConfirmUseInField.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfUseOnPokemon(Func<int, bool> condition, Func<int, Pokemon, BattleScene, bool> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				UseOnPokemon.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfBattleUseOnBattler(Func<int, bool> condition, Func<int, Battler, BattleScene, bool> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				BattleUseOnBattler.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfBattleUseOnPokemon(Func<int, bool> condition, Func<int, Pokemon, Battler, BattleScene, bool> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				BattleUseOnPokemon.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfUseInBattle(Func<int, bool> condition, Func<int, Battler, Battle, bool> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				UseInBattle.Add(item, f);
+			}
+		}
+	}
+
+	public static void AddIfUseText(Func<int, bool> condition, Func<int, string> f) {
+		for (int i=1; i <= MaxValue(); i++) {
+			if (condition(i)) {
+				UseText.Add(i, f);
+			}
+		}
+	}
+
 	public static bool HasOutHandler(int item) {
+		// TODO
 		return UseFromBag.ContainsKey(item) || UseInField.ContainsKey(item) || UseOnPokemon.ContainsKey(item);
 	}
 
 	public static bool HasUseFromBag(int item) {
+		// TODO
 		return UseFromBag.ContainsKey(item);
 	}
 
 	public static bool HasConfirmUseInField(int item) {
+		// TODO
 		return ConfirmUseInField.ContainsKey(item);
 	}
 
 	public static bool HasUseInField(int item) {
+		// TODO
 		return UseInField.ContainsKey(item);
 	}
 
 	public static bool HasUseOnPokemon(int item) {
+		// TODO
 		return UseOnPokemon.ContainsKey(item);
 	}
 
 	public static bool HasBattleUseOnBattler(int item) {
+		// TODO
 		return BattleUseOnBattler.ContainsKey(item);
 	}
 
 	public static bool HasBattleUseOnPokemon(int item) {
+		// TODO
 		return BattleUseOnPokemon.ContainsKey(item);
 	}
 
 	public static bool HasUseInBattle(int item) {
+		// TODO
 		return UseInBattle.ContainsKey(item);
 	}
 
 	public static bool HasUseText(int item) {
+		// TODO
 		return UseText.ContainsKey(item);
 	}
 
@@ -826,28 +1542,28 @@ public static class Items {
 		if (!HasUseOnPokemon(item)) {
 			return false;
 		}
-		return UseOnPokemon[item](item);
+		return UseOnPokemon[item](item, pokemon, scene);
 	}
 
 	public static bool TriggerBattleUseOnBattler(int item, Battler battler, Battle scene) {
 		if (!HasBattleUseOnBattler(item)) {
 			return false;
 		}
-		return BattleUseOnBattler[item](item);
+		return BattleUseOnBattler[item](item, battler, scene);
 	}
 
-	public static bool TriggerBattleUseOnPokemon(int item, Battler battler, BattleScene scene) {
+	public static bool TriggerBattleUseOnPokemon(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
 		if (!HasBattleUseOnPokemon(item)) {
 			return false;
 		}
-		return BattleUseOnPokemon[item](item);
+		return BattleUseOnPokemon[item](item, pokemon, battler, scene);
 	}
 
-	public static void TriggerUseInBattle(int item, Battler battler, Battle scene) {
+	public static void TriggerUseInBattle(int item, Battler battler, Battle battle) {
 		if (!HasUseInBattle(item)) {
 			return false;
 		}
-		return UseInBattle[item](item);
+		return UseInBattle[item](item, battler, battle);
 	}
 
 	public static string GetUseText(int item) {
@@ -1046,52 +1762,340 @@ public static class Items {
 		return ret;
 	}
 
-	public static int UseItem(PokemonBag bag, int item, BattleScene bagScene=null) {
-		return 0;
+	public static int UseItem(PokemonBag bag, int item, BagScene bagScene=null) {
+		Items.InternalItem itm = Items.GetItem(item);
+		if (itm.OutOfBattle == 3 || itm.OutOfBattle == 4) {
+			if (PokemonGlobal.Trainer.PokemonCount() == 0) {
+				Messaging.Message("There are no Pokémon.");
+				return 0;
+			}
+			int machine = GetMachine(item);
+			if (machine < 1) {
+				return 0;
+			}
+			String moveName = Moves.GetName(machine);
+			Messaging.Message(string.Format("\\se[PC access]You booted up {0}.\\1", Items.GetName(item)));
+			if (!Messaging.ConfirmMessage(string.Format("Do you want to teach {0} to a Pokémon?", moveName))) {
+				return 0;
+			} else if (Utilities.MoveTutorChoose(machine, null, true)) {
+				if (IsTechnicalMachine(item) && !Settings.INFINITE_TMS) {
+					PokemonGlobal.Bag.DeleteItem(item);
+				}
+				return 1;
+			} else {
+				return 0;
+			}
+		} else if (itm.OutOfBattle == 1 || itm.OutOfBattle == 5) {
+			if (PokemonGlobal.Trainer.PokemonCount() == 0) {
+				Messaging.Message("Thre are no Pokémon.");
+				return 0;
+			}
+			bool ret = false;
+			List<string> annotation = new List<string>();
+			if (IsEvolutionStone(item)) {
+				for (int i=0; i<PokemonGlobal.Trainer.party; i++) 
+				{
+					bool eligible = CheckEvolution(PokemonGlobal.Trainer.party[i], item) > 0;
+					annotation.Add(eligible ? "ABLE" : "NOT ABLE");
+				}
+			}
+			Graphics.FadeOutIn(99999, new Action() {
+				PokemonPartyScene scene = new PokemonPartyScene();
+				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen();
+				screen.StartScene("Use on which Pokémon?", false, annotation);
+				while (true) {
+					scene.SetHelpText("Use on which Pokémon?");
+					int chosen = screen.ChoosePokemon();
+					if (chosen >= 0) {
+						Pokemon pokemon = PokemonGlobal.Trainer.party[chosen];
+						if (CheckUseOnPokemon(item, pokemon, screen)) {
+							ret = TriggerUseOnPokemon(item, pokemon, screen);
+							if (ret && itm.OutOfBattle == 1) {
+								PokemonGlobal.Bag.DeleteItem(item);
+							}
+							if (!bag.HasItem(item)) {
+								Messaging.Message(string.Format("You used your last {0}!", Items.GetName(item)));
+								break;
+							}
+						}
+					} else {
+						ret = false;
+						break;
+					}
+				}
+				screen.EndScene();
+				if (bagScene != null) {
+					bagScene.Refresh();
+				}
+			});
+			return ret ? 1 : 0;
+		} else if (itm.OutOfBattle == 2) {
+			int intret = TriggerUseFromBag(item);
+			switch (intret) 
+			{
+				case 0:
+					return 0;
+				case 1:
+					return 1;
+				case 2:
+					return 2;
+				case 3:
+					PokemonGlobal.Bag.DeleteItem(item);
+					return 1;
+				case 4:
+					PokemonGlobal.Bag.DeleteItem(item);
+					return 2;
+				default:
+					Messaging.Message("It can't be used here.");
+					return 0;
+			}
+		} else {
+			Messaging.Message("It can't be used here.");
+			return 0;
+		}
 	}
 
 	public static bool UseItemOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
-		return true;
+		Items.InternalItem itm = Items.GetItem(item);
+		if (itm.OutOfBattle == 3 || itm.OutOfBattle == 4) {
+			machine = GetMachine(item);
+			if (machine < 1) {
+				return false;
+			}
+			string moveName == Moves.GetName(machine);
+			if (!pokemon.IsCompatibleWithMove(machine)) {
+				Messaging.Message("{0} can't learn {1}.", pokemon.name, moveName);
+			} else {
+				Messaging.Message(string.Format("\\se[PC access]You booted up {0}.\\1", Items.GetName(item)));
+				if (!Messaging.ConfirmMessage(string.Format("Do you want to teach {0} to {1}?", moveName, pokemon.name))) {
+					if (MultipleForms.LearnMove(pokemon, machine, false, true)) {
+						if (IsTechnicalMachine(item) && !Settings.INFINITE_TMS) {
+							PokemonGlobal.Bag.DeleteItem(item);
+						}
+						return true;
+					}
+				}
+			}
+			return false;
+		} else {
+			bool ret = TriggerUseOnPokemon(item, pokemon, scene);
+			scene.ClearAnnotations();
+			scene.HardRefresh();
+			if (ret && itm.OutOfBattle == 1) {
+				PokemonGlobal.Bag.DeleteItem(item);
+			}
+			if (!PokemonGlobal.Bag.HasItem(item)) {
+				Messaging.Message(string.Format("You used your last {0}.", Items.GetName(item)))
+			}
+			return ret;
+		}
 	}
 
 	public static bool UseKeyItemInField(int item) {
-		return true;
+		int ret = TriggerUseInField(item);
+		if (ret == -1) {
+			Messaging.Message("Can't use that here.");
+		} else if (ret == 3) {
+			PokemonGlobal.Bag.DeleteItem(item);
+		}
+		return ret > 0;
 	}
 
 	public static void ConsumeItemInBattle(PokemonBag bag, int item) {
-		
+		Items.InternalItem itm = GetItem(item);
+		if (item > 0 && itm.InBattle != 3 && itm.InBattle != 4 && itm.InBattle != 0) {
+			PokemonGlobal.Bag.DeleteItem(item);
+		}
 	}
 
 	public static string UseItemMessage(int item) {
-		return "";
+		string itemname = GetName(item);
+		switch (itemname.Substring(0, 1).ToLower()) 
+		{
+			case "a":
+			case "e":
+			case "i":
+			case "o":
+			case "u":
+				Messaging.Message(string.Format("You used an {0}.", itemname));
+				break;
+			default:
+				Messaging.Message(string.Format("You used a {0}.", itemname));
+				break;
+		}
 	}
 
 	public static bool CheckUseOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
-		return true;
+		return pokemon != null && !pokemon.Egg();
 	}
 
 	public static bool GiveItemToPokemon(int item, Pokemon pokemon, BattleScene scene, int pkmnid=0) {
-		return true;
+		string newItemName = GetName(item);
+		if (pokemon.Egg()) {
+			scene.Display("Eggs can't hold items.");
+			return false;
+		} else if (pokemon.mail != null) {
+			scene.Display(string.Format("{0}'s mail must be removed before giving it an item.", pokemon.name));
+			if (!TakeItemFromPokemon(pokemon, scene)) {
+				return false;
+			}
+		}
+		if (pokemon.HasItem()) {
+			string oldItemName = Items.GetName(pokemon.item);
+			if (pokemon.item == Items.LEFTOVERS) {
+				scene.Display(string.Format("{0} is already holding some {1}.\\1", pokemon.name, oldItemName));
+			} else {
+				switch (oldItemName.Substring(0, 1).ToLower()) 
+				{
+					case "a":
+					case "e":
+					case "i":
+					case "o":
+					case "u":
+						Messaging.Message(string.Format("{0} is already holding an {1}.", pokemon.name, oldItemName));
+						break;
+					default:
+						Messaging.Message(string.Format("{0} is already holding a {1}.", pokemon.name, oldItemName));
+						break;
+				}
+			}
+			if (scene.Confirm("Would you like to switch the two items?")) {
+				PokemonGlobal.Bag.DeleteItem(item);
+				if (!PokemonGlobal.Bag.StoreItem(pokemon.item)) {
+					if (!PokemonGlobal.Bag.StoreItem(item)) {
+						throw new Exception("Couldn't re-store deleted item in Bag somehow");
+					}
+					scene.Display(string.Format("The Bag is full. {0}'s item could not be removed.", pokemon.name));
+				} else {
+					if (IsMail(item)) {
+						if (Mail.WriteMail(item, pokemon, pkmnid, scene)) {
+							pokemon.SetItem(item);
+							scene.Display(string.Format("Took the {0} from {1} and gave it the {2}.", oldItemName, pokemon.name, newItemName));
+							return true;
+						} else {
+							if (!PokemonGlobal.Bag.StoreItem(item)) {
+								throw new Exception("Couldn't re-store deleted item in Bag somehow");
+							}
+						}
+					} else {
+						pokemon.SetItem(item);
+						scene.Display(string.Format("Took the {0} from {1} and gave it the {2}."), oldItemName, pokemon.name, newItemName);
+						return true;
+					}
+				}
+			}
+		} else {
+			if (!IsMail(item) || Mail.WriteMail(item, pokemon, pkmnid, scene)) {
+				PokemonGlobal.Bag.DeleteItem(item);
+				pokemon.SetItem(item);
+				scene.Display(string.Format("{0} is now holding the {1}.", pokemon.name, newItemName))
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static bool TakeItemFromPokemon(Pokemon pokemon, BattleScene scene) {
-		return true;
+		bool ret = false;
+		if (!pokemon.HasItem()) {
+			scene.Display(string.Format("{0} isn't holding anything.", pokemon.name));
+		} else if (!PokemonGlobal.Bag.CanStore(pokemon.item)) {
+			scene.Display("The Bag is full. The Pokémon's item could not be removed.");
+		} else if (pokemon.mail != null) {
+			if (scene.Confirm("Save the removed mail in your PC?")) {
+				if (!MoveToMailbox(pokemon)) {
+					scene.Display("Your PC's Mailbox is full.");
+				} else {
+					scene.Display("The mail was saved in your PC.");
+					pokemon.SetItem(0);
+					ret = 0;
+				}
+			} else if (scene.Confirm("If the mail is removed, its message will be lost. OK?")) {
+				PokemonGlobal.Bag.StoreItem(pokemon.item);
+				string itemname = Items.GetName(pokemon.item);
+				scene.Display(string.Format("Received the {0} from {1}.", itemname, pokemon.name));
+				pokemon.SetItem(0);
+				pokemon.mail = null;
+				ret = true;
+			}
+		} else {
+			PokemonGlobal.Bag.StoreItem(pokemon.item);
+			string itemname = Items.GetName(pokemon.item);
+			scene.Display(string.Format("Received the {0} from {1}.", itemname, pokemon.name));
+			pokemon.SetItem(0);
+			ret = true;
+		}
+		return ret;
 	}
 
-	public static int ChooseItem(int var=0, params object[] args) {
-		return 0;
+	public static int ChooseItem(int var=0) {
+		int ret = 0;
+		Graphics.FadeOutIn(99999, new Action() {
+			BagScene scene = new BagScene();
+			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
+			ret = screen.ChooseItemScreen();
+		});
+		if (var > 0) {
+			Globals.SetVariable(var, ret);
+		}
+		return ret;
 	}
 
 	public static int ChooseApricorn(int var=0) {
-		return 0;
+		int ret = 0;
+		Graphics.FadeOutIn(99999, new Action() {
+			BagScene scene = new BagScene();
+			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
+			ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+				return IsApricorn(item);
+			});
+		});
+		if (var > 0) {
+			Globals.SetVariable(var, ret);
+		}
+		return ret;
 	}
 
 	public static int ChooseFossil(int var=0) {
-		return 0;
+		int ret = 0;
+		Graphics.FadeOutIn(99999, new Action() {
+			BagScene scene = new BagScene();
+			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
+			ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+				return IsFossil(item);
+			});
+		});
+		if (var > 0) {
+			Globals.SetVariable(var, ret);
+		}
+		return ret;
 	}
 
-	public static int ChooseItemFromList(string message, int var, params object[] args) {
-		return 0;
+	public static int ChooseItemFromList(string message, int var, params int[] args) {
+		List<string> commands = new List<string>();
+		List<int> itemid = new List<int>();
+		for (int i=0; i<args.Length; i++) 
+		{
+			int id = args[i];
+			if (PokemonGlobal.Bag.HasItem(id)) {
+				commands.Add(Items.GetName(id));
+				itemid.Add(id)
+			}
+		}
+		if (commands.Length == 0) {
+			Global.SetVariable(variable, 0);
+			return 0;
+		}
+		commands.Add("Cancel");
+		itemid.Add(0);
+		int ret = Messaging.Commands(message, commands, -1);
+		if (ret < 0 || ret >= commands.Length-1) {
+			Globals.SetVariable(variable, -1);
+			return -1;
+		} else {
+			Globals.SetVariable(variable, ret);
+			return itemid[ret];
+		}
 	}
 
 	public static int[] BallTypes = new int[24]{
@@ -1122,31 +2126,147 @@ public static class Items {
 	};
 
 	public static int BallTypeToBall(int ballType) {
-		return 0;
+		if (Array.IndexOf(BallTypes, ballType) > -1) {
+			return BallTypes[ballType];
+		}
+		return Items.POKEBALL;
 	}
 
 	public static int GetBallType(int ball) {
+		for (int i=0; i<BallTypes.Length; i++) 
+		{
+			if (ball == BallTypes[i]) {
+				return i;
+			}
+		}
 		return 0;
 	}
 
-	public static Dictionary<int, Func<object[], bool>> IsUnconditional;
-	public static Dictionary<int, Func<object[], int>> ModifyCatchRate;
-	public static Dictionary<int, Func<object[], object>> OnCatch;
-	public static Dictionary<int, Func<object[], object>> OnFailCatch;
-
 	public static bool IsUnconditionalHandler(int ball, Battle battle, Battler battler) {
-		return true;
+		switch (ball) {
+			case Items.MASTERBALL:
+				return true;
+		}
+		return false;
 	}
 
 	public static int ModifyCatchRateHandler(int ball, int catchRate, Battle battle, Battler battler) {
-		return 0;
+		switch (ball) {
+			case Items.GREATBALL:
+				return (int)(catchRate*3.0/2);
+			case Items.ULTRABALL:
+				return (int)(catchRate*2);
+			case Items.SAFARIBALL:
+				return (int)(catchRate*3.0/2);
+			case Items.NETBALL:
+				if (battler.HasType(Types.BUG) || battler.HasType(Types.WATER)) {
+					catchRate *= 3;
+				}
+				return catchRate
+			case Items.DIVEBALL:
+				if (battle.environment == Environment.Underwater) {
+					catchRate = (int)(catchRate*7.0/2);
+				}
+				return catchRate;
+			case Items.NESTBALL:
+				if (battler.level <= 40) {
+					catchRate *= (int)Math.Max((41-battler.level/10.0), 1)
+				}
+				return catchRate;
+			case Items.REPEATBALL:
+				if (battle.Player.owned[battler.species]) {
+					catchRate *= 3;
+				}
+				return catchRate;
+			case Items.TIMERBALL:
+				double multiplier = Math.Min(1 + (0.3 * battle.turncount), 4);
+				catchRate = (int)(catchRate*multiplier);
+				return catchRate;
+			case Items.DUSKBALL:
+				if (DayNight.IsNight() || battle.environment == Environment.Cave) {
+					catchRate = (int)(catchRate * 7.0/2);
+				}
+				return catchRate;
+			case Items.QUICKBALL:
+				if (battle.turncount <= 1) {
+					catchRate *= 5;
+				}
+				return catchRate;
+			case Items.FASTBALL:
+				int basespeed = Species.GetSpecies(battler.species).BaseStats[Stats.SPEED];
+				if (basespeed >= 100) {
+					catchRate *= 4;
+				}
+				return catchRate;
+			case Items.LEVELBALL:
+				int pbattler = battle.battlers[0].level;
+				if (battle.battlers[2] && battle.battlers[2].level > pbattler) {
+					pbattler = battle.battlers[2].level;
+				}
+				if (pbattler >= battler.level*4) {
+					catchRate *= 8;
+				} else if (pbattler >= battler.level*2) {
+					catchRate *= 4;
+				} else if (pbattler > battler.level) {
+					catchRate *= 2;
+				}
+				return (int)Math.Min(catchRate, 255);
+			case Items.LUREBALL:
+				if (PkmnTemp.encounterType == EncounterTypes.OldRod || PkmnTemp.encounterType == EncounterTypes.GoodRod || PkmnTemp.encounterType == EncounterTypes.SuperRod) {
+					catchRate *= 3;
+				}
+				return (int)Math.Min(catchRate, 255);
+			case Items.HEAVYBALL:
+				int weight = battler.weight;
+				if (weight >= 4096) {
+					catchRate += 40;
+				} else if (weight >= 3072) {
+					catchRate += 30;
+				} else if (weight >= 2048) {
+					catchRate += 20;
+				} else {
+					catchRate -= 20;
+				}
+				return (int)Math.Min(Math.Max(catchRate, 1), 255);
+			case Items.LOVEBALL:
+				Battler pbattler = battle.battlers[0];
+				Battler pbattler2 = null;
+				if (battle.battlers[2] != null) {
+					pbattler2 = battle.battlers[2];
+				}
+				if (pbattler.species == battler.species && ((battler.gender == 0) && (pbattler.gender == 1)) || ((battler.gender == 1) && (pbattler.gender == 0))) {
+					catchRate *= 8;
+				} else if (pbattler2.species == battler.species && ((battler.gender == 0) && (pbattler2.gender == 1)) || ((battler.gender == 1) && (pbattler2.gender == 0))) {
+					catchRate *= 8;
+				}
+				return (int)Math.Min(catchRate, 255);
+			case Items.MOONBALL:
+				int[] sp = new int[16]{Species.NIDORANfE, Species.NIDORINA, Species.NIDOQUEEN, Species.NIDORANmA, Species.NIDORINO, Species.NIDOKING, Species.CLEFFA, Species.CLEFAIRY, Species.CLEFABLE, Species.IGGLYBUFF, Species.JIGGLYPUFF, Species.WIGGLYTUFF, Species.SKITTY, Species.DELCATTY, Species.MUNNA, Species.MUSHARNA};
+				if (Array.IndexOf(sp, battler.species)) {
+					catchRate *= 4;
+				}
+				return (int)Math.Min(catchRate, 255);
+			case Items.SPORTBALL:
+				return (int)(catchRate*3.0/2);
+		}
+		return catchRate;
 	}
 
-	public static object OnCatchHandler(int ball, Battle battle, Battler battler) {
-		return null;
+	public static void OnCatchHandler(int ball, Battle battle, Battler battler) {
+		switch (ball) {
+			case Items.HEALBALL:
+				pokemon.Heal();
+				break;
+			case Items.FRIENDBALL:
+				pokemon.happiness = 200;
+				break;
+		}
 	}
 
-	public static object OnFailCatchHandler(int ball, Battle battle, Battler battler) {
-		return null;
+	public static void OnFailCatchHandler(int ball, Battle battle, Battler battler) {
+		switch (ball) {
+			default:
+			  break;
+		}
 	}
 }

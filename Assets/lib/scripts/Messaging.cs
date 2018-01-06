@@ -22,6 +22,10 @@ public class Messaging : MonoBehaviour {
 		// TODO
 		return 0;
 	}
+
+	public static void MessageFreeText(string msg, bool startMsg, int maxLength, int width, Action a) {
+		// TODO
+	}
 }
 
 public class MessageTypes {

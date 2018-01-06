@@ -3,4 +3,14 @@ public class Terrain {
 		// TODO
 		return true;
 	}
+
+	public static bool IsWater(int terrainTag) {
+		// TODO
+		return true;
+	}
+
+	public static bool IsIce(int terrainTag) {
+		// TODO
+		return true;
+	}
 }

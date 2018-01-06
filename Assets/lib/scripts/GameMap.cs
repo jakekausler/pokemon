@@ -2,9 +2,19 @@ public class GameMap {
 	public int MapID;
 	public GameEvent[] events;
 	public Dictionary<int, bool> switches;
+	public bool whiteFluteUsed;
+	public bool blackFluteUsed;
 
 	public static GetSwitch(int n) {
 		return switches[n];
+	}
+
+	public void AutoPlay() {
+		// TODO
+	}
+
+	public void Refresh() {
+		// TODO
 	}
 
 	public class GameEvent {
