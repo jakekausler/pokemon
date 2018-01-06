@@ -43,4 +43,16 @@ public static class Utilities {
 	public static string CommaNumber(int n) {
 		return "";
 	}
+
+	public static int GetFormSpeciesFromForm(int species, int form) {
+		return 0;
+	}
+
+	public static object GetMetadata(int mapId, int metadataType) {
+		return null;
+	}
+
+	public static DateTime GetTimeNow() {
+		return DateTime.Now;
+	}
 }

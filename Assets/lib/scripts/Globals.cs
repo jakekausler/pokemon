@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 public static class Globals {
+	public static int FATEFUL_ENCOUNTER_SWITCH = 32;
 	public static int NO_MONEY_LOSS = 33;
 	/**
 	 - Contains global flags

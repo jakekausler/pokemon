@@ -238,8 +238,8 @@ public class Battle {
 							scene.ShowPokedex(species);
 						}
 					}
-					if (MultipleForms.HasFunction(pokemon.species, "getForm")) {
-						pokemon.forcedForm = false;
+					if (MultipleForms.GetForm(pokemon.species, null) >= -1) {
+						pokemon.forcedForm = 0;
 					}
 					scene.HideCaptureBall();
 					StorePokemon(pokemon);
@@ -459,7 +459,7 @@ public class Battle {
 		if (pkmn.effects[Effects.Transform] != 0) {
 			return false;
 		}
-		if (pkmn.pokemon != null && pkmn.pokemon.GetMegaForm(true) != 0) {
+		if (pkmn.pokemon != null && pkmn.pokemon.GetMegaForm(true) != null) {
 			return true;
 		}
 		if (pkmn.ability == Abilities.MULTITYPE) {
@@ -1569,7 +1569,7 @@ public class Battle {
 		}
 		for (int i=0; i<items.Count; i++) {
 			if (items[i] == item) {
-				items.Remove(i);
+				items.RemoveAt(i);
 				break;
 			}
 		}
@@ -4103,7 +4103,7 @@ public class Battle {
 					priority[i].IncreaseStatWithCause(randomup[r], 2, priority[i], Abilities.GetName(priority[i].ability));
 					for (int j=0; j < randomdown.Count; j++) {
 						if (randomdown[j] == randomup[r]) {
-							randomdown.Remove(j);
+							randomdown.RemoveAt(j);
 							break;
 						}
 					}

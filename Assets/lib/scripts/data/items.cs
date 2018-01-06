@@ -553,9 +553,13 @@ public static class Items {
 	public const int SURPRISEMULCH = 549;
 	public const int WHIPPEDDREAM = 550;
 
-	public static int[] itemNames = new int[550]{"REPEL","SUPERREPEL","MAXREPEL","BLACKFLUTE","WHITEFLUTE","HONEY","ESCAPEROPE","REDSHARD","YELLOWSHARD","BLUESHARD","GREENSHARD","FIRESTONE","THUNDERSTONE","WATERSTONE","LEAFSTONE","MOONSTONE","SUNSTONE","DUSKSTONE","DAWNSTONE","SHINYSTONE","REDAPRICORN","YLWAPRICORN","BLUAPRICORN","GRNAPRICORN","PNKAPRICORN","WHTAPRICORN","BLKAPRICORN","HELIXFOSSIL","DOMEFOSSIL","OLDAMBER","ROOTFOSSIL","CLAWFOSSIL","SKULLFOSSIL","ARMORFOSSIL","COVERFOSSIL","PLUMEFOSSIL","PRETTYWING","TINYMUSHROOM","BIGMUSHROOM","BALMMUSHROOM","PEARL","BIGPEARL","PEARLSTRING","STARDUST","STARPIECE","COMETSHARD","NUGGET","BIGNUGGET","HEARTSCALE","SLOWPOKETAIL","RAREBONE","RELICCOPPER","RELICSILVER","RELICGOLD","RELICVASE","RELICBAND","RELICSTATUE","RELICCROWN","GROWTHMULCH","DAMPMULCH","STABLEMULCH","GOOEYMULCH","SHOALSALT","SHOALSHELL","ODDKEYSTONE","AIRBALLOON","BRIGHTPOWDER","EVIOLITE","FLOATSTONE","DESTINYKNOT","ROCKYHELMET","EJECTBUTTON","REDCARD","SHEDSHELL","SMOKEBALL","LUCKYEGG","EXPSHARE","AMULETCOIN","SOOTHEBELL","CLEANSETAG","CHOICEBAND","CHOICESPECS","CHOICESCARF","HEATROCK","DAMPROCK","SMOOTHROCK","ICYROCK","LIGHTCLAY","GRIPCLAW","BINDINGBAND","BIGROOT","BLACKSLUDGE","LEFTOVERS","SHELLBELL","MENTALHERB","WHITEHERB","POWERHERB","ABSORBBULB","CELLBATTERY","LIFEORB","EXPERTBELT","METRONOME","MUSCLEBAND","WISEGLASSES","RAZORCLAW","SCOPELENS","WIDELENS","ZOOMLENS","KINGSROCK","RAZORFANG","LAGGINGTAIL","QUICKCLAW","FOCUSBAND","FOCUSSASH","FLAMEORB","TOXICORB","STICKYBARB","IRONBALL","RINGTARGET","MACHOBRACE","POWERWEIGHT","POWERBRACER","POWERBELT","POWERLENS","POWERBAND","POWERANKLET","LAXINCENSE","FULLINCENSE","LUCKINCENSE","PUREINCENSE","SEAINCENSE","WAVEINCENSE","ROSEINCENSE","ODDINCENSE","ROCKINCENSE","CHARCOAL","MYSTICWATER","MAGNET","MIRACLESEED","NEVERMELTICE","BLACKBELT","POISONBARB","SOFTSAND","SHARPBEAK","TWISTEDSPOON","SILVERPOWDER","HARDSTONE","SPELLTAG","DRAGONFANG","BLACKGLASSES","METALCOAT","SILKSCARF","FLAMEPLATE","SPLASHPLATE","ZAPPLATE","MEADOWPLATE","ICICLEPLATE","FISTPLATE","TOXICPLATE","EARTHPLATE","SKYPLATE","MINDPLATE","INSECTPLATE","STONEPLATE","SPOOKYPLATE","DRACOPLATE","DREADPLATE","IRONPLATE","FIREGEM","WATERGEM","ELECTRICGEM","GRASSGEM","ICEGEM","FIGHTINGGEM","POISONGEM","GROUNDGEM","FLYINGGEM","PSYCHICGEM","BUGGEM","ROCKGEM","GHOSTGEM","DRAGONGEM","DARKGEM","STEELGEM","NORMALGEM","LIGHTBALL","LUCKYPUNCH","METALPOWDER","QUICKPOWDER","THICKCLUB","STICK","SOULDEW","DEEPSEATOOTH","DEEPSEASCALE","ADAMANTORB","LUSTROUSORB","GRISEOUSORB","DOUSEDRIVE","SHOCKDRIVE","BURNDRIVE","CHILLDRIVE","EVERSTONE","DRAGONSCALE","UPGRADE","DUBIOUSDISC","PROTECTOR","ELECTIRIZER","MAGMARIZER","REAPERCLOTH","PRISMSCALE","OVALSTONE","REDSCARF","BLUESCARF","PINKSCARF","GREENSCARF","YELLOWSCARF","POTION","SUPERPOTION","HYPERPOTION","MAXPOTION","FULLRESTORE","SACREDASH","AWAKENING","ANTIDOTE","BURNHEAL","PARALYZEHEAL","ICEHEAL","FULLHEAL","LAVACOOKIE","OLDGATEAU","CASTELIACONE","REVIVE","MAXREVIVE","BERRYJUICE","RAGECANDYBAR","SWEETHEART","FRESHWATER","SODAPOP","LEMONADE","MOOMOOMILK","ENERGYPOWDER","ENERGYROOT","HEALPOWDER","REVIVALHERB","ETHER","MAXETHER","ELIXIR","MAXELIXIR","PPUP","PPMAX","HPUP","PROTEIN","IRON","CALCIUM","ZINC","CARBOS","HEALTHWING","MUSCLEWING","RESISTWING","GENIUSWING","CLEVERWING","SWIFTWING","RARECANDY","MASTERBALL","ULTRABALL","GREATBALL","POKEBALL","SAFARIBALL","SPORTBALL","NETBALL","DIVEBALL","NESTBALL","REPEATBALL","TIMERBALL","LUXURYBALL","PREMIERBALL","DUSKBALL","HEALBALL","QUICKBALL","CHERISHBALL","FASTBALL","LEVELBALL","LUREBALL","HEAVYBALL","LOVEBALL","FRIENDBALL","MOONBALL","TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","TM93","TM94","TM95","HM01","HM02","HM03","HM04","HM05","HM06","CHERIBERRY","CHESTOBERRY","PECHABERRY","RAWSTBERRY","ASPEARBERRY","LEPPABERRY","ORANBERRY","PERSIMBERRY","LUMBERRY","SITRUSBERRY","FIGYBERRY","WIKIBERRY","MAGOBERRY","AGUAVBERRY","IAPAPABERRY","RAZZBERRY","BLUKBERRY","NANABBERRY","WEPEARBERRY","PINAPBERRY","POMEGBERRY","KELPSYBERRY","QUALOTBERRY","HONDEWBERRY","GREPABERRY","TAMATOBERRY","CORNNBERRY","MAGOSTBERRY","RABUTABERRY","NOMELBERRY","SPELONBERRY","PAMTREBERRY","WATMELBERRY","DURINBERRY","BELUEBERRY","OCCABERRY","PASSHOBERRY","WACANBERRY","RINDOBERRY","YACHEBERRY","CHOPLEBERRY","KEBIABERRY","SHUCABERRY","COBABERRY","PAYAPABERRY","TANGABERRY","CHARTIBERRY","KASIBBERRY","HABANBERRY","COLBURBERRY","BABIRIBERRY","CHILANBERRY","LIECHIBERRY","GANLONBERRY","SALACBERRY","PETAYABERRY","APICOTBERRY","LANSATBERRY","STARFBERRY","ENIGMABERRY","MICLEBERRY","CUSTAPBERRY","JABOCABERRY","ROWAPBERRY","GRASSMAIL","FLAMEMAIL","BUBBLEMAIL","BLOOMMAIL","TUNNELMAIL","STEELMAIL","HEARTMAIL","SNOWMAIL","SPACEMAIL","AIRMAIL","MOSAICMAIL","BRICKMAIL","XATTACK","XATTACK2","XATTACK3","XATTACK6","XDEFENSE","XDEFENSE2","XDEFENSE3","XDEFENSE6","XSPATK","XSPATK2","XSPATK3","XSPATK6","XSPDEF","XSPDEF2","XSPDEF3","XSPDEF6","XSPEED","XSPEED2","XSPEED3","XSPEED6","XACCURACY","XACCURACY2","XACCURACY3","XACCURACY6","DIREHIT","DIREHIT2","DIREHIT3","GUARDSPEC","RESETURGE","ABILITYURGE","ITEMURGE","ITEMDROP","BLUEFLUTE","YELLOWFLUTE","REDFLUTE","POKEDOLL","FLUFFYTAIL","POKETOY","BICYCLE","OLDROD","GOODROD","SUPERROD","ITEMFINDER","DOWSINGMACHINE","POKERADAR","TOWNMAP","POKEFLUTE","COINCASE","SOOTSACK","SILPHSCOPE","DEVONSCOPE","SQUIRTBOTTLE","SPRAYDUCK","WAILMERPAIL","GRACIDEA","AURORATICKET","OLDSEAMAP","DNASPLICERS","REVEALGLASS","OVALCHARM","SHINYCHARM","PIXIEPLATE","REDORB","BLUEORB","SAFETYGOGGLES","KEEBERRY","MARANGABERRY","WEAKNESSPOLICY","SNOWBALL","LUMINOUSMOSS","ASSAULTVEST","EXPALL","FAIRYGEM","ROSELIBERRY","JAWFOSSIL","SAILFOSSIL","ABILITYCAPSULE","AMAZEMULCH","BOOSTMULCH","LUMIOSEGALETTE","PASSORB","RICHMULCH","SACHET","SHALOURSABLE","SURPRISEMULCH","WHIPPEDDREAM"};
+	public static string[] itemNames = new string[550]{"REPEL","SUPERREPEL","MAXREPEL","BLACKFLUTE","WHITEFLUTE","HONEY","ESCAPEROPE","REDSHARD","YELLOWSHARD","BLUESHARD","GREENSHARD","FIRESTONE","THUNDERSTONE","WATERSTONE","LEAFSTONE","MOONSTONE","SUNSTONE","DUSKSTONE","DAWNSTONE","SHINYSTONE","REDAPRICORN","YLWAPRICORN","BLUAPRICORN","GRNAPRICORN","PNKAPRICORN","WHTAPRICORN","BLKAPRICORN","HELIXFOSSIL","DOMEFOSSIL","OLDAMBER","ROOTFOSSIL","CLAWFOSSIL","SKULLFOSSIL","ARMORFOSSIL","COVERFOSSIL","PLUMEFOSSIL","PRETTYWING","TINYMUSHROOM","BIGMUSHROOM","BALMMUSHROOM","PEARL","BIGPEARL","PEARLSTRING","STARDUST","STARPIECE","COMETSHARD","NUGGET","BIGNUGGET","HEARTSCALE","SLOWPOKETAIL","RAREBONE","RELICCOPPER","RELICSILVER","RELICGOLD","RELICVASE","RELICBAND","RELICSTATUE","RELICCROWN","GROWTHMULCH","DAMPMULCH","STABLEMULCH","GOOEYMULCH","SHOALSALT","SHOALSHELL","ODDKEYSTONE","AIRBALLOON","BRIGHTPOWDER","EVIOLITE","FLOATSTONE","DESTINYKNOT","ROCKYHELMET","EJECTBUTTON","REDCARD","SHEDSHELL","SMOKEBALL","LUCKYEGG","EXPSHARE","AMULETCOIN","SOOTHEBELL","CLEANSETAG","CHOICEBAND","CHOICESPECS","CHOICESCARF","HEATROCK","DAMPROCK","SMOOTHROCK","ICYROCK","LIGHTCLAY","GRIPCLAW","BINDINGBAND","BIGROOT","BLACKSLUDGE","LEFTOVERS","SHELLBELL","MENTALHERB","WHITEHERB","POWERHERB","ABSORBBULB","CELLBATTERY","LIFEORB","EXPERTBELT","METRONOME","MUSCLEBAND","WISEGLASSES","RAZORCLAW","SCOPELENS","WIDELENS","ZOOMLENS","KINGSROCK","RAZORFANG","LAGGINGTAIL","QUICKCLAW","FOCUSBAND","FOCUSSASH","FLAMEORB","TOXICORB","STICKYBARB","IRONBALL","RINGTARGET","MACHOBRACE","POWERWEIGHT","POWERBRACER","POWERBELT","POWERLENS","POWERBAND","POWERANKLET","LAXINCENSE","FULLINCENSE","LUCKINCENSE","PUREINCENSE","SEAINCENSE","WAVEINCENSE","ROSEINCENSE","ODDINCENSE","ROCKINCENSE","CHARCOAL","MYSTICWATER","MAGNET","MIRACLESEED","NEVERMELTICE","BLACKBELT","POISONBARB","SOFTSAND","SHARPBEAK","TWISTEDSPOON","SILVERPOWDER","HARDSTONE","SPELLTAG","DRAGONFANG","BLACKGLASSES","METALCOAT","SILKSCARF","FLAMEPLATE","SPLASHPLATE","ZAPPLATE","MEADOWPLATE","ICICLEPLATE","FISTPLATE","TOXICPLATE","EARTHPLATE","SKYPLATE","MINDPLATE","INSECTPLATE","STONEPLATE","SPOOKYPLATE","DRACOPLATE","DREADPLATE","IRONPLATE","FIREGEM","WATERGEM","ELECTRICGEM","GRASSGEM","ICEGEM","FIGHTINGGEM","POISONGEM","GROUNDGEM","FLYINGGEM","PSYCHICGEM","BUGGEM","ROCKGEM","GHOSTGEM","DRAGONGEM","DARKGEM","STEELGEM","NORMALGEM","LIGHTBALL","LUCKYPUNCH","METALPOWDER","QUICKPOWDER","THICKCLUB","STICK","SOULDEW","DEEPSEATOOTH","DEEPSEASCALE","ADAMANTORB","LUSTROUSORB","GRISEOUSORB","DOUSEDRIVE","SHOCKDRIVE","BURNDRIVE","CHILLDRIVE","EVERSTONE","DRAGONSCALE","UPGRADE","DUBIOUSDISC","PROTECTOR","ELECTIRIZER","MAGMARIZER","REAPERCLOTH","PRISMSCALE","OVALSTONE","REDSCARF","BLUESCARF","PINKSCARF","GREENSCARF","YELLOWSCARF","POTION","SUPERPOTION","HYPERPOTION","MAXPOTION","FULLRESTORE","SACREDASH","AWAKENING","ANTIDOTE","BURNHEAL","PARALYZEHEAL","ICEHEAL","FULLHEAL","LAVACOOKIE","OLDGATEAU","CASTELIACONE","REVIVE","MAXREVIVE","BERRYJUICE","RAGECANDYBAR","SWEETHEART","FRESHWATER","SODAPOP","LEMONADE","MOOMOOMILK","ENERGYPOWDER","ENERGYROOT","HEALPOWDER","REVIVALHERB","ETHER","MAXETHER","ELIXIR","MAXELIXIR","PPUP","PPMAX","HPUP","PROTEIN","IRON","CALCIUM","ZINC","CARBOS","HEALTHWING","MUSCLEWING","RESISTWING","GENIUSWING","CLEVERWING","SWIFTWING","RARECANDY","MASTERBALL","ULTRABALL","GREATBALL","POKEBALL","SAFARIBALL","SPORTBALL","NETBALL","DIVEBALL","NESTBALL","REPEATBALL","TIMERBALL","LUXURYBALL","PREMIERBALL","DUSKBALL","HEALBALL","QUICKBALL","CHERISHBALL","FASTBALL","LEVELBALL","LUREBALL","HEAVYBALL","LOVEBALL","FRIENDBALL","MOONBALL","TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","TM93","TM94","TM95","HM01","HM02","HM03","HM04","HM05","HM06","CHERIBERRY","CHESTOBERRY","PECHABERRY","RAWSTBERRY","ASPEARBERRY","LEPPABERRY","ORANBERRY","PERSIMBERRY","LUMBERRY","SITRUSBERRY","FIGYBERRY","WIKIBERRY","MAGOBERRY","AGUAVBERRY","IAPAPABERRY","RAZZBERRY","BLUKBERRY","NANABBERRY","WEPEARBERRY","PINAPBERRY","POMEGBERRY","KELPSYBERRY","QUALOTBERRY","HONDEWBERRY","GREPABERRY","TAMATOBERRY","CORNNBERRY","MAGOSTBERRY","RABUTABERRY","NOMELBERRY","SPELONBERRY","PAMTREBERRY","WATMELBERRY","DURINBERRY","BELUEBERRY","OCCABERRY","PASSHOBERRY","WACANBERRY","RINDOBERRY","YACHEBERRY","CHOPLEBERRY","KEBIABERRY","SHUCABERRY","COBABERRY","PAYAPABERRY","TANGABERRY","CHARTIBERRY","KASIBBERRY","HABANBERRY","COLBURBERRY","BABIRIBERRY","CHILANBERRY","LIECHIBERRY","GANLONBERRY","SALACBERRY","PETAYABERRY","APICOTBERRY","LANSATBERRY","STARFBERRY","ENIGMABERRY","MICLEBERRY","CUSTAPBERRY","JABOCABERRY","ROWAPBERRY","GRASSMAIL","FLAMEMAIL","BUBBLEMAIL","BLOOMMAIL","TUNNELMAIL","STEELMAIL","HEARTMAIL","SNOWMAIL","SPACEMAIL","AIRMAIL","MOSAICMAIL","BRICKMAIL","XATTACK","XATTACK2","XATTACK3","XATTACK6","XDEFENSE","XDEFENSE2","XDEFENSE3","XDEFENSE6","XSPATK","XSPATK2","XSPATK3","XSPATK6","XSPDEF","XSPDEF2","XSPDEF3","XSPDEF6","XSPEED","XSPEED2","XSPEED3","XSPEED6","XACCURACY","XACCURACY2","XACCURACY3","XACCURACY6","DIREHIT","DIREHIT2","DIREHIT3","GUARDSPEC","RESETURGE","ABILITYURGE","ITEMURGE","ITEMDROP","BLUEFLUTE","YELLOWFLUTE","REDFLUTE","POKEDOLL","FLUFFYTAIL","POKETOY","BICYCLE","OLDROD","GOODROD","SUPERROD","ITEMFINDER","DOWSINGMACHINE","POKERADAR","TOWNMAP","POKEFLUTE","COINCASE","SOOTSACK","SILPHSCOPE","DEVONSCOPE","SQUIRTBOTTLE","SPRAYDUCK","WAILMERPAIL","GRACIDEA","AURORATICKET","OLDSEAMAP","DNASPLICERS","REVEALGLASS","OVALCHARM","SHINYCHARM","PIXIEPLATE","REDORB","BLUEORB","SAFETYGOGGLES","KEEBERRY","MARANGABERRY","WEAKNESSPOLICY","SNOWBALL","LUMINOUSMOSS","ASSAULTVEST","EXPALL","FAIRYGEM","ROSELIBERRY","JAWFOSSIL","SAILFOSSIL","ABILITYCAPSULE","AMAZEMULCH","BOOSTMULCH","LUMIOSEGALETTE","PASSORB","RICHMULCH","SACHET","SHALOURSABLE","SURPRISEMULCH","WHIPPEDDREAM"};
 
 	private static string path = "Assets/lib/data/items.json";
+
+	public static int MaxValue() {
+		return 550;
+	}
 
 	public static int GetValueFromName(string type) {
 		for (int i=0; i<itemNames.Length; i++) {
@@ -614,224 +618,432 @@ public static class Items {
 	public static int ITEMMACHINE = 9;
 
 	public static int GetPocket(int item) {
-		return 0;
+		return Items.GetItem(item).Pocket;
 	}
 
 	public static int GetPrice(int item) {
-		return 0;
+		return Items.GetItem(item).Price;
 	}
 
 	public static int GetMachine(int item) {
-		return 0;
+		Items.InternalItem i = Items.GetItem(item);
+		return i.Move != "" ? -1 : Moves.GetValueFromName(i.Move);
 	}
 
 	public static bool IsMachine(int item) {
-		return true;
+		return IsTechnicalMachine(item) || IsHiddenMachine(item);
 	}
 
 	public static bool IsTechnicalMachine(int item) {
-		return true;
+		return Items.GetItem(item).OutOfBattle == 3;
 	}
 
 	public static bool IsHiddenMachnine(int item) {
-		return true;
+		return Items.GetItem(item).OutOfBattle == 4;
 	}
 
 	public static bool IsImportantItem(int item) {
-		return true;
+		Items.InternalItem i = Items.GetItem(item);
+		return i.IsKeyItem(item) || i.IsHiddenMachine(item) || (Settings.INFINITE_TMS && i.IsTechnicalMachine(item));
 	}
 
 	public static bool CanHoldItem(int item) {
-		return true;
+		return !IsImportantItem(item);
 	}
 
 	public static bool IsMail(int item) {
-		return true;
+		Items.InternalItem i = Items.GetItem(item);
+		return i.SpecialItem == 1 || i.SpecialItem == 2;
 	}
 
 	public static bool IsPokeball(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 4;
 	}
 
 	public static bool IsBerry(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 5;
 	}
 
 	public static bool IsKeyItem(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 6;
 	}
 
 	public static bool IsEvolutionStone(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 7;
 	}
 
 	public static bool IsFossil(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 8;
 	}
 
 	public static bool IsApricorn(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 9;
 	}
 
 	public static bool IsGem(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 10;
 	}
 
 	public static bool IsMulch(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 11;
 	}
 
 	public static bool IsMegaStone(int item) {
-		return true;
+		return Items.GetItem(item).SpecialItem == 12;
 	}
 
 	public static bool CanRegisterItem(int item) {
-		return true;
+		return HasUseInField(item);
 	}
 
 	public static bool CanUseOnPokemon(int item) {
-		return true;
+		return HasUseOnPokemon(item) || IsMachine(item);
 	}
 
 	public static bool IsHiddenMove(int move) {
-		return true;
+		for (int i=1; i<=Items.MaxValue(); i++) 
+		{
+			if (!IsHiddenMachnine()) {
+				continue;
+			}
+			int atk = GetMachine(i);
+			if (move == atk) {
+				return true;
+			}
+		}
+		return false;
 	}
 
-	public static Dictionary<int, Func<object[], object>> UseFromBag;
-	public static Dictionary<int, Func<object[], object>> ConfirmUseInField;
-	public static Dictionary<int, Func<object[], object>> UseInField;
-	public static Dictionary<int, Func<object[], object>> UseOnPokemon;
-	public static Dictionary<int, Func<object[], object>> BattleUseOnBattler;
-	public static Dictionary<int, Func<object[], object>> BattleUseOnPokemon;
-	public static Dictionary<int, Func<object[], object>> UseInBattle;
-	public static Dictionary<int, Func<object[], object>> UseText;
+	public static Dictionary<int, Func<int, int>> UseFromBag;
+	public static Dictionary<int, Func<int, bool>> ConfirmUseInField;
+	public static Dictionary<int, Func<int, int>> UseInField;
+	public static Dictionary<int, Func<int, bool>> UseOnPokemon;
+	public static Dictionary<int, Func<int, bool>> BattleUseOnBattler;
+	public static Dictionary<int, Func<int, bool>> BattleUseOnPokemon;
+	public static Dictionary<int, Func<int, int>> UseInBattle;
+	public static Dictionary<int, Func<int, string>> UseText;
 
-	public static void AddUseFromBag(int item, Func<object[], object> f) {
+	// Copy i2 to i1 in d
+	public static void Copy(Dictionary<int, Func<int, int>> d, int i1, int i2) {
+		d[i1] = d[i2];
+	}
+	public static void Copy(Dictionary<int, Func<int, bool>> d, int i1, int i2) {
+		d[i1] = d[i2];
+	}
+	public static void Copy(Dictionary<int, Func<int, string>> d, int i1, int i2) {
+		d[i1] = d[i2];
+	}
+
+	public static void AddUseFromBag(int item, Func<int, int> f) {
 		UseFromBag.Add(item, f);
 	}
 
-	public static void AddUseInField(int item, Func<object[], object> f) {
+	public static void AddUseInField(int item, Func<int, bool> f) {
 		UseInField.Add(item, f);
 	}
 
-	public static void AddConfirmUseInField(int item, Func<object[], object> f) {
+	public static void AddConfirmUseInField(int item, Func<int, int> f) {
 		ConfirmUseInField.Add(item, f);
 	}
 
-	public static void AddUseOnPokemon(int item, Func<object[], object> f) {
+	public static void AddUseOnPokemon(int item, Func<int, bool> f) {
 		UseOnPokemon.Add(item, f);
 	}
 
-	public static void AddBattleUseOnBattler(int item, Func<object[], object> f) {
+	public static void AddBattleUseOnBattler(int item, Func<int, bool> f) {
 		BattleUseOnBattler.Add(item, f);
 	}
 
-	public static void AddBattleUseOnPokemon(int item, Func<object[], object> f) {
+	public static void AddBattleUseOnPokemon(int item, Func<int, bool> f) {
 		BattleUseOnPokemon.Add(item, f);
 	}
 
-	public static void AddUseText(int item, Func<object[], object> f) {
+	public static void AddUseText(int item, Func<int, string> f) {
 		UseText.Add(item, f);
 	}
 
 	public static bool HasOutHandler(int item) {
-		return false;
+		return UseFromBag.ContainsKey(item) || UseInField.ContainsKey(item) || UseOnPokemon.ContainsKey(item);
+	}
+
+	public static bool HasUseFromBag(int item) {
+		return UseFromBag.ContainsKey(item);
+	}
+
+	public static bool HasConfirmUseInField(int item) {
+		return ConfirmUseInField.ContainsKey(item);
 	}
 
 	public static bool HasUseInField(int item) {
-		return false;
+		return UseInField.ContainsKey(item);
 	}
 
 	public static bool HasUseOnPokemon(int item) {
-		return false;
+		return UseOnPokemon.ContainsKey(item);
 	}
 
 	public static bool HasBattleUseOnBattler(int item) {
-		return false;
+		return BattleUseOnBattler.ContainsKey(item);
+	}
+
+	public static bool HasBattleUseOnPokemon(int item) {
+		return BattleUseOnPokemon.ContainsKey(item);
 	}
 
 	public static bool HasUseInBattle(int item) {
-		return false;
+		return UseInBattle.ContainsKey(item);
 	}
 
 	public static bool HasUseText(int item) {
-		return false;
+		return UseText.ContainsKey(item);
 	}
 
 	public static int TriggerUseFromBag(int item) {
-		return 0;
+		if (!HasUseFromBag(item)) {
+			if (HasUseInField(item)) {
+				return UseInField[item](item);
+			}
+			return 0;
+		}
+		return UseFromBag[item](item);
 	}
 
 	public static bool TriggerConfirmUseInField(int item) {
-		return false;
+		if (!HasConfirmUseInField(item)) {
+			return true;
+		}
+		return ConfirmUseInField[item](item);
 	}
 
 	public static int TriggerUseInField(int item) {
-		return 0;
+		if (!HasUseInField(item)) {
+			return -1;
+		}
+		return UseInField[item](item);
 	}
 
 	public static bool TriggerUseOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
-		return false;
+		if (!HasUseOnPokemon(item)) {
+			return false;
+		}
+		return UseOnPokemon[item](item);
 	}
 
 	public static bool TriggerBattleUseOnBattler(int item, Battler battler, Battle scene) {
-		return false;
+		if (!HasBattleUseOnBattler(item)) {
+			return false;
+		}
+		return BattleUseOnBattler[item](item);
 	}
 
-	public static bool TriggerBattleUseOnBattler(int item, Battler battler, BattleScene scene) {
-		return false;
-	}
-
-	public static bool TriggerBattleUseOnPokemon(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-		return false;
+	public static bool TriggerBattleUseOnPokemon(int item, Battler battler, BattleScene scene) {
+		if (!HasBattleUseOnPokemon(item)) {
+			return false;
+		}
+		return BattleUseOnPokemon[item](item);
 	}
 
 	public static void TriggerUseInBattle(int item, Battler battler, Battle scene) {
-		
+		if (!HasUseInBattle(item)) {
+			return false;
+		}
+		return UseInBattle[item](item);
 	}
 
 	public static string GetUseText(int item) {
-		return "";
+		if (!HasUseText(item)) {
+			return "";
+		}
+		return UseText[item](item);
 	}
 
 	public static int RestoreHP(Pokemon pokemon, int restoreHP) {
-		return 0;
+		int newHP = pokemon.hp + restoreHP;
+		if (newHP > pokemon.totalHP) {
+			newHP = pokemon.totalHP;
+		}
+		int hpGain = newHP - pokemon.hp;
+		pokemon.hp = newHP;
+		return hpGain;
 	}
 
 	public static bool HPItem(Pokemon pokemon, int restoreHP, BattleScene scene) {
+		if (pokemon.hp <= 0 || pokemon.hp == pokemon.totalHP || pokemon.Egg()) {
+			scene.Display(string.Format("It won't have any effect."));
+			return false;
+		}
+		int hpGain = Items.RestoreHP(pokemon, restoreHP);
+		scene.Refresh();
+		scene.Display(string.Format("{0}'s HP was restored by {1} points.", pokemon.name, hpGain));
 		return true;
 	}
 
 	public static bool BattleRestoreHPItem(Pokemon pokemon, Battler battler, int restoreHP, BattleScene scene) {
+		if (pokemon.hp <= 0 || pokemon.hp == pokemon.totalHP || pokemon.Egg()) {
+			scene.Display(string.Format("It won't have any effect."));
+			return false;
+		}
+		int hpGain;
+		if (battler != null) {
+			hpGain = battler.RestoreHP(restoreHP);
+		} else {
+			hpGain = Items.RestoreHP(pokemon, restoreHP);
+		}
+		scene.Display(string.Format("{0}'s HP was restored.", pokemon.name));
 		return true;
 	}
 
 	public static int RestorePP(Pokemon pokemon, int moveIdx, int restorePP) {
-		return 0;
+		if (pokemon.moves[move].id == 0) {
+			return 0;
+		}
+		if (pokemon.moves[move].totalPP == 0) {
+			return 0;
+		}
+		int newPP = pokemon.moves[moveIdx].pp + restorePP;
+		if (newPP > pokemon.moves[move].totalPP) {
+			newPP = pokemon.moves[move].totalPP;
+		}
+		int oldPP = pokemon.moves[move].pp;
+		pokemon.moves[move].pp = newPP;
+		return newPP - oldPP;
 	}
 
 	public static bool BattleRestorePPItem(Pokemon pokemon, Battler battler, int moveIdx, int restorePP) {
-		return true;
+		int ret = Items.RestorePP(pokemon, moveIdx, restorePP);
+		if (ret > 0) {
+			if (battler != null) {
+				battler.SetPP(battler.moves[move], pokemon.moves[move.pp]);
+			}
+		}
+		return ret;
 	}
 
 	public static int JustRaiseEffortValues(Pokemon pokemon, int ev, int evgain) {
-		return 0;
+		int totalev = 0;
+		for (int i=0; i<6; i++) 
+		{
+			totalev += pokemon.ev[i];
+		}
+		if (totalev + evgain > Pokemon.EV_LIMIT) {
+			evgain = Pokemon.EV_LIMIT - totalev;
+		}
+		if (pokemon.ev[ev]+evgain > Pokemon.EV_STAT_LIMIT) {
+			evgain = Pokemon.EV_STAT_LIMIT - pokemon.ev[ev];
+		}
+		if (evgain > 0) {
+			pokemon.ev[ev] += evgain;
+			pokemon.CalcStats();
+		}
+		return evgain;
 	}
 
 	public static int RaiseEffortValues(Pokemon pokemon, int ev, int evgain=10, bool evLimit=true) {
-		return 0;
+		if (evLimit && pokemon.ev[ev] >= 100) {
+			return 0;
+		}
+		int totalev = 0;
+		for (int i=0; i<6; i++) 
+		{
+			totalev += pokemon.ev[i];
+		}
+		if (totalev + evgain > Pokemon.EV_LIMIT) {
+			evgain = Pokemon.EV_LIMIT - totalev;
+		}
+		if (pokemon.ev[ev]+evgain > Pokemon.EV_STAT_LIMIT) {
+			evgain = Pokemon.EV_STAT_LIMIT - pokemon.ev[ev];
+		}
+		if (evLimit && pokemon.ev[ev] + evgain > 100) {
+			evgain = 100 - pokemon.ev[ev];
+		}
+		if (evgain > 0) {
+			pokemon.ev[ev] += evgain;
+			pokemon.CalcStats();
+		}
+		return evgain;
 	}
 
 	public static bool RaiseHappinessAndLowerEV(Pokemon pokemon, BattleScene scene, int ev, string[] messages) {
+		bool h = pokemon.happiness < 255;
+		bool e = pokemon.ev[ev] > 0;
+		if (!h && !e) {
+			scene.Display(string.Format("It won't have any effect."));
+			return false;
+		}
+		if (h) {
+			pokemon.ChangeHappiness("evberry");
+		}
+		if (e) {
+			pokemon.ev[ev] -= 10;
+			if (pokemon.ev[ev] < 0) {
+				pokemon.ev[ev] = 0;
+			}
+			pokemon.CalcStats();
+		}
+		scene.Refresh();
+		scene.Display(messages[2 - (h ? 0 : 1) - (e ? 0 : 2)]);
 		return true;
 	}
 
 	public static bool BikeCheck() {
-		return true;
+		if (PokemonGlobal.surfing || (!PokemonGlobal.bicycle && Terrain.OnlyWalk(PokemonGlobal.GetTerrainTag()))) {
+			Messaging.Message("It can't be used here.");
+			return false;
+		}
+		if (PokemonGlobal.HasDependentEvents()) {
+			Messaging.Message("It can't be used when you have someone with you.");
+			return false;
+		}
+		if (PokemonGlobal.bicycle) {
+			if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataBicycleAlways)) {
+				Messaging.Message("It can't be dismounted here.");
+				return false;
+			}
+			return true;
+		} else {
+			int val = Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataBicycle);
+			if (val < 0) {
+				val = Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor);
+			}
+			if (val < 0) {
+				Messaging.Message("It can't be used here.");
+				return false;
+			}
+			return true;
+		}
 	}
 
-	public static int[] ClosestHiddenItem() {
-		return null;
+	public static GameMap.GameEvent ClosestHiddenItem(int ignoreAfterDistance=8) {
+		List<int> res = new List<int>();
+		int x = PokemonGlobal.playerX;
+		int y = PokemonGlobal.playerY;
+		for (int i=0; i < PokemonGlobal.Map.events.Length(); i++) {
+			GameMap.GameEvent e = PokemonGlobal.Map.events[i];
+			if (e.name != "HiddenItem") {
+				continue;
+			}
+			if ((Math.Pow(x-e.x, 2) + Math.Pow(y-e.y, 2)) > Math.Pow(ignoreAfterDistance, 2)) {
+				continue;
+			}
+			if (e.GetSwitch(0)) {
+				continue;
+			}
+			res.Add(e);
+		}
+		GameMap.GameEvent ret = null;
+		if (res.Length == 0) {
+			return ret;
+		}
+		int retMin = 0;
+		for (int i=0; i < res.Count; i++) {
+			GameMap.GameEvent e = res[i];
+			double dist = (Math.Pow(x-e.x, 2) + Math.Pow(y-e.y, 2));
+			if (ret == null || retMin > dist) {
+				ret = e;
+				retMin = dist;
+			}
+		}
+		return ret;
 	}
 
 	public static int UseItem(PokemonBag bag, int item, BattleScene bagScene=null) {
@@ -847,7 +1059,7 @@ public static class Items {
 	}
 
 	public static void ConsumeItemInBattle(PokemonBag bag, int item) {
-
+		
 	}
 
 	public static string UseItemMessage(int item) {

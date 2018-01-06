@@ -579,7 +579,8 @@ public class Moves {
 		return -1;
 	}
 
-	private const string path = "Assets/lib/data/moves.json";
+	private const string movePath = "Assets/lib/data/moves.json";
+	private const string learnMovePath = "Assets/lib/data/learnmoves.json";
 
 	public static int MaxValue() {
 		return 566;
@@ -602,6 +603,33 @@ public class Moves {
 			return "";
 		}
 		return mov.Name;
+	}
+
+	public static string[] GetSpeciesForMove(int id) {
+		string json = System.IO.File.ReadAllText(path);
+		LearnMove[] moves = JsonHelper.FromJson<LearnMove>(json);
+		for (int i = 0; i < moves.Length; i++) {
+			if (Moves.GetValueFromName(moves[i].move) == id) {
+				return moves[i].species;
+			}
+		}
+		return new string[0];
+	}
+
+	public static bool CanLearnMove(int species, int moveId) {
+		string[] species = Move.GetSpeciesForMove(moveId);
+		for (int i=0; i < species.Length; i++) {
+			if (Species.GetValueFromName(species[i]) == species) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	[Serializable]
+	public class LearnMove {
+		public string move;
+		public string[] species;
 	}
 
 	[Serializable]

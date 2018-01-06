@@ -1144,7 +1144,7 @@ public class Battler : MonoBehaviour {
 				}
 			}
 			if (choices.Count > 0) {
-				int choice = choices[battle.Rand(choices.Count)];
+				int choice = choices[Battle.Rand(choices.Count)];
 				Battler battler = battle.battlers[choice];
 				string battlerName = battler.String(true);
 				string abilityName = Abilities.GetName(battler.ability);
@@ -1200,7 +1200,7 @@ public class Battler : MonoBehaviour {
 				}
 			} else if (foes.Count > 0) {
 				Debug.Log(string.Format("[Ability triggered] {0}'s frisk!", String()));
-				Battler foe = foes[battle.Rand(foes.Count)];
+				Battler foe = foes[Battle.Rand(foes.Count)];
 				string itemName = Items.GetName(foe.item);
 				battle.Display(string.Format("{0} frisked the foe and found one {1}!", String(), itemName));
 			}
@@ -1267,7 +1267,7 @@ public class Battler : MonoBehaviour {
 					}
 				}
 				if (fwMoves.Count > 0) {
-					int fwMove = fwMoves[battle.Rand(fwMoves.Count)];
+					int fwMove = fwMoves[Battle.Rand(fwMoves.Count)];
 					string moveName = Moves.GetName(fwMove);
 					battle.Display(string.Format("{0}'s Forewarn alerted it to {1}!", String(), moveName));
 				}
@@ -1390,17 +1390,17 @@ public class Battler : MonoBehaviour {
 					}
 				}
 				// Cute Charm
-				if (target.HasWorkingAbility(Abilities.CUTECHARM) && battle.Rand(10) < 3) {
+				if (target.HasWorkingAbility(Abilities.CUTECHARM) && Battle.Rand(10) < 3) {
 					if (!user.Fainted() && user.CanAttract(target, false)) {
 						Debug.Log(string.Format("[Ability Triggered] {0}'s Cute Charm", target.String()));
 						user.Attract(target, string.Format("{0}'s {2} made {3} fall in love!", target.String(), Abilities.GetName(target.ability), user.String(true)));
 					}
 				}
 				// Effect Spore
-				if (target.HasWorkingAbility(Abilities.EFFECTSPORE, true) && battle.Rand(10) < 3) {
+				if (target.HasWorkingAbility(Abilities.EFFECTSPORE, true) && Battle.Rand(10) < 3) {
 					if (!(Settings.USE_NEW_BATTLE_MECHANICS && (user.HasType(Types.GRASS) || user.HasWorkingAbility(Abilities.OVERCOAT) || user.HasWorkingItem(Items.SAFETYGOGGLES)))) {
 						Debug.Log(string.Format("[Ability Triggered] {0}'s Effect Spore", target.String()));
-						switch (battle.Rand(3)) {
+						switch (Battle.Rand(3)) {
 							case 0:
 							if (user.CanPoison(null, false)) {
 								user.Poison(target, string.Format("{0}'s {2} poisoned {3}!", target.String(), Abilities.GetName(target.ability), user.String(true)));
@@ -1420,7 +1420,7 @@ public class Battler : MonoBehaviour {
 					}
 				}
 				// Flame Body
-				if (target.HasWorkingAbility(Abilities.FLAMEBODY) && battle.Rand(10) < 3 && user.CanBurn(null, false)) {
+				if (target.HasWorkingAbility(Abilities.FLAMEBODY) && Battle.Rand(10) < 3 && user.CanBurn(null, false)) {
 					Debug.Log(string.Format("[Ability Triggered] {0}'s Flame Body", target.String()));
 					user.Burn(target, string.Format("{0}'s {2} burned {3}!", target.String(), Abilities.GetName(target.ability), user.String(true)));
 				}
@@ -1435,7 +1435,7 @@ public class Battler : MonoBehaviour {
 				// Poison Point
 				// Poison Touch
 				if ((
-					target.HasWorkingAbility(Abilities.POISONPOINT) || target.HasWorkingAbility(Abilities.POISONTOUCH)) && battle.Rand(10) < 3 && user.CanPoison(null, false)) {
+					target.HasWorkingAbility(Abilities.POISONPOINT) || target.HasWorkingAbility(Abilities.POISONTOUCH)) && Battle.Rand(10) < 3 && user.CanPoison(null, false)) {
 					Debug.Log(string.Format("[Ability Triggered] {0}'s {1}", target.String(), Abilities.GetName(target.ability)));
 					user.Poison(target, string.Format("{0}'s {2} poisoned {3}!", target.String(), Abilities.GetName(target.ability), user.String(true)));
 				}
@@ -1449,7 +1449,7 @@ public class Battler : MonoBehaviour {
 					battle.Display(string.Format("{0}'s {2} hurt {3}!", target.String(), Abilities.GetName(target.ability), user.String(true)));
 				}
 				// Static
-				if (target.HasWorkingAbility(Abilities.STATIC) && battle.Rand(10) < 3 && user.CanParalyze(null, false)) {
+				if (target.HasWorkingAbility(Abilities.STATIC) && Battle.Rand(10) < 3 && user.CanParalyze(null, false)) {
 					Debug.Log(string.Format("[Ability Triggered] {0}'s {1}", target.String(), Abilities.GetName(target.ability)));
 					user.Paralyze(target, string.Format("{0}'s {2} paralyzed {3}! It may be unable to move!", target.String(), Abilities.GetName(target.ability), user.String(true)));
 				}
@@ -1464,7 +1464,7 @@ public class Battler : MonoBehaviour {
 		if (damage > 0) {
 			if (!target.damageState.Substitute) {
 				// Cursed Body
-				if (target.HasWorkingAbility(Abilities.CURSEDBODY, true) && battle.Rand(10) < 3 && user.effects[Effects.Disable] <= 0 && move.pp > 0 && !user.Fainted()) {
+				if (target.HasWorkingAbility(Abilities.CURSEDBODY, true) && Battle.Rand(10) < 3 && user.effects[Effects.Disable] <= 0 && move.pp > 0 && !user.Fainted()) {
 					user.effects[Effects.Disable] = 3;
 					user.effects[Effects.DisableMove] = move.id;
 					battle.Display(string.Format("{0}'s {2} disabled {3}! It may be unable to move!", target.String(), Abilities.GetName(target.ability), user.String(true)));
@@ -1834,7 +1834,7 @@ public class Battler : MonoBehaviour {
 				}
 			}
 			if (found.Count > 0) {
-				int choice = consume ? found[0] : found[battle.Rand(found.Count)];
+				int choice = consume ? found[0] : found[Battle.Rand(found.Count)];
 				BattleMove pokemove = BattleMove.FromBattleMove(battle, pokemon.moves[choice]);
 				pokemove.pp += 10;
 				if (pokemove.pp > pokemove.totalPP) {
@@ -1930,7 +1930,7 @@ public class Battler : MonoBehaviour {
 				}
 			}
 			if (stats.Count > 0) {
-				int stat = stats[battle.Rand(stats.Count)];
+				int stat = stats[Battle.Rand(stats.Count)];
 				consumed = IncreaseStatWithCause(stat, 2, this, berryname);
 			}
 		}
@@ -2203,7 +2203,7 @@ public class Battler : MonoBehaviour {
 		AddTarget(choices, Opposing1());
 		AddTarget(choices, Opposing2());
 		if (choices.Count > 0) {
-			AddTarget(targets, choices[battle.Rand(choices.Count)]);
+			AddTarget(targets, choices[Battle.Rand(choices.Count)]);
 		}
 	}
 
@@ -2378,7 +2378,7 @@ public class Battler : MonoBehaviour {
 		}
 		BattleMove move = moveChoice;
 		if (pokemon.IsForeign(battle.Player()) && level > badgelevel) {
-			int a = (int)((level + badgelevel) * battle.Rand(256)/256);
+			int a = (int)((level + badgelevel) * Battle.Rand(256)/256);
 			disobedient |= a >= badgelevel;
 		}
 		if (!disobedient) {
@@ -2676,7 +2676,7 @@ public class Battler : MonoBehaviour {
 				Debug.Log(string.Format("[Move effect triggered] {0} was defrosted by using {1}", String(), thisMove.name));
 				battle.Display(string.Format("{0} melted the ice!", String()));
 				CheckForm();
-			} else if (battle.Rand(10) < 2 && turnEffects[Effects.SkipAccuracyCheck] == 0) {
+			} else if (Battle.Rand(10) < 2 && turnEffects[Effects.SkipAccuracyCheck] == 0) {
 				CureStatus();
 				CheckForm();
 			} else if (!thisMove.CanThawUser()) {
@@ -2693,7 +2693,7 @@ public class Battler : MonoBehaviour {
 				} else {
 					ContinueConfusion();
 					Debug.Log(string.Format("[Status] {0} remained confused (count: {1}", String(), effects[Effects.Confusion]));
-					if (battle.Rand(2) == 0) {
+					if (Battle.Rand(2) == 0) {
 						ConfusionDamage();
 						battle.Display(string.Format("It hurt itself in confusion!"));
 						Debug.Log(string.Format("[Status] {0} hurt itself in its confusion and couldn't move", String()));
@@ -2716,13 +2716,13 @@ public class Battler : MonoBehaviour {
 		if (turnEffects[Effects.SkipAccuracyCheck] == 0) {
 			if (effects[Effects.Attract] >= 0) {
 				AnnounceAttract(battle.battlers[effects[Effects.Attract]]);
-				if (battle.Rand(2) == 0) {
+				if (Battle.Rand(2) == 0) {
 					ContinueAttract();
 					Debug.Log(string.Format("[Lingering effect triggered] {0} was infatuated and couldn't move", String()));
 				}
 			}
 			if (status == Statuses.PARALYSIS) {
-				if (battle.Rand(4) == 0) {
+				if (Battle.Rand(4) == 0) {
 					ContinueStatus();
 					Debug.Log(string.Format("[Status] {0} was fully paralyzed and couldn't move", String()));
 				}
@@ -2836,7 +2836,7 @@ public class Battler : MonoBehaviour {
 				if (Settings.DEBUG && Input.GetKey("ctrl")) {
 					add1Effect = 100;
 				}
-				if (battle.Rand(100) < add1Effect) {
+				if (Battle.Rand(100) < add1Effect) {
 					Debug.Log(string.Format("[Move effect triggered] {0}'s added effect", thisMove.name));
 					thisMove.AdditionalEffect(user, target);
 				}
@@ -2870,7 +2870,7 @@ public class Battler : MonoBehaviour {
 					if (user.HasWorkingAbility(Abilities.STENCH) && thisMove.function != 0x09 && thisMove.function != 0x0B && thisMove.function != 0x0E && thisMove.function != 0x0F && thisMove.function != 0x10 && thisMove.function != 0x11 && thisMove.function != 0x12 && thisMove.function != 0x78 && thisMove.function != 0xC7) {
 						canFlinch = true;
 					}
-					if (canFlinch && battle.Rand(10) == 0) {
+					if (canFlinch && Battle.Rand(10) == 0) {
 						Debug.Log(string.Format("[Item/Ability triggered] {0}'s King's Rock/Razor Fang or Stench", user.String()));
 						target.Flinch(user);
 					}
@@ -3239,7 +3239,7 @@ public class Battler : MonoBehaviour {
 						}
 					}
 					if (choices.Count > 0) {
-						int newPoke = choices[battle.Rand(choices.Count)];
+						int newPoke = choices[Battle.Rand(choices.Count)];
 						int newPokeName = newPoke;
 						if (party[newPoke].pokemon.Ability() == Abilities.ILLUSION) {
 							newPokeName = battle.GetLastPokemonInTeam(i);
@@ -3517,7 +3517,7 @@ public class Battler : MonoBehaviour {
 
 	public void Sleep(string msg="") {
 		status = Statuses.SLEEP;
-		statusCount = 2 + battle.Rand(3);
+		statusCount = 2 + Battle.Rand(3);
 		if (HasWorkingAbility(Abilities.EARLYBIRD)) {
 			statusCount = statusCount/2;
 		}
@@ -3536,7 +3536,7 @@ public class Battler : MonoBehaviour {
 		if (duration > 0) {
 			statusCount = duration;
 		} else {
-			statusCount = 2 + battle.Rand(3);
+			statusCount = 2 + Battle.Rand(3);
 		}
 		if (HasWorkingAbility(Abilities.EARLYBIRD)) {
 			statusCount = statusCount/2;
@@ -4048,14 +4048,14 @@ public class Battler : MonoBehaviour {
 	}
 
 	public void Confuse() {
-		effects[Effects.Confusion] = 2 + battle.Rand(4);
+		effects[Effects.Confusion] = 2 + Battle.Rand(4);
 		battle.CommonAnimation("Confusion", this, null);
 		Debug.Log(string.Format("[Lingering effect triggered] {0} became confused ({1} turns)", String(), effects[Effects.Confusion]));
 	}
 
 	public void ConfuseSelf() {
 		if (CanConfuseSelf(false)) {
-			effects[Effects.Confusion] = 2 + battle.Rand(4);
+			effects[Effects.Confusion] = 2 + Battle.Rand(4);
 			battle.CommonAnimation("Confusion", this, null);
 			battle.Display(string.Format("{0} became confused!", String()));
 			Debug.Log(string.Format("[Lingering effect triggered] {0} became confused ({1} turns)", String(), effects[Effects.Confusion]));

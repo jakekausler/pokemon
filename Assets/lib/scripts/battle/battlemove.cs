@@ -572,7 +572,7 @@ public class BattleMove {
 		if (opponent.HasWorkingItem(Items.LAXINCENSE)) {
 			evasion *= 1.1;
 		}
-		return battle.Rand(100) < (baseAccuracy*accuracy/evasion);
+		return Battle.Rand(100) < (baseAccuracy*accuracy/evasion);
 	}
 
 	/***********************************
@@ -618,7 +618,7 @@ public class BattleMove {
 		if (c > 4) {
 			c = 4;
 		}
-		return battle.Rand(ratios[c]) == 0;
+		return Battle.Rand(ratios[c]) == 0;
 	}
 
 	public int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
@@ -981,7 +981,7 @@ public class BattleMove {
 		}
 		int random = 0;
 		if ((options&NOWEIGHTING)==0) {
-			random = 85 + battle.Rand(16);
+			random = 85 + Battle.Rand(16);
 			damage = (int)(damage*random/100.0);
 		}
 		if (attacker.HasType(t) && (options&IGNOREPKMNTYPES)==0) {
@@ -1110,7 +1110,7 @@ public class BattleMove {
 						opponent.damageState.FocusSash = true;
 						damage = damage - 1;
 						Debug.Log(string.Format("[Item triggered] {0}'s Focus Sash",opponent.String()));
-					} else if (opponent.HasWorkingItem(Items.FOCUSBAND) && battle.Rand(10) == 0) {
+					} else if (opponent.HasWorkingItem(Items.FOCUSBAND) && Battle.Rand(10) == 0) {
 						opponent.damageState.FocusBand = true;
 						damage = damage - 1;
 						Debug.Log(string.Format("[Item triggered] {0}'s Focus Band",opponent.String()));
@@ -1638,12 +1638,12 @@ public class Move009 : BattleMove {
 		if (opponent.damageState.Substitute) {
 			return;
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			if (opponent.CanParalyze(attacker, false, this)) {
 				opponent.Paralyze(attacker);
 			}
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			opponent.Flinch(attacker);
 		}
 	}
@@ -1696,12 +1696,12 @@ public class Move00B : BattleMove {
 		if (opponent.damageState.Substitute) {
 			return;
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			if (opponent.CanBurn(attacker, false, this)) {
 				opponent.Burn(attacker);
 			}
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			opponent.Flinch(attacker);
 		}
 	}
@@ -1780,12 +1780,12 @@ public class Move00E : BattleMove {
 		if (opponent.damageState.Substitute) {
 			return;
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			if (opponent.CanFreeze(attacker, false, this)) {
 				opponent.Freeze();
 			}
 		}
-		if (battle.Rand(10) == 0) {
+		if (Battle.Rand(10) == 0) {
 			opponent.Flinch(attacker);
 		}
 	}
@@ -2012,7 +2012,7 @@ public class Move017 : BattleMove {
 		if (opponent.damageState.Substitute) {
 			return;
 		}
-		switch (battle.Rand(3)) 
+		switch (Battle.Rand(3)) 
 		{
 			case 0:
 				if (opponent.CanBurn(attacker, false, this)) {
@@ -2911,7 +2911,7 @@ public class Move037 : BattleMove {
 			battle.Display(string.Format("{0}'s stats won't go any higher!",opponent.String()));
 			return -1;
 		}
-		int stat = arr[battle.Rand(arr.Count)];
+		int stat = arr[Battle.Rand(arr.Count)];
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 		opponent.IncreaseStat(stat, 2, attacker, false, this);
 		return 0;
@@ -3988,7 +3988,7 @@ public class Move05E : BattleMove {
 			}
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
-		int newtype = types[battle.Rand(types.Count)];
+		int newtype = types[Battle.Rand(types.Count)];
 		attacker.type1 = newtype;
 		attacker.type2 = newtype;
 		attacker.effects[Effects.Type3] = newtype;
@@ -4041,7 +4041,7 @@ public class Move05F : BattleMove {
 			return -1;
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
-		int newtype = types[battle.Rand(types.Count)];
+		int newtype = types[Battle.Rand(types.Count)];
 		attacker.type1 = newtype;
 		attacker.type2 = newtype;
 		attacker.effects[Effects.Type3] = newtype;
@@ -4468,7 +4468,7 @@ public class Move06F : BattleMove {
 	public Move06F(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		int dmg = (int)Math.Max(attacker.level*(battle.Rand(101)+50.0)/100, 1);
+		int dmg = (int)Math.Max(attacker.level*(Battle.Rand(101)+50.0)/100, 1);
 		return EffectFixedDamage(dmg, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
@@ -4488,7 +4488,7 @@ public class Move070 : BattleMove {
 			battle.Display(string.Format("{0} is unaffected!",opponent.String()));
 			return false;
 		}
-		return battle.Rand(100) < (accuracy + attacker.level-opponent.level);
+		return Battle.Rand(100) < (accuracy + attacker.level-opponent.level);
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
@@ -5159,7 +5159,7 @@ public class Move094 : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		calcBaseDamage = 1;
-		int r = battle.Rand(forceDamage ? 8 : 10);
+		int r = Battle.Rand(forceDamage ? 8 : 10);
 		if (r < 4) {
 			calcBaseDamage = 40;
 		} else if (r < 7) {
@@ -5195,7 +5195,7 @@ public class Move095 : BattleMove {
 	public new bool OnStartUse(Battler attacker) {
 		int[] baseDamage = new int[7]{10, 30, 50, 70, 90, 110, 150};
 		int[] magnitude = new int[20]{4,5,5,6,6,6,6,7,7,7,7,7,7,8,8,8,8,9,9,10};
-		int magni = magnitude[battle.Rand(magnitude.Length)];
+		int magni = magnitude[Battle.Rand(magnitude.Length)];
 		calcBaseDamage = baseDamage[magni-4];
 		battle.Display(string.Format("Magnitude {0}!", magni));
 		return false;
@@ -6064,7 +6064,7 @@ public class Move0AA : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
+		if (!unmoved || Battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -6102,7 +6102,7 @@ public class Move0AB : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
+		if (!unmoved || Battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -6144,7 +6144,7 @@ public class Move0AC : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
+		if (!unmoved || Battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -6370,7 +6370,7 @@ public class Move0B4 : BattleMove {
 			return -1;
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
-		int choice = choices[battle.Rand(choices.Count)];
+		int choice = choices[Battle.Rand(choices.Count)];
 		attacker.UseMoveSimple(attacker.moves[choice].id, -1, attacker.OppositeOpposing().index);
 		return 0;
 	}
@@ -6408,7 +6408,7 @@ public class Move0B5 : BattleMove {
 			return -1;
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
-		int m = moves[battle.Rand(moves.Count)];
+		int m = moves[Battle.Rand(moves.Count)];
 		attacker.UseMoveSimple(m);
 		return 0;
 	}
@@ -6425,7 +6425,7 @@ public class Move0B6 : BattleMove {
 		int[] blacklistMoves = new int[8]{Moves.FREEZESHOCK,Moves.ICEBURN,Moves.RELICSONG,Moves.SECRETSWORD,Moves.SNARL,Moves.TECHNOBLAST,Moves.VCREATE,Moves.GEOMANCY};
 		for (int i=0; i<1000; i++) 
 		{
-			int m = battle.Rand(Moves.MaxValue()+1);
+			int m = Battle.Rand(Moves.MaxValue()+1);
 			bool found = false;
 			if (Array.IndexOf(blacklist, (new Moves.Move(m)).Function()) > -1) {
 				found = true;
@@ -6709,7 +6709,7 @@ public class Move0C0 : BattleMove {
 
 	public new int NumHits(Battler attacker) {
 		int[] hitchances = new int[6]{2,2,3,3,4,5};
-		int ret = hitchances[battle.Rand(hitchances.Length)];
+		int ret = hitchances[Battle.Rand(hitchances.Length)];
 		if (attacker.HasWorkingAbility(Abilities.SKILLLINK)) {
 			ret = 5;
 		}
@@ -6756,7 +6756,7 @@ public class Move0C1 : BattleMove {
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
 		Battler[] party = battle.Party(attacker.index);
 		int atk = party[participants[0]].pokemon.BaseStats()[Stats.ATTACK];
-		participants.Remove(0);
+		participants.RemoveAt(0);
 		return 5 + atk/10;
 	}
 }
@@ -7314,7 +7314,7 @@ public class Move0CF : BattleMove {
 		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		if (opponent.damageState.CalculatedDamage > 0 && !opponent.Fainted() && !opponent.damageState.Substitute) {
 			if (opponent.effects[Effects.MultiTurn] == 0) {
-				opponent.effects[Effects.MultiTurn] = 5 + battle.Rand(2);
+				opponent.effects[Effects.MultiTurn] = 5 + Battle.Rand(2);
 				if (attacker.HasWorkingItem(Items.GRIPCLAW)) {
 					opponent.effects[Effects.MultiTurn] = Settings.USE_NEW_BATTLE_MECHANICS ? 8 : 6;
 				}
@@ -7356,7 +7356,7 @@ public class Move0D0 : BattleMove {
 		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		if (opponent.damageState.CalculatedDamage > 0 && !opponent.Fainted() && !opponent.damageState.Substitute) {
 			if (opponent.effects[Effects.MultiTurn] == 0) {
-				opponent.effects[Effects.MultiTurn] = 5 + battle.Rand(2);
+				opponent.effects[Effects.MultiTurn] = 5 + Battle.Rand(2);
 				if (attacker.HasWorkingItem(Items.GRIPCLAW)) {
 					opponent.effects[Effects.MultiTurn] = Settings.USE_NEW_BATTLE_MECHANICS ? 8 : 6;
 				}
@@ -7405,7 +7405,7 @@ public class Move0D2 : BattleMove {
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		if (opponent.damageState.CalculatedDamage > 0 && attacker.effects[Effects.Outrage] == 0 && attacker.status != Statuses.SLEEP) {
-			attacker.effects[Effects.Outrage] = 2 + battle.Rand(2);
+			attacker.effects[Effects.Outrage] = 2 + Battle.Rand(2);
 			attacker.currentMove = id;
 		} else if (TypeModifier(type, attacker, opponent) == 0) {
 			attacker.effects[Effects.Outrage] = 0;
@@ -8023,7 +8023,7 @@ public class Move0E8 : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || battle.Rand(65536) > (65536/attacker.effects[Effects.ProtectRate])) {
+		if (!unmoved || Battle.Rand(65536) > (65536/attacker.effects[Effects.ProtectRate])) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -8987,7 +8987,7 @@ public class Move106 : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+		if (!battle.doublebattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
 			attacker.effects[Effects.FirstPledge] = 0;
 			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		}
@@ -9004,7 +9004,7 @@ public class Move106 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		} else if (attacker.effects[Effects.FirstPledge]==0x108) {
 			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 			if (opponent.damageState.CalculatedDamage > 0) {
@@ -9018,7 +9018,7 @@ public class Move106 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		}
 		attacker.effects[Effects.FirstPledge] = 0;
 		int partnerMove = -1;
@@ -9041,9 +9041,9 @@ public class Move106 : BattleMove {
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		if (overrideType) {
-			return base.ShowAnimation(Moves.FIREPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
+			base.ShowAnimation(Moves.FIREPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
 		}
-		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9085,7 +9085,7 @@ public class Move107 : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+		if (!battle.doublebattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
 			attacker.effects[Effects.FirstPledge] = 0;
 			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		}
@@ -9102,7 +9102,7 @@ public class Move107 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		} else if (attacker.effects[Effects.FirstPledge]==0x108) {
 			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 			if (opponent.damageState.CalculatedDamage > 0) {
@@ -9116,7 +9116,7 @@ public class Move107 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		}
 		attacker.effects[Effects.FirstPledge] = 0;
 		int partnerMove = -1;
@@ -9139,9 +9139,9 @@ public class Move107 : BattleMove {
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		if (overrideType) {
-			return base.ShowAnimation(Moves.WATERPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
+			base.ShowAnimation(Moves.WATERPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
 		}
-		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9183,7 +9183,7 @@ public class Move108 : BattleMove {
 	}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+		if (!battle.doublebattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
 			attacker.effects[Effects.FirstPledge] = 0;
 			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		}
@@ -9200,7 +9200,7 @@ public class Move108 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		} else if (attacker.effects[Effects.FirstPledge]==0x107) {
 			int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 			if (opponent.damageState.CalculatedDamage > 0) {
@@ -9214,7 +9214,7 @@ public class Move108 : BattleMove {
 				}
 			}
 			attacker.effects[Effects.FirstPledge] = 0;
-			return 0;
+			return ret;
 		}
 		attacker.effects[Effects.FirstPledge] = 0;
 		int partnerMove = -1;
@@ -9237,9 +9237,9 @@ public class Move108 : BattleMove {
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		if (overrideType) {
-			return base.ShowAnimation(Moves.GRASSPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
+			base.ShowAnimation(Moves.GRASSPLEDGE, attacker, opponent, hitNum, allTargets, showAnimation);
 		}
-		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9253,9 +9253,9 @@ public class Move109 : BattleMove {
 		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		if (opponent.damageState.CalculatedDamage > 0) {
 			if (battle.OwnedByPlayer(attacker.index)) {
-				battle.extraMoney += 5*attacker.level;
-				if (battle.extraMoney > Settings.MAX_MONEY) {
-					battle.extraMoney = Settings.MAX_MONEY;
+				battle.extramoney += 5*attacker.level;
+				if (battle.extramoney > Settings.MAX_MONEY) {
+					battle.extramoney = Settings.MAX_MONEY;
 				}
 			}
 			battle.Display(string.Format("Coins were scattered everywhere!"));
@@ -9270,7 +9270,7 @@ public class Move109 : BattleMove {
 public class Move10A : BattleMove {
 	public Move10A(Battle battle, Moves.Move move) : base(battle, move) {}
 
-	public bool CalcDamage(Battler attacker, Battler opponent) {
+	public int CalcDamage(Battler attacker, Battler opponent) {
 		return base.CalcDamage(attacker, opponent, NOREFLECT);
 	}
 
@@ -9297,9 +9297,9 @@ public class Move10A : BattleMove {
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		if (attacker.OpposingSide().effects[Effects.Reflect]>0 || attacker.OpposingSide().effects[Effects.LightScreen]>0) {
-			return base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+			base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
 		}
-		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9406,8 +9406,7 @@ public class Move10E : BattleMove {
 		for (int i=0; i<opponent.moves.Length; i++) 
 		{
 			BattleMove m = opponent.moves[i];
-			if (m.id == opponent.lastMoveUsed && i.id > 0 && i.pp > 0) {
-				showAnim
+			if (m.id == opponent.lastMoveUsed && m.id > 0 && m.pp > 0) {
 				int reduction = (int)Math.Min(4, m.pp);
 				opponent.SetPP(m, m.pp-reduction);
 				battle.Display(string.Format("It reduced the PP of {0}'s {1} by {2}!",opponent.String(true), m.name, reduction));
@@ -9485,7 +9484,7 @@ public class Move111 : BattleMove {
 	public Move111(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int DisplayUseMessage(Battler attacker) {
-		if (battle.futureSight) {
+		if (battle.futuresight) {
 			return 0;
 		}
 		return base.DisplayUseMessage(attacker);
@@ -9496,7 +9495,7 @@ public class Move111 : BattleMove {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
-		if (battle.futureSight) {
+		if (battle.futuresight) {
 			return base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
@@ -9513,10 +9512,10 @@ public class Move111 : BattleMove {
 	}
 
 	public new void ShowAnimation(int id, Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (battle.futureSight) {
-			return base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
+		if (battle.futuresight) {
+			base.ShowAnimation(id, attacker, opponent, 1, allTargets, showAnimation);
 		}
-		return base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
+		base.ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
 	}
 }
 
@@ -9567,7 +9566,7 @@ public class Move113 : BattleMove {
 
 	public new void EffectAfterHit(Battler attacker, Battler opponent, Dictionary<int, int> turneffects) {
 		if (!attacker.Fainted() && turneffects[Effects.TotalDamage] > 0) {
-			bool showAnim;
+			bool showAnim = true;
 			if (attacker.effects[Effects.StockpileDef]>0) {
 				if (attacker.CanReduceStatStage(Stats.DEFENSE, attacker, false, this)) {
 					attacker.ReduceStat(Stats.DEFENSE, attacker.effects[Effects.StockpileDef], attacker, false, this, showAnim);
@@ -9671,7 +9670,7 @@ public class Move116 : BattleMove {
 		if (battle.useMoveChoice[opponent.index] != 1) {
 			return true;
 		}
-		BattlerMove oppMove = battle.moveChoice[opponent.index];
+		BattleMove oppMove = battle.moveChoice[opponent.index];
 		if (oppMove == null || oppMove.id <= 0 || oppMove.IsStatus()) {
 			return true;
 		}
@@ -9690,7 +9689,7 @@ public class Move117 : BattleMove {
 	public Move117(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle) {
+		if (!battle.doublebattle) {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
@@ -9700,6 +9699,7 @@ public class Move117 : BattleMove {
 			attacker.effects[Effects.FollowMe] = attacker.Partner().effects[Effects.FollowMe]+1;
 		}
 		battle.Display(string.Format("{0} became the center of attention!",attacker.String()));
+		return 0;
 	}
 }
 
@@ -9800,7 +9800,7 @@ public class Move11C : BattleMove {
 	public Move11C(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int BaseDamage(int baseDamage, Battler attacker, Battler opponent) {
-		if ((new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCC || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCE || opponent.effects[Effects.SkyDrop] != 0) {
+		if ((new Moves.Move(opponent.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(opponent.effects[Effects.TwoTurnAttack])).Function() == 0xCC || (new Moves.Move(opponent.effects[Effects.TwoTurnAttack])).Function() == 0xCE || opponent.effects[Effects.SkyDrop] != 0) {
 			return baseDamage*2;
 		}
 		return baseDamage;
@@ -9808,10 +9808,10 @@ public class Move11C : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		int ret = base.Effect(attacker, opponent, hitNum, allTargets, showAnimation);
-		if (opponent.damageState.CalculatedDamage>0 && !opponent.damageState.Substitute && !opponent.effects[Effects.Roost] != 0) {
+		if (opponent.damageState.CalculatedDamage>0 && !opponent.damageState.Substitute && opponent.effects[Effects.Roost] != 0) {
 			opponent.effects[Effects.SmackDown] = 1;
 			bool showMsg = (opponent.HasType(Types.FLYING) || opponent.HasWorkingAbility(Abilities.LEVITATE));
-			if ((new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(poke.effects[Effects.TwoTurnAttack])).Function() == 0xCC) {
+			if ((new Moves.Move(opponent.effects[Effects.TwoTurnAttack])).Function() == 0xC9 || (new Moves.Move(opponent.effects[Effects.TwoTurnAttack])).Function() == 0xCC) {
 				opponent.effects[Effects.TwoTurnAttack] = 0;
 				showMsg = true;
 			}
@@ -9922,7 +9922,7 @@ public class Move120 : BattleMove {
 	public Move120(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
+		if (!battle.doublebattle || attacker.Partner() == null || attacker.Partner().Fainted()) {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
@@ -9933,13 +9933,14 @@ public class Move120 : BattleMove {
 		int[] effectsToSwap = new int[6]{Effects.BideTarget, Effects.CounterTarget, Effects.LeechSeed, Effects.LockOnPos, Effects.MeanLook, Effects.MirrorCoatTarget};
 		for (int i=0; i<effectsToSwap.Length; i++) 
 		{
-			int temp = a.effects[effectsToSwap[i]];
+			int t = battle.battlers[attacker.index].effects[effectsToSwap[i]];
 			battle.battlers[attacker.index].effects[effectsToSwap[i]] = battle.battlers[attacker.Partner().index].effects[effectsToSwap[i]];
-			battle.battlers[attacker.Partner().index].effects[effectsToSwap[i]] = temp;
+			battle.battlers[attacker.Partner().index].effects[effectsToSwap[i]] = t;
 		}
 		attacker.Update(true);
 		opponent.Update(true);
 		battle.Display(string.Format("{0} and {1} switched places!",opponent.String(), attacker.String(true)));
+		return 0;
 	}
 }
 
@@ -10086,8 +10087,8 @@ public class Move137 : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		bool didSomething = false;
-		Battler[] bt = new int[2]{attacker, attacker.Partner()};
-		for (int i=0; i<b.Length; i++) 
+		Battler[] bt = new Battler[2]{attacker, attacker.Partner()};
+		for (int i=0; i<bt.Length; i++) 
 		{
 			Battler b = bt[i];
 			if (b == null || b.Fainted()) {
@@ -10096,11 +10097,7 @@ public class Move137 : BattleMove {
 			if (!b.HasWorkingAbility(Abilities.PLUS) && !b.HasWorkingAbility(Abilities.MINUS)) {
 				continue;
 			}
-			if (!b.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this) && !b.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
-				ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
-				didSomething = true;
-				bool showAnim = true;
-			}
+			bool showAnim = true;
 			if (b.CanIncreaseStatStage(Stats.DEFENSE, attacker, false, this)) {
 				b.IncreaseStat(Stats.DEFENSE, 1, attacker, false, this, showAnim);
 				showAnim = false;
@@ -10125,7 +10122,7 @@ public class Move138 : BattleMove {
 	public Move138(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (!battle.doubleBattle || opponent == null || !opponent.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
+		if (!battle.doublebattle || opponent == null || !opponent.CanIncreaseStatStage(Stats.SPDEF, attacker, false, this)) {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
@@ -10368,14 +10365,14 @@ public class Move140 : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		bool didSomething = false;
-		Battler[] bt = new int[2]{attacker.Opposing1(), attacker.Opposing2()};
+		Battler[] bt = new Battler[2]{attacker.Opposing1(), attacker.Opposing2()};
 		for (int i=0; i<bt.Length; i++) 
 		{
 			Battler b = bt[i];
 			if (b == null || b.Fainted()) {
 				continue;
 			}
-			if (!b.status == Statuses.POISON) {
+			if (b.status != Statuses.POISON) {
 				continue;
 			}
 			if (!b.CanReduceStatStage(Stats.ATTACK, attacker, false, this) && !b.CanReduceStatStage(Stats.SPATK, attacker, false, this) && !b.CanReduceStatStage(Stats.SPEED, attacker, false, this)) {
@@ -10529,8 +10526,9 @@ public class Move145 : BattleMove {
 			return -1;
 		}
 		ShowAnimation(id, attacker, opponent, hitNum, allTargets, showAnimation);
-		effects[Effects.Electrify] = 1;
+		opponent.effects[Effects.Electrify] = 1;
 		battle.Display(string.Format("{0} was electrified!",opponent.String()));
+		return 0;
 	}
 }
 
@@ -10543,7 +10541,7 @@ public class Move146 : BattleMove {
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
 		bool unmoved = false;
-		for (int i=0; i<battle.battlers.Length; i++) 
+		for (int i=0; i<battle.battlers.Count; i++) 
 		{
 			Battler poke = battle.battlers[i];
 			if (poke.index == attacker.index) {
@@ -10621,12 +10619,12 @@ public class Move14A : BattleMove {
 	public Move14A(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (attacker.OwnSide().effects[Effects.CraftyShield]) {
+		if (attacker.OwnSide().effects[Effects.CraftyShield] != 0) {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
 		bool unmoved = false;
-		for (int i=0; i<battle.battlers.Length; i++) 
+		for (int i=0; i<battle.battlers.Count; i++) 
 		{
 			Battler poke = battle.battlers[i];
 			if (poke.index == attacker.index) {
@@ -10669,7 +10667,7 @@ public class Move14B : BattleMove {
 			attacker.effects[Effects.ProtectRate] = 1;
 		}
 		bool unmoved = false;
-		for (int i=0; i<battle.battlers.Length; i++) 
+		for (int i=0; i<battle.battlers.Count; i++) 
 		{
 			Battler poke = battle.battlers[i];
 			if (poke.index == attacker.index) {
@@ -10680,7 +10678,7 @@ public class Move14B : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || (!Settings.USE_NEW_BATTLE_MECHANICS && battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate]))) {
+		if (!unmoved || (!Settings.USE_NEW_BATTLE_MECHANICS && Battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate]))) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -10710,7 +10708,7 @@ public class Move14C : BattleMove {
 			attacker.effects[Effects.ProtectRate] = 1;
 		}
 		bool unmoved = false;
-		for (int i=0; i<battle.battlers.Length; i++) 
+		for (int i=0; i<battle.battlers.Count; i++) 
 		{
 			Battler poke = battle.battlers[i];
 			if (poke.index == attacker.index) {
@@ -10721,7 +10719,7 @@ public class Move14C : BattleMove {
 				break;
 			}
 		}
-		if (!unmoved || battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
+		if (!unmoved || Battle.Rand(65536) >= (65536/attacker.effects[Effects.ProtectRate])) {
 			attacker.effects[Effects.ProtectRate] = 1;
 			battle.Display(string.Format("But it failed!"));
 			return -1;
@@ -10910,7 +10908,7 @@ public class Move151 : BattleMove {
 			}
 		}
 		if (!attacker.Fainted() && battle.CanChooseNonActive(attacker.index) && !battle.AllFainted(battle.Party(opponent.index))) {
-			attacker.effects[Effects.Uturn] = true;
+			attacker.effects[Effects.Uturn] = 1;
 			ret = 0;
 		}
 		return ret;
@@ -11031,12 +11029,12 @@ public class Move157 : BattleMove {
 	public Move157(Battle battle, Moves.Move move) : base(battle, move) {}
 
 	public new int Effect(Battler attacker, Battler opponent, int hitNum=0, List<Battler> allTargets=null, bool showAnimation=true) {
-		if (battle.IsOpposing(attacker.index) || battle.doubleMoney) {
+		if (battle.IsOpposing(attacker.index) || battle.doublemoney) {
 			battle.Display(string.Format("But it failed!"));
 			return -1;
 		}
 		ShowAnimation(id, attacker, null, hitNum, allTargets, showAnimation);
-		battle.doubleMoney = true;
+		battle.doublemoney = true;
 		battle.Display(string.Format("Everyone is caught up in the happy atmosphere!"));
 		return 0;
 	}

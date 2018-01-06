@@ -41,4 +41,12 @@ public class Graphics : MonoBehaviour {
 		return retVal;
 	}
 
+	public static void FadeOutInWithMusic(int t, Action f) {
+		f();
+	}
+
+	public static void FadeOut(int t, Action f) {
+		f();
+	}
+
 }

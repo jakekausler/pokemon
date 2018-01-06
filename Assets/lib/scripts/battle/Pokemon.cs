@@ -43,7 +43,7 @@ public class Pokemon {
 	public int genderFlag;
 	public int natureFlag;
 	public int shinyFlag; // 0 is false, 1 is true
-	public int[] ribbons;
+	public List<int> ribbons;
 	public int cool;
 	public int beauty;
 	public int cute;
@@ -53,7 +53,7 @@ public class Pokemon {
 	public DateTime timeRecieved;
 	public DateTime timeEggHatched;
 	public DateTime formTime;
-	public bool forcedForm;
+	public int forcedForm;
 	public int form;
 
 	public const int EV_LIMIT = 510;
@@ -155,16 +155,17 @@ public class Pokemon {
 			case "Genderless":
 				return 2;
 			case "FemaleOneEighth":
-				return isFemale(lowbyte, 0.125);
+				return isFemale(lowbyte, 0.125) ? 1 : 0;
 			case "Female25Percent":
-				return isFemale(lowbyte, 0.25);
+				return isFemale(lowbyte, 0.25) ? 1 : 0;
 			case "Female50Percent":
-				return isFemale(lowbyte, 0.5);
+				return isFemale(lowbyte, 0.5) ? 1 : 0;
 			case "Female75Percent":
-				return isFemale(lowbyte, 0.75);
+				return isFemale(lowbyte, 0.75) ? 1 : 0;
 			case "FemaleSevenEighths":
-				return isFemale(lowbyte, 0.875);
+				return isFemale(lowbyte, 0.875) ? 1 : 0;
 		}
+		return 2;
 	}
 
 	public bool isFemale(int lowbyte, double femalePercentage) {
@@ -238,9 +239,8 @@ public class Pokemon {
 		if (a == 0) {
 			return Ability() > 0;
 		} else {
-			return Ability() == value;
+			return Ability() == a;
 		}
-		return false;
 	}
 
 	public void SetAbility(int a) {
@@ -248,13 +248,13 @@ public class Pokemon {
 	}
 
 	public bool HasHiddenAbility() {
-		int abil = abilityIndex();
+		int abil = AbilityIndex();
 		return abil != -1 && abil >= 2;
 	}
 
 	public List<int> GetAbilityList() {
 		List<int> abils = new List<int>();
-		int[] abilities = Species.GetSpecies(species).Abilities;
+		string[] abilities = Species.GetSpecies(species).Abilities;
 		for (int i=0; i<abilities.Length; i++) 
 		{
 			abils.Add(Abilities.GetValueFromName(abilities[i]));
@@ -273,9 +273,8 @@ public class Pokemon {
 		if (n < 0) {
 			return Nature() >= 0;
 		} else {
-			return nature == n;
+			return Nature() == n;
 		}
-		return false;
 	}
 
 	public void SetNature(int n) {
@@ -365,7 +364,7 @@ public class Pokemon {
 		int ret = 0;
 		for (int i=0; i<4; i++) 
 		{
-			if (moves[i].id != 0) {
+			if (moves[i].Id != 0) {
 				ret++;
 			}
 		}
@@ -378,7 +377,7 @@ public class Pokemon {
 		}
 		for (int i=0; i<4; i++) 
 		{
-			if (moves[i].id == 0) {
+			if (moves[i].Id == 0) {
 				return true;
 			}
 		}
@@ -391,7 +390,7 @@ public class Pokemon {
 
 	public List<int[]> GetMoveList() {
 		List<int[]> movelist = new List<int[]>();
-		LevMove[] ml = Species.GetSpecies(species).Moves;
+		Species.LevMove[] ml = Species.GetSpecies(species).Moves;
 		for (int i=0; i<ml.Length; i++) 
 		{
 			movelist.Add(new int[2]{ml[i].Level, Moves.GetValueFromName(ml[i].Move)});
@@ -416,24 +415,24 @@ public class Pokemon {
 		for (int i= listEnd; i<listEnd+4; i++) 
 		{
 			int moveId = (i >= movelist.Count) ? 0 : movelist[i];
-			moves[j] = new Moves.Move(moveId);
+			this.moves[j] = new Moves.Move(moveId);
 			j++;
 		}
 	}
 
 	public void LearnMove(int id) {
-		if (move <= 0) {
+		if (id <= 0) {
 			return;
 		}
 		for (int i=0; i<4; i++) 
 		{
-			if (moves[i].id == id) {
+			if (moves[i].Id == id) {
 				int j = i + 1;
 				while (j < 4) {
-					if (moves[j].id == 0) {
+					if (moves[j].Id == 0) {
 						break;
 					}
-					int tmp = moves[j];
+					Moves.Move tmp = moves[j];
 					moves[j] = moves[j-1];
 					moves[j-1] = tmp;
 					j++;
@@ -443,7 +442,7 @@ public class Pokemon {
 		}
 		for (int i=0; i<4; i++) 
 		{
-			if (moves[i].id == 0) {
+			if (moves[i].Id == 0) {
 				moves[i] = new Moves.Move(id);
 				return;
 			}
@@ -455,12 +454,12 @@ public class Pokemon {
 	}
 
 	public void DeleteMove(int id) {
-		if (move <= 0) {
+		if (id <= 0) {
 			return;
 		}
-		List<int> newMoves = new List<int>();
+		List<Moves.Move> newMoves = new List<Moves.Move>();
 		for (int i=0; i<4; i++) {
-			if (moves[i].id != id) {
+			if (moves[i].Id != id) {
 				newMoves.Add(moves[i]);
 			}
 		}
@@ -471,7 +470,7 @@ public class Pokemon {
 	}
 
 	public void DeleteMoveAtIndex(int idx) {
-		List<int> newMoves = new List<int>();
+		List<Moves.Move> newMoves = new List<Moves.Move>();
 		for (int i=0; i<4; i++) {
 			if (i != idx) {
 				newMoves.Add(moves[i]);
@@ -492,8 +491,8 @@ public class Pokemon {
 	public void RecordFirstMoves() {
 		firstMoves = new List<int>();
 		for (int i=0; i<4; i++) {
-			if (moves[i].id > 0) {
-				firstMoves.Add(moves[i].id);
+			if (moves[i].Id > 0) {
+				firstMoves.Add(moves[i].Id);
 			}
 		}
 	}
@@ -509,7 +508,7 @@ public class Pokemon {
 			for (int i=0; i<4; i++) 
 			{
 				if (firstMoves[i] == id) {
-					firstMoves.Remove(i);
+					firstMoves.RemoveAt(i);
 					return;
 				}
 			}
@@ -521,7 +520,7 @@ public class Pokemon {
 	}
 
 	public bool IsCompatibleWithMove(int id) {
-		int[] v = MultipleForms.Call("getMoveCompatibility", this);
+		int[] v = MultipleForms.GetMoveCompatibility(species, this);
 		if (v != null) {
 			for (int i=0; i<v.Length; i++) {
 				if (v[i] == id) {
@@ -529,7 +528,7 @@ public class Pokemon {
 				}
 			}
 		}
-		return SpeciesCombatible(species, move);
+		return MultipleForms.SpeciesCombatible(species, id);
 	}
 
 	public int Cool() {
@@ -558,14 +557,14 @@ public class Pokemon {
 
 	public int RibbonCount() {
 		if (ribbons == null) {
-			ribons = new List<int>();
+			ribbons = new List<int>();
 		}
 		return ribbons.Count;
 	}
 
 	public bool HasRibbon(int id) {
 		if (ribbons == null) {
-			ribons = new List<int>();
+			ribbons = new List<int>();
 		}
 		if (id <= 0) {
 			return false;
@@ -582,15 +581,15 @@ public class Pokemon {
 		}
 	}
 
-	public void UpgradeRibbon(List<int> ids) {
+	public int UpgradeRibbon(List<int> ids) {
 		if (ribbons == null) {
-			ribons = new List<int>();
+			ribbons = new List<int>();
 		}
 		for (int i=0; i<ids.Count-1; i++) 
 		{
 			for (int j=0; j<ribbons.Count; j++) 
 			{
-				int thisRibbon = arg[i];
+				int thisRibbon = ids[i];
 				if (ribbons[j] == thisRibbon) {
 					int nextRibbon = ids[i+1];
 					ribbons[j] = nextRibbon;
@@ -613,7 +612,8 @@ public class Pokemon {
 		for (int i=0; i<ribbons.Count; i++) 
 		{
 			if (ribbons[i] == id) {
-				ribbons.Remove(i);
+				ribbons.RemoveAt(i);
+				break;
 			}
 		}
 	}
@@ -628,7 +628,6 @@ public class Pokemon {
 		} else {
 			return item == id;
 		}
-		return false;
 	}
 
 	public void SetItem(int id) {
@@ -674,7 +673,7 @@ public class Pokemon {
 	}
 
 	public int Language() {
-		return language ? language : 0;
+		return language;
 	}
 
 	public int Markings() {
@@ -741,11 +740,11 @@ public class Pokemon {
 			return;
 		}
 		if (index >= 0) {
-			moves[index].pp = moves[index].totalPP;
+			moves[index].pp = moves[index].TotalPP();
 		} else {
 			for (int i=0; i<4; i++) 
 			{
-				moves[i].pp = moves[i].totalPP;
+				moves[i].pp = moves[i].TotalPP();
 			}
 		}
 	}
@@ -831,7 +830,7 @@ public class Pokemon {
 				}
 				break;
 			default:
-				Messaging.Message("Unknown happiness-changing method.")
+				Messaging.Message("Unknown happiness-changing method.");
 				break;
 		}
 		if (luxury && ballUsed == Items.GetBallType(Items.LUXURYBALL)) {
@@ -853,7 +852,7 @@ public class Pokemon {
 		if (b == 1) {
 			return 1;
 		}
-		return (int)(((int)((b*2.0+iv+(ev>>2))*level/100.0)+5)*pv/100.0);
+		return (int)((b*2.0+iv+(ev>>2))*level/100.0)+level+10;
 	}
 
 	public int CalcStat(int b, int level, int iv, int ev, int pv) {
@@ -863,7 +862,7 @@ public class Pokemon {
 	public void CalcStats() {
 		int nature = Nature();
 		int[] stats = new int[6]{0,0,0,0,0,0};
-		int[] pvalues = new int[6]{100, 100, 100, 100, 100};
+		int[] pvalues = new int[5]{100, 100, 100, 100, 100};
 		int nd5 = nature/5;
 		int nm5 = nature%5;
 		if (nd5 != nm5) {
@@ -911,7 +910,7 @@ public class Pokemon {
 		totalHP = 1;
 		ev = new int[6]{0,0,0,0,0,0};
 		iv = new int[6]{Battle.Rand(32),Battle.Rand(32),Battle.Rand(32),Battle.Rand(32),Battle.Rand(32),Battle.Rand(32)};
-		moves = new int[new Moves.Move(0),new Moves.Move(0),new Moves.Move(0),new Moves.Move(0)];
+		moves = new Moves.Move[4]{new Moves.Move(0),new Moves.Move(0),new Moves.Move(0),new Moves.Move(0)};
 		status = 0;
 		statusCount = 0;
 		item = 0;
@@ -923,7 +922,7 @@ public class Pokemon {
 		if (trainer != null) {
 			trainerID = trainer.id;
 			ot = trainer.name;
-			otGender = trainer.gender;
+			otGender = trainer.Gender();
 			language = trainer.language;
 		} else {
 			trainerID = 0;
@@ -938,7 +937,7 @@ public class Pokemon {
 		obtainText = "";
 		obtainLevel = level;
 		obtainMode = 0;
-		if (Globals.GetSwitch(Globals.FATEFUL_ENCOUNTER_SWITCH)) {
+		if (Globals.getSwitch(Globals.FATEFUL_ENCOUNTER_SWITCH)) {
 			obtainMode = 4;
 		}
 		hatchedMap = 0;
@@ -949,7 +948,7 @@ public class Pokemon {
 		if (withMoves) {
 			ResetMoves();
 		}
-		int f = MultipleForms.Call("getFormOnCreation", this);
+		int f = MultipleForms.GetFormOnCreation(species, this);
 		if (f >= 0) {
 			SetForm(f);
 			ResetMoves();
@@ -967,18 +966,18 @@ public class Pokemon {
 		if (forcedForm > 0) {
 			return forcedForm;
 		}
-		int v = MultipleForms.Call("getForm", this);
+		int v = MultipleForms.GetForm(species, this);
 		if (v >= 0) {
-			if (form() < 0 || v != form) {
+			if (form < 0 || v != form) {
 				SetForm(v);
 			}
 		}
-		return form();
+		return form;
 	}
 
 	public void SetForm(int v) {
 		form = v;
-		MultipleForms.Call("OnSetForm", this, v);
+		MultipleForms.OnSetForm(species, this);
 		CalcStats();
 		Utilities.SeenForm(this);
 	}
@@ -989,7 +988,7 @@ public class Pokemon {
 	}
 
 	public int FormSpecies() {
-		return Utilties.GetFormSpeciesFromForm(species, GetForm());
+		return Utilities.GetFormSpeciesFromForm(species, GetForm());
 	}
 
 	public Species.InternalForm GetMegaForm(bool itemOnly=false) {
@@ -1009,7 +1008,7 @@ public class Pokemon {
 	}
 
 	public Species.InternalSpecies GetUnmegaForm() {
-		return GetSpecies(species);
+		return Species.GetSpecies(species);
 	}
 
 	public bool HasMegaForm() {
@@ -1018,7 +1017,7 @@ public class Pokemon {
 	}
 
 	public bool IsMega() {
-		return GetMetaForm() != null && GetForm() == 1;
+		return GetMegaForm() != null && GetForm() == 1;
 	}
 
 	public void MakeMega() {
@@ -1029,7 +1028,6 @@ public class Pokemon {
 	}
 
 	public void MakeUnmega() {
-		Species.InternalSpecies uf = GetUnmegaForm();
 		SetForm(0);
 	}
 
@@ -1048,321 +1046,297 @@ public class Pokemon {
 	}
 
 	public bool HasPrimalForm() {
-		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		int v = (int)MultipleForms.GetPrimalForm(species, this);
 		return v > 0;
 	}
 
 	public bool IsPrimal() {
-		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		int v = (int)MultipleForms.GetPrimalForm(species, this);
 		return v > 0 && v== form;
 	}
 
 	public void MakePrimal() {
-		int v = (int)MultipleForms.Call("getPrimalForm", this);
+		int v = (int)MultipleForms.GetPrimalForm(species, this);
 		if (v > 0) {
 			SetForm(v);
 		}
 	}
 
 	public void MakeUnprimal() {
-		if (mf != null) {
-			SetForm(1);
-		}
+		SetForm(0);
 	}
 }
 
 public static class MultipleForms {
-	public static Dictionary<int, Dictionary<string, Func<object[], object>>> formSpecies;
 
-	public static void RegisterFunctions() {
-		formSpecies = new Dictionary<int, Dictionary<string, Func<object[], object>>>();
-		MultipleForms.Register(Species.UNOWN, "getFormOnCreation", delegate(object[] o) {
-			return Battle.Rand(28);
-		});
-		MultipleForms.Register(Species.SPINDA, "alterBitmap", delegate(object[] o) {
-			SpindaSpots((Pokemon)o[0], (Sprite)o[1]);
-		});
-		MultipleForms.Register(Species.BURMY, "getFormOnCreation", delegate(object[] o) {
-			int env = PokemonGlobal.GetEnvironment();
-			if (!Utilities.GetMetaData(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor)) {
-				return 2;
-			} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
-				return 1;
-			} else {
+	public static int GetFormOnCreation(int species, Pokemon pokemon) {
+		int env;
+		int[] maps;
+		switch (species) {
+			case Species.UNOWN:
+				return Battle.Rand(28);
+			case Species.BURMY:
+			case Species.WORMADAM:
+				env = PokemonGlobal.GetEnvironment();
+				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) != null) {
+					return 2;
+				} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
+					return 1;
+				} else {
+					return 0;
+				}
+			case Species.SHELLOS:
+			case Species.GASTRODON:
+				maps = new int[0]; // TODO Map ids for second form 
+				if (PokemonGlobal.Map != null && Array.IndexOf(maps, PokemonGlobal.Map.MapID) > -1) {
+					return 1;
+				} else {
+					return 0;
+				}
+			case Species.BASCULIN:
+				return Battle.Rand(2);
+			case Species.SCATTERBUG:
+			case Species.SPEWPA:
+			case Species.VIVILLON:
+				return PokemonGlobal.Trainer.SecretID()%18;
+			case Species.FLABEBE:
+			case Species.FLOETTE:
+			case Species.FLORGES:
+				return Battle.Rand(5);
+			case Species.PUMPKABOO:
+			case Species.GOURGEIST:
+				int r = Battle.Rand(20);
+				if (r == 0) {
+					return 3;
+				}
+				if (r < 4) {
+					return 2;
+				}
+				if (r < 13) {
+					return 1;
+				}
 				return 0;
-			}
-		});
-		MultipleForms.Register(Species.BURMY, "getFormOnEnteringBattle", delegate(object[] o) {
-			int env = PokemonGlobal.GetEnvironment();
-			if (!Utilities.GetMetaData(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor)) {
-				return 2;
-			} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
+		}
+		return -1;
+	}
+
+	public static void AlterBitmap(int species, Pokemon pokemon, Sprite sprite) {
+		switch (species) {
+			case Species.SPINDA:
+				SpindaSpots(pokemon, sprite);
+				break;
+		}
+	}
+
+	public static int GetFormOnEnteringBattle(int species, Pokemon pokemon) {
+		int env;
+		switch (species) {
+			case Species.BURMY:
+				env = PokemonGlobal.GetEnvironment();
+				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) == null) {
+					return 2;
+				} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
+					return 1;
+				} else {
+					return 0;
+				}
+			case Species.XERNEAS:
 				return 1;
-			} else {
-				return 0;
-			}
-		});
-		MultipleForms.Register(Species.WORMADAM, "getFormOnCreation", delegate(object[] o) {
-			int env = PokemonGlobal.GetEnvironment();
-			if (!Utilities.GetMetaData(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor)) {
-				return 2;
-			} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-		MultipleForms.Register(Species.WORMADAM, "getMoveCompatibility", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			if (pokemon.form == 0) {
-				return -1;
-			}
-			int[] movelist;
-			switch (pokemon.form) 
-			{
-				case 1:
-					movelist = new int[43]{Items.TOXIC,Items.VENOSHOCK,Items.HIDDENPOWER,Items.SUNNYDAY,Items.HYPERBEAM,Items.PROTECT,Items.RAINDANCE,Items.SAFEGUARD,Items.FRUSTRATION,Items.EARTHQUAKE,Items.RETURN,Items.DIG,Items.PSYCHIC,Items.SHADOWBALL,Items.DOUBLETEAM,Items.SANDSTORM,Items.ROCKTOMB,Items.FACADE,Items.REST,Items.ATTRACT,Items.THIEF,Items.ROUND,Items.GIGAIMPACT,Items.FLASH,Items.STRUGGLEBUG,Items.PSYCHUP,Items.BULLDOZE,Items.DREAMEATER,Items.SWAGGER,Items.SUBSTITUTE,Items.BUGBITE,Items.EARTHPOWER,Items.ELECTROWEB,Items.ENDEAVOR,Items.MUDSLAP,Items.SIGNALBEAM,Items.SKILLSWAP,Items.SLEEPTALK,Items.SNORE,Items.STEALTHROCK,Items.STRINGSHOT,Items.SUCKERPUNCH,Items.UPROAR};
-					break;
-				case 2:
-					movelist = new int[42]{Items.TOXIC,Items.VENOSHOCK,Items.HIDDENPOWER,Items.SUNNYDAY,Items.HYPERBEAM,Items.PROTECT,Items.RAINDANCE,Items.SAFEGUARD,Items.FRUSTRATION,Items.RETURN,Items.PSYCHIC,Items.SHADOWBALL,Items.DOUBLETEAM,Items.FACADE,Items.REST,Items.ATTRACT,Items.THIEF,Items.ROUND,Items.GIGAIMPACT,Items.FLASH,Items.GYROBALL,Items.STRUGGLEBUG,Items.PSYCHUP,Items.DREAMEATER,Items.SWAGGER,Items.SUBSTITUTE,Items.FLASHCANNON,Items.BUGBITE,Items.ELECTROWEB,Items.ENDEAVOR,Items.GUNKSHOT,Items.IRONDEFENSE,Items.IRONHEAD,Items.MAGNETRISE,Items.SIGNALBEAM,Items.SKILLSWAP,Items.SLEEPTALK,Items.SNORE,Items.STEALTHROCK,Items.STRINGSHOT,Items.SUCKERPUNCH,Items.UPROAR};
-					break;
-			}
-			return movelist;
-		});
-		MultipleForms.Register(Species.SHELLOS, "getFormOnCreation", delegate(object[] o) {
-			int[] maps = new int[0]; // TODO Map ids for second form 
-			if (PokemonGlobal.Map != null && Array.IndexOf(maps, PokemonGlobal.Map.MapID) > -1) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-		MultipleForms.Copy(Species.SHELLOS, Species.GASTRODON);
-		MultipleForms.Register(Species.ROTOM, "onSetForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			int[] moves = new int[5]{Moves.OVERHEAT, Moves.HYDROPUMP, Moves.BLIZZARD, Moves.AIRSLASH, Moves.LEAFSTORM};
-			int hasOldMove = -1;
-			for (int i=0; i<4; i++) 
-			{
-				for (int j=0; j<moves.Length; j++) 
+		}
+		return -1;
+	}
+
+	public static int[] GetMoveCompatibility(int species, Pokemon pokemon) {
+		int[] movelist = new int[0];
+		switch (species) {
+			case Species.WORMADAM:
+				if (pokemon.form == 0) {
+					return movelist;
+				}
+				switch (pokemon.form) 
 				{
-					if (pokemon.moves[i].id, moves[j]) {
-						hasOldMove = i;
+					case 1:
+						movelist = new int[43]{Moves.TOXIC,Moves.VENOSHOCK,Moves.HIDDENPOWER,Moves.SUNNYDAY,Moves.HYPERBEAM,Moves.PROTECT,Moves.RAINDANCE,Moves.SAFEGUARD,Moves.FRUSTRATION,Moves.EARTHQUAKE,Moves.RETURN,Moves.DIG,Moves.PSYCHIC,Moves.SHADOWBALL,Moves.DOUBLETEAM,Moves.SANDSTORM,Moves.ROCKTOMB,Moves.FACADE,Moves.REST,Moves.ATTRACT,Moves.THIEF,Moves.ROUND,Moves.GIGAIMPACT,Moves.FLASH,Moves.STRUGGLEBUG,Moves.PSYCHUP,Moves.BULLDOZE,Moves.DREAMEATER,Moves.SWAGGER,Moves.SUBSTITUTE,Moves.BUGBITE,Moves.EARTHPOWER,Moves.ELECTROWEB,Moves.ENDEAVOR,Moves.MUDSLAP,Moves.SIGNALBEAM,Moves.SKILLSWAP,Moves.SLEEPTALK,Moves.SNORE,Moves.STEALTHROCK,Moves.STRINGSHOT,Moves.SUCKERPUNCH,Moves.UPROAR};
+						break;
+					case 2:
+						movelist = new int[42]{Moves.TOXIC,Moves.VENOSHOCK,Moves.HIDDENPOWER,Moves.SUNNYDAY,Moves.HYPERBEAM,Moves.PROTECT,Moves.RAINDANCE,Moves.SAFEGUARD,Moves.FRUSTRATION,Moves.RETURN,Moves.PSYCHIC,Moves.SHADOWBALL,Moves.DOUBLETEAM,Moves.FACADE,Moves.REST,Moves.ATTRACT,Moves.THIEF,Moves.ROUND,Moves.GIGAIMPACT,Moves.FLASH,Moves.GYROBALL,Moves.STRUGGLEBUG,Moves.PSYCHUP,Moves.DREAMEATER,Moves.SWAGGER,Moves.SUBSTITUTE,Moves.FLASHCANNON,Moves.BUGBITE,Moves.ELECTROWEB,Moves.ENDEAVOR,Moves.GUNKSHOT,Moves.IRONDEFENSE,Moves.IRONHEAD,Moves.MAGNETRISE,Moves.SIGNALBEAM,Moves.SKILLSWAP,Moves.SLEEPTALK,Moves.SNORE,Moves.STEALTHROCK,Moves.STRINGSHOT,Moves.SUCKERPUNCH,Moves.UPROAR};
+						break;
+				}
+				return movelist;
+		}
+		return movelist;
+	}
+
+	public static void OnSetForm(int species, Pokemon pokemon) {
+		switch (species) 
+		{
+			case Species.ROTOM:
+				int[] moves = new int[5]{Moves.OVERHEAT, Moves.HYDROPUMP, Moves.BLIZZARD, Moves.AIRSLASH, Moves.LEAFSTORM};
+				int hasOldMove = -1;
+				for (int i=0; i<4; i++) 
+				{
+					for (int j=0; j<moves.Length; j++) 
+					{
+						if (pokemon.moves[i].Id == moves[j]) {
+							hasOldMove = i;
+							break;
+						}
+					}
+					if (hasOldMove >= 0) {
 						break;
 					}
 				}
-				if (hasOldMove >= 0) {
-					break;
-				}
-			}
-			if (form > 0) {
-				int newMove = -1;
-				if (form-1 >= 0) {
-					newMove = moves[form-1];
-				}
-				if (newMove > 0) {
-					if (hasOldMove >= 0) {
-						string oldMoveName = Moves.GetName(pokemon.moves[hasOldMove].id);
-						string newMoveName = Moves.GetName(newMove);
-						pokemon.moves[hasOldMove] = new Moves.Move(newMove);
-						Messaging.Message(string.Format("1,\\wt[16] 2, and\\wt[16]...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\1"));
-						Messaging.Message(string.Format("{0} forgot how to use {1}. And...", pokemon.name, oldMoveName));
-						Messaging.Message(string.Format("\\se[]{0} learned {1}!\\se[Pkmn move learnt]", pokemon.name, newMoveName));
-					} else {
-						MultipleForms.LearnMove(pokemon, newMove, true);
+				if (pokemon.GetForm() > 0) {
+					int newMove = -1;
+					if (pokemon.GetForm()-1 >= 0) {
+						newMove = moves[pokemon.GetForm()-1];
 					}
-				}
-			} else {
-				if (hasOldMove >= 0) {
-					string oldMoveName = Moves.GetName(pokemon.moves[hasOldMove].id);
-					pokemon.DeleteMoveAtIndex(hasOldMove);
-					Messaging.Message(string.Format("{0} forgot {1}...", pokemon.name, oldMoveName));
-					int found = 0;
-					for (int i=0; i<pokemon.moves.Length; i++) 
-					{
-						if (pokemon.moves[i].id != 0) {
-							found++;
+					if (newMove > 0) {
+						if (hasOldMove >= 0) {
+							string oldMoveName = Moves.GetName(pokemon.moves[hasOldMove].Id);
+							string newMoveName = Moves.GetName(newMove);
+							pokemon.moves[hasOldMove] = new Moves.Move(newMove);
+							Messaging.Message(string.Format("1,\\wt[16] 2, and\\wt[16]...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\\1"));
+							Messaging.Message(string.Format("{0} forgot how to use {1}. And...", pokemon.name, oldMoveName));
+							Messaging.Message(string.Format("\\se[]{0} learned {1}!\\se[Pkmn move learnt]", pokemon.name, newMoveName));
+						} else {
+							MultipleForms.LearnMove(pokemon, newMove, true);
 						}
 					}
-					if (found == 0) {
-						MultipleMoves.LearnMove(pokemon, Moves.THUNDERSHOCK);
+				} else {
+					if (hasOldMove >= 0) {
+						string oldMoveName = Moves.GetName(pokemon.moves[hasOldMove].Id);
+						pokemon.DeleteMoveAtIndex(hasOldMove);
+						Messaging.Message(string.Format("{0} forgot {1}...", pokemon.name, oldMoveName));
+						int found = 0;
+						for (int i=0; i<pokemon.moves.Length; i++) 
+						{
+							if (pokemon.moves[i].Id != 0) {
+								found++;
+							}
+						}
+						if (found == 0) {
+							MultipleForms.LearnMove(pokemon, Moves.THUNDERSHOCK);
+						}
 					}
 				}
-			}
-		});
-		MultipleForms.Register(Species.GIRATINA, "getForm", delegate(object[] o) {
-			int[] maps = new int[0]; // TODO Map ids for second form 
-			if (PokemonGlobal.Map != null && Array.IndexOf(maps, PokemonGlobal.Map.MapID) > -1) {
-				return 1;
-			} else {
-				return 0;
-			}
-		});
-		MultipleForms.Register(Species.SHAYMIN, "getForm", delegate(object[] o) {
-			if (pokemon.hp <= 0 || pokemon.status == Statuses.FROZEN || DayNight.IsNight()) {
-				return 0;
-			}
-			return -1;
-		});
-		MultipleForms.Register(Species.ARCEUS, "getForm", delegate(object[] o) {
-			Pokemon p = (Pokemon)o[0];
-			switch (p.item) 
-			{
-				case Items.FISTPLATE:
-					return 1;
-				case Items.SKYPLATE:
-					return 2;
-				case Items.TOXICPLATE:
-					return 3;
-				case Items.EARTHPLATE:
-					return 4;
-				case Items.STONEPLATE:
-					return 5;
-				case Items.INSECTPLATE:
-					return 6;
-				case Items.SPOOKYPLATE:
-					return 7;
-				case Items.IRONPLATE:
-					return 8;
-				case Items.FLAMEPLATE:
-					return 10;
-				case Items.SPLASHPLATE:
-					return 11;
-				case Items.MEADOWPLATE:
-					return 12;
-				case Items.ZAPPLATE:
-					return 13;
-				case Items.MINDPLATE:
-					return 14;
-				case Items.ICICLEPLATE:
-					return 15;
-				case Items.DRACOPLATE:
-					return 16;
-				case Items.DREADPLATE:
-					return 17;
-				case Items.PIXIEPLATE:
-					return 18;
-			}
-			return 0;
-		});
-		MultipleForms.Register(Species.BASCULIN, "getFormOnCreation", delegate(object[] o) {
-			return Battle.Rand(2);
-		});
-		MultipleForms.Register(Species.DEERLING, "getForm", delegate(object[] o) {
-			return Seasons.GetSeason();
-		});
-		MultipleForms.Copy(Species.DEERLING, Species.SAWSBUCK);
-		MultipleForms.Register(Species.KELDEO, "getForm", delegate(object[] o) {
-			if (((Pokemon)o[0]).HasMove(Moves.SECRETSWORD)) {
-				return 1;
-			}
-			return 0;
-		});
-		MultipleForms.Register(Species.GENESECT, "getForm", delegate(object[] o) {
-			switch (((Pokemon)o[0]).item)
-			{
-				case Items.SHOCKDRIVE:
-					return 1;
-				case Items.BURNDRIVE:
-					return 2;
-				case Items.CHILLDRIVE:
-					return 3;
-				case Items.DOUSEDRIVE:
-					return 4;
-			}
-			return 0;
-		});
-		MultipleForms.Register(Species.SCATTERBUG, "getFormOnCreation", delegate(object[] o) {
-			return PokemonGlobal.Trainer.secretID%18;
-		});
-		MultipleForms.Copy(Species.SCATTERBUG, Species.SPEWPA);
-		MultipleForms.Copy(Species.SCATTERBUG, Species.VIVILLON);
-		MultipleForms.Register(Species.FLABEBE, "getFormOnCreation", delegate(object[] o) {
-			return Battle.Rand(5);
-		});
-		MultipleForms.Copy(Species.FLABEBE, Species.FLOETTE);
-		MultipleForms.Copy(Species.FLABEBE, Species.FLORGES);
-		MultipleForms.Register(Species.FURFROU, "getForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			if (pokemon.formTime == new DateTime() || Utilities.GetTimeNow() > pokemon.formTime.Add(new TimeSpan(5,0,0,0))) {
-				return 0;
-			}
-			return -1;
-		});
-		MultipleForms.Register(Species.FURFROU, "onSetForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			pokemon.formTime = (form > 0) ? Utilities.GetTimeNow() : new DateTime();
-		});
-		MultipleForms.Register(Species.PUMPKABOO, "getFormOnCreation", delegate(object[] o) {
-			int r = Battle.Rand(20);
-			if (r == 0) {
-				return 3;
-			}
-			if (r < 4) {
-				return 2;
-			}
-			if (r < 13) {
-				return 1;
-			}
-			return 0;
-		});
-		MultipleForms.Copy(Species.PUMPKABOO, Species.GOURGEIST);
-		MultipleForms.Register(Species.XERNEAS, "getFormOnEnteringBattle", delegate(object[] o) {
-			return 1;
-		});
-		MultipleForms.Register(Species.HOOPA, "getForm", delegate(object[] o) {
-			if (pokemon.formTime == new DateTime() || Utilities.GetTimeNow() > pokemon.formTime.Add(new TimeSpan(3,0,0,0))) {
-				return 0;
-			}
-			return -1;
-		});
-		MultipleForms.Register(Species.HOOPA, "onSetForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			pokemon.formTime = (form > 0) ? Utilities.GetTimeNow() : new DateTime();
-		});
-		MultipleForms.Register(Species.KYOGRE, "getPrimalForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			return pokemon.items == Items.BLUEORB ? 1 : -1;
-		});
-		MultipleForms.Register(Species.GROUDON, "getPrimalForm", delegate(object[] o) {
-			Pokemon pokemon = (Pokemon)o[0];
-			return pokemon.items == Items.REDORB ? 1 : -1;
-		});
-	}
-
-	// Copy s1 to s2
-	public static void Copy(int s1, int s2) {
-		formSpecies[s2] = formSpecies[s1];
-	}
-
-	public static void Register(int s, string fname, Func<object[], int> function) {
-		formSpecies[s][fname] = function;
-	}
-
-	public static bool HasFunction(int species, string fname) {
-		return formSpecies.ContainsKey(species) && formSpecies[species].ContainsKey(fname);
-	}
-
-	public static Func<object[], int> GetFunction(int species, string fname) {
-		if (HasFunction(species, fname)) {
-			return null;
+				break;
+			case Species.FURFROU:
+				pokemon.formTime = ((pokemon.GetForm() > 0) ? Utilities.GetTimeNow() : new DateTime());
+				break;
+			case Species.HOOPA:
+				pokemon.formTime = ((pokemon.GetForm() > 0) ? Utilities.GetTimeNow() : new DateTime());
+				break;
 		}
-		return formSpecies[species][fname];
 	}
 
-	public static int Call(string fname, Pokemon pokemon, params object[] args) {
-		if (HasFunction(species, fname)) {
-			return null;
+	public static int GetForm(int species, Pokemon pokemon) {
+		int[] maps;
+		switch (species) 
+		{
+			case Species.GIRATINA:
+				maps = new int[0]; // TODO Map ids for second form 
+				if (PokemonGlobal.Map != null && Array.IndexOf(maps, PokemonGlobal.Map.MapID) > -1) {
+					return 1;
+				} else {
+					return 0;
+				}
+			case Species.SHAYMIN:
+				if (pokemon.hp <= 0 || pokemon.status == Statuses.FROZEN || DayNight.IsNight()) {
+					return 0;
+				}
+				return -1;
+			case Species.ARCEUS:
+				switch (pokemon.item) 
+				{
+					case Items.FISTPLATE:
+						return 1;
+					case Items.SKYPLATE:
+						return 2;
+					case Items.TOXICPLATE:
+						return 3;
+					case Items.EARTHPLATE:
+						return 4;
+					case Items.STONEPLATE:
+						return 5;
+					case Items.INSECTPLATE:
+						return 6;
+					case Items.SPOOKYPLATE:
+						return 7;
+					case Items.IRONPLATE:
+						return 8;
+					case Items.FLAMEPLATE:
+						return 10;
+					case Items.SPLASHPLATE:
+						return 11;
+					case Items.MEADOWPLATE:
+						return 12;
+					case Items.ZAPPLATE:
+						return 13;
+					case Items.MINDPLATE:
+						return 14;
+					case Items.ICICLEPLATE:
+						return 15;
+					case Items.DRACOPLATE:
+						return 16;
+					case Items.DREADPLATE:
+						return 17;
+					case Items.PIXIEPLATE:
+						return 18;
+				}
+				return 0;
+			case Species.DEERLING:
+			case Species.SAWSBUCK:
+				return Seasons.GetSeason();
+			case Species.KELDEO:
+				if (pokemon.HasMove(Moves.SECRETSWORD)) {
+					return 1;
+				}
+				return 0;
+			case Species.GENESECT:
+				switch (pokemon.item)
+				{
+					case Items.SHOCKDRIVE:
+						return 1;
+					case Items.BURNDRIVE:
+						return 2;
+					case Items.CHILLDRIVE:
+						return 3;
+					case Items.DOUSEDRIVE:
+						return 4;
+				}
+				return 0;
+			case Species.FURFROU:
+				if (pokemon.formTime == new DateTime() || Utilities.GetTimeNow() > pokemon.formTime.Add(new TimeSpan(5,0,0,0))) {
+					return 0;
+				}
+				return -1;
+			case Species.HOOPA:
+				if (pokemon.formTime == new DateTime() || Utilities.GetTimeNow() > pokemon.formTime.Add(new TimeSpan(3,0,0,0))) {
+					return 0;
+				}
+				return -1;
 		}
-		return formSpecies[species][fname](args);
+		return -2;
 	}
 
-	public static void DrawSpot(Pokemon pokemon, int[][] spotpattern, int x, int y, int r, int g, int b) {
+	public static int GetPrimalForm(int species, Pokemon pokemon) {
+		switch (species) 
+		{
+			case Species.GROUDON:
+				return pokemon.item == Items.BLUEORB ? 1 : -1;
+			case Species.KYOGRE:
+				return pokemon.item == Items.REDORB ? 1 : -1;
+		}
+		return -1;
+	}
+
+	public static void DrawSpot(Sprite bitmap, int[][] spotpattern, int x, int y, int r, int g, int b) {
 		//TODO
 	}
 
 	public static void SpindaSpots(Pokemon pokemon, Sprite bitmap) {
-		int[][] spot1 = new int[9]{
+		int[][] spot1 = new int[9][]{
 			new int[8]{0,0,1,1,1,1,0,0},
 			new int[8]{0,1,1,1,1,1,1,0},
 			new int[8]{1,1,1,1,1,1,1,1},
@@ -1373,7 +1347,7 @@ public static class MultipleForms {
 			new int[8]{0,1,1,1,1,1,1,0},
 			new int[8]{0,0,1,1,1,1,0,0}
 		};
-		int[][] spot1 = new int[9]{
+		int[][] spot2 = new int[9][]{
 			new int[7]{0,0,1,1,1,0,0},
 			new int[7]{0,1,1,1,1,1,0},
 			new int[7]{1,1,1,1,1,1,1},
@@ -1384,7 +1358,7 @@ public static class MultipleForms {
 			new int[7]{0,1,1,1,1,1,0},
 			new int[7]{0,0,1,1,1,0,0}
 		};
-		int[][] spot1 = new int[13]{
+		int[][] spot3 = new int[13][]{
 			new int[13]{0,0,0,0,0,1,1,1,1,0,0,0,0},
 			new int[13]{0,0,0,1,1,1,1,1,1,1,0,0,0},
 			new int[13]{0,0,1,1,1,1,1,1,1,1,1,0,0},
@@ -1399,7 +1373,7 @@ public static class MultipleForms {
 			new int[13]{0,0,0,1,1,1,1,1,1,1,0,0,0},
 			new int[13]{0,0,0,0,0,1,1,1,0,0,0,0,0}
 		};
-		int[][] spot1 = new int[12]{
+		int[][] spot4 = new int[12][]{
 			new int[12]{0,0,0,0,1,1,1,0,0,0,0,0},
 			new int[12]{0,0,1,1,1,1,1,1,1,0,0,0},
 			new int[12]{0,1,1,1,1,1,1,1,1,1,0,0},
@@ -1413,7 +1387,7 @@ public static class MultipleForms {
 			new int[12]{0,0,1,1,1,1,1,1,1,1,0,0},
 			new int[12]{0,0,0,0,1,1,1,1,1,0,0,0},
 		};
-		int id = pokemon.PersonalID;
+		int id = pokemon.personalID;
 		int h = (id>>28)&15;
 		int g = (id>>24)&15;
 		int f = (id>>20)&15;
@@ -1424,33 +1398,143 @@ public static class MultipleForms {
 		int a = (id)&15;
 		if (pokemon.IsShiny()) {
 			DrawSpot(bitmap, spot1, b+33, a+25, -75, -10, -150);
-			DrawSpot(bitmap, spot1, d+21, c+24, -75, -10, -150);
-			DrawSpot(bitmap, spot1, f+39, e+7, -75, -10, -150);
-			DrawSpot(bitmap, spot1, h+15, g+6, -75, -10, -150);
+			DrawSpot(bitmap, spot2, d+21, c+24, -75, -10, -150);
+			DrawSpot(bitmap, spot3, f+39, e+7, -75, -10, -150);
+			DrawSpot(bitmap, spot4, h+15, g+6, -75, -10, -150);
 		} else {
 			DrawSpot(bitmap, spot1, b+33, a+25, 0, -115, -75);
-			DrawSpot(bitmap, spot1, d+21, c+24, 0, -115, -75);
-			DrawSpot(bitmap, spot1, f+39, e+7, 0, -115, -75);
-			DrawSpot(bitmap, spot1, h+15, g+6, 0, -115, -75);
+			DrawSpot(bitmap, spot2, d+21, c+24, 0, -115, -75);
+			DrawSpot(bitmap, spot3, f+39, e+7, 0, -115, -75);
+			DrawSpot(bitmap, spot4, h+15, g+6, 0, -115, -75);
 		}
 	}
 
 	public static void ChangeLevel(Pokemon pokemon, int newLevel, BattleScene scene) {
-		//TODO
+		if (newLevel < 1) {
+			newLevel = 1;
+		}
+		if (newLevel > Experience.MAXLEVEL) {
+			newLevel = Experience.MAXLEVEL;
+		}
+		if (pokemon.Level() > newLevel) {
+			int attackDiff = pokemon.attack;
+			int defenseDiff = pokemon.defense;
+			int speedDiff = pokemon.speed;
+			int spatkDiff = pokemon.spatk;
+			int spdefDiff = pokemon.spdef;
+			int totalHPDiff = pokemon.totalHP;
+			pokemon.Level(newLevel);
+			pokemon.CalcStats();
+			scene.Refresh();
+			Messaging.Message(string.Format("{0} was downgraded to Level {1}!", pokemon.name, pokemon.Level()));
+			attackDiff = pokemon.attack - attackDiff;
+			defenseDiff = pokemon.defense - defenseDiff;
+			speedDiff = pokemon.speed - speedDiff;
+			spatkDiff = pokemon.spatk - spatkDiff;
+			spdefDiff = pokemon.spdef - spdefDiff;
+			totalHPDiff = pokemon.totalHP - totalHPDiff;
+			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", totalHPDiff, attackDiff, defenseDiff, spatkDiff, spdefDiff, speedDiff));
+			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", pokemon.totalHP, pokemon.attack, pokemon.defense, pokemon.spatk, pokemon.spdef, pokemon.speed));
+		} else if (pokemon.level == newLevel) {
+			Messaging.Message(string.Format("{0}'s level remained unchanged.", pokemon.name));
+		} else {
+			int attackDiff = pokemon.attack;
+			int defenseDiff = pokemon.defense;
+			int speedDiff = pokemon.speed;
+			int spatkDiff = pokemon.spatk;
+			int spdefDiff = pokemon.spdef;
+			int totalHPDiff = pokemon.totalHP;
+			pokemon.Level(newLevel);
+			pokemon.ChangeHappiness("levelup");
+			pokemon.CalcStats();
+			scene.Refresh();
+			Messaging.Message(string.Format("{0} was elevated to Level {1}!", pokemon.name, pokemon.Level()));
+			attackDiff = pokemon.attack - attackDiff;
+			defenseDiff = pokemon.defense - defenseDiff;
+			speedDiff = pokemon.speed - speedDiff;
+			spatkDiff = pokemon.spatk - spatkDiff;
+			spdefDiff = pokemon.spdef - spdefDiff;
+			totalHPDiff = pokemon.totalHP - totalHPDiff;
+			Messaging.TopRightWindow(string.Format("Max. HP<r>+{0}\r\nAttack<r>+{1}\r\nDefense<r>+{2}\r\nSp. Atk<r>+{3}\r\nSp. Def<r>+{4}\r\nSpeed<r>+{5}", totalHPDiff, attackDiff, defenseDiff, spatkDiff, spdefDiff, speedDiff));
+			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", pokemon.totalHP, pokemon.attack, pokemon.defense, pokemon.spatk, pokemon.spdef, pokemon.speed));
+			List<int> movelist = pokemon.GetMoveList();
+			for (int i=0; i<movelist.Count; i++) 
+			{
+				if (movelist[i][0] == pokemon.level) {
+					MultipleForms.LearnMove(pokemon, movelist[i][1], true);
+				}
+			}
+			int newspecies = CheckEvolution(pokemon);
+			if (newspecies > 0) {
+				Graphics.FadeOutInWithMusic(99999, new Action() {
+					EvolutionScene evo = new EvolutionScene();
+					evo.StartScreen(pokemon, newspecies);
+					evo.Evolution();
+					evo.EndScreen();
+				});
+			}
+		}
 	}
 
 	public static bool LearnMove(Pokemon pokemon, int move, bool ignoreIfKnown=false, bool byMachine=false) {
-		//TODO
-		return true;
+		if (pokemon == null) {
+			return false;
+		}
+		string moveName = Moves.GetName(move);
+		if (pokemon.Egg() && !PokemonGlobal.DEBUG) {
+			Messaging.Message("Eggs can't be taught any moves.")
+			return false;
+		}
+		string pokemonName = pokemon.name;
+		for (int i=0; i < 4; i++) 
+		{
+			if (pokemon.moves[i].id == move) {
+				if (!ignoreIfKnown) {
+					Messaging.Message(string.Format("{0} already knows {1}."pkmnName, moveName));
+				}
+				return false;
+			}
+			if (pokemon.moves[i].id == 0) {
+				Messaging.Message(string.Format("\\se[]{0} learned {1}!\\se[Pkmn move learnt]", pokemonName, moveName));
+				return true;
+			}
+		}
+		while (true) {
+			Messaging.Message(string.Format("{0} wants to learn {1}, but it already knows four moves.\\1", pokemonName, moveName));
+			Messaging.Message(string.Format("Please choose a move that will be replaced with {0}.", moveName));
+			int forgetMove = MultipleForms.ForgetMove(pokemon, move);
+			if (forgetMove >= 0) {
+				string oldMoveName = Moves.GetName(pokemon.moves[forgetMove].id);
+				int oldMovePP = pokemon.moves[forgetMove].pp;
+				pokemon.moves[forgetMove] = Moves.Move(move);
+				if (byMachine) {
+					pokemon.moves[forgetMove].pp = Math.Min(oldMovePP, pokemon.moves[forgetMove].totalPP);
+				}
+				Messaging.Message(string.Format("1,\\wt[16] 2, and\\wt[16]...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\\1"));
+				Messaging.Message(string.Format("{0} forgot how to use {1}.\\nAnd...\\1", pokemonName, oldMoveName));
+				Messaging.Message(string.Format("\\se[]{0} learned {1}!\\se[Pkmn move learnt]", pokemonName, oldMoveName));
+				return true;
+			} else if (Messaging.ConfirmMessage(string.Format("Give up on learning {0}?", moveName))) {
+				Messaging.Message(string.Format("{0} did not learn {1}.", pokemonName, moveName));
+				return false;
+			}
+		}
 	}
 
 	public static int ForgetMove(Pokemon pokemon, int moveToLearn) {
-		//TODO
-		return 0;
+		int ret = -1;
+		Graphics.FadeOutScene(99999, new Action() {
+			PokemonSummaryScene scene = new PokemonSummaryScene();
+			PokemonSummaryScene.SummaryScreen = new PokemonSummaryScene.SummaryScreen(scene);
+			ret = screen.StartForgetScreen(new Pokemon[]{pokemon}, 0, moveToLearn);
+		});
+		return ret;
 	}
 
 	public static bool SpeciesCombatible(int species, int move) {
-		//TODO
-		return true;
+		if (species <= 0) {
+			return false;
+		}
+		return Moves.CanLearn(species, move);
 	}
 }
