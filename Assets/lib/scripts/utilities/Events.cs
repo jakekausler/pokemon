@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Events {
 	public static Event OnMapCreate = new Event();
 	public static Event OnMapUpdate = new Event();

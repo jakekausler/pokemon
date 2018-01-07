@@ -587,7 +587,7 @@ public class Moves {
 	}
 
 	public static InternalMove GetMove(int id) {
-		string json = System.IO.File.ReadAllText(path);
+		string json = System.IO.File.ReadAllText(movePath);
 		InternalMove[] moves = JsonHelper.FromJson<InternalMove>(json);
 		for (int i = 0; i < moves.Length; i++) {
 			if (moves[i].Id == id) {
@@ -606,7 +606,7 @@ public class Moves {
 	}
 
 	public static string[] GetSpeciesForMove(int id) {
-		string json = System.IO.File.ReadAllText(path);
+		string json = System.IO.File.ReadAllText(learnMovePath);
 		LearnMove[] moves = JsonHelper.FromJson<LearnMove>(json);
 		for (int i = 0; i < moves.Length; i++) {
 			if (Moves.GetValueFromName(moves[i].move) == id) {
@@ -617,9 +617,9 @@ public class Moves {
 	}
 
 	public static bool CanLearnMove(int species, int moveId) {
-		string[] species = Move.GetSpeciesForMove(moveId);
-		for (int i=0; i < species.Length; i++) {
-			if (Species.GetValueFromName(species[i]) == species) {
+		string[] s = Moves.GetSpeciesForMove(moveId);
+		for (int i=0; i < s.Length; i++) {
+			if (Species.GetValueFromName(s[i]) == species) {
 				return true;
 			}
 		}

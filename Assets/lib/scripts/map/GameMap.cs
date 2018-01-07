@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class GameMap {
 	public int MapID;
 	public GameEvent[] events;
@@ -5,7 +8,7 @@ public class GameMap {
 	public bool whiteFluteUsed;
 	public bool blackFluteUsed;
 
-	public static GetSwitch(int n) {
+	public bool GetSwitch(int n) {
 		return switches[n];
 	}
 
@@ -25,7 +28,7 @@ public class GameMap {
 		public int value;
 		public Dictionary<int, bool> switches;
 		
-		public static GetSwitch(int n) {
+		public bool GetSwitch(int n) {
 			return switches[n];
 		}
 	}

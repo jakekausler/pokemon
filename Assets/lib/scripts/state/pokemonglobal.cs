@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public static class PokemonGlobal {
 	public static int playerID;
 	public static BattleTrainer Trainer;

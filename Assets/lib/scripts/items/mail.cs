@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Mail {
 	public int item;
 	public string message;
@@ -9,9 +12,9 @@ public class Mail {
 		this.item = item;
 		this.message = msg;
 		this.sender = sender;
-		this.poke1 = new MailPokemon(poke1.species, poke1.Gender(), poke1.IsShiny(), poke1.GetForm(), poke1.IsEgg());
-		this.poke2 = new MailPokemon(poke2.species, poke2.Gender(), poke2.IsShiny(), poke2.GetForm(), poke2.IsEgg());
-		this.poke3 = new MailPokemon(poke3.species, poke3.Gender(), poke3.IsShiny(), poke3.GetForm(), poke3.IsEgg());
+		this.poke1 = new MailPokemon(poke1.species, poke1.Gender(), poke1.IsShiny(), poke1.GetForm(), poke1.Egg());
+		this.poke2 = new MailPokemon(poke2.species, poke2.Gender(), poke2.IsShiny(), poke2.GetForm(), poke2.Egg());
+		this.poke3 = new MailPokemon(poke3.species, poke3.Gender(), poke3.IsShiny(), poke3.GetForm(), poke3.Egg());
 	}
 
 	public static bool MoveToMailbox(Pokemon pokemon) {
@@ -40,10 +43,10 @@ public class Mail {
 		// TODO
 	}
 
-	public static bool WriteMail(int item, Pokemon pkmn, int pkmnId, BattleScene scene) {
+	public static bool WriteMail(int item, Pokemon pkmn, int pkmnId, PokemonPartyScene.PartyScreen scene) {
 		string message = "";
 		while (true) {
-			message = Messaging.MessageFreeText("Please enter a message (max. 256 characters).", false, 256, Graphics.width, new Action() {
+			message = Messaging.MessageFreeText("Please enter a message (max. 256 characters).", false, 256, Graphics.width, delegate() {
 				scene.Update();
 			});
 			if (message != "") {
@@ -53,7 +56,7 @@ public class Mail {
 				if (pkmnId+2 < 6 && PokemonGlobal.Trainer.party[pkmnId+2] != null) {
 					poke1 = PokemonGlobal.Trainer.party[pkmnId+2];
 				}
-				if (pkmnID + 1 < 6 && PokemonGlobal.Trainer.party[pkmnId+1] != null) {
+				if (pkmnId + 1 < 6 && PokemonGlobal.Trainer.party[pkmnId+1] != null) {
 					poke2 = PokemonGlobal.Trainer.party[pkmnId+1];
 				}
 				poke3 = PokemonGlobal.Trainer.party[pkmnId];

@@ -1078,7 +1078,7 @@ public static class MultipleForms {
 			case Species.BURMY:
 			case Species.WORMADAM:
 				env = PokemonGlobal.GetEnvironment();
-				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) != null) {
+				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) > 0) {
 					return 2;
 				} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
 					return 1;
@@ -1133,7 +1133,7 @@ public static class MultipleForms {
 		switch (species) {
 			case Species.BURMY:
 				env = PokemonGlobal.GetEnvironment();
-				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) == null) {
+				if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataOutdoor) > 0) {
 					return 2;
 				} else if (env == Environment.Sand || env == Environment.Rock || env == Environment.Cave) {
 					return 1;
@@ -1435,7 +1435,7 @@ public static class MultipleForms {
 			totalHPDiff = pokemon.totalHP - totalHPDiff;
 			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", totalHPDiff, attackDiff, defenseDiff, spatkDiff, spdefDiff, speedDiff));
 			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", pokemon.totalHP, pokemon.attack, pokemon.defense, pokemon.spatk, pokemon.spdef, pokemon.speed));
-		} else if (pokemon.level == newLevel) {
+		} else if (pokemon.Level() == newLevel) {
 			Messaging.Message(string.Format("{0}'s level remained unchanged.", pokemon.name));
 		} else {
 			int attackDiff = pokemon.attack;
@@ -1457,16 +1457,16 @@ public static class MultipleForms {
 			totalHPDiff = pokemon.totalHP - totalHPDiff;
 			Messaging.TopRightWindow(string.Format("Max. HP<r>+{0}\r\nAttack<r>+{1}\r\nDefense<r>+{2}\r\nSp. Atk<r>+{3}\r\nSp. Def<r>+{4}\r\nSpeed<r>+{5}", totalHPDiff, attackDiff, defenseDiff, spatkDiff, spdefDiff, speedDiff));
 			Messaging.TopRightWindow(string.Format("Max. HP<r>{0}\r\nAttack<r>{1}\r\nDefense<r>{2}\r\nSp. Atk<r>{3}\r\nSp. Def<r>{4}\r\nSpeed<r>{5}", pokemon.totalHP, pokemon.attack, pokemon.defense, pokemon.spatk, pokemon.spdef, pokemon.speed));
-			List<int> movelist = pokemon.GetMoveList();
+			List<int[]> movelist = pokemon.GetMoveList();
 			for (int i=0; i<movelist.Count; i++) 
 			{
-				if (movelist[i][0] == pokemon.level) {
+				if (movelist[i][0] == pokemon.Level()) {
 					MultipleForms.LearnMove(pokemon, movelist[i][1], true);
 				}
 			}
-			int newspecies = CheckEvolution(pokemon);
+			int newspecies = Evolution.CheckEvolution(pokemon);
 			if (newspecies > 0) {
-				Graphics.FadeOutInWithMusic(99999, new Action() {
+				Graphics.FadeOutInWithMusic(99999, delegate() {
 					EvolutionScene evo = new EvolutionScene();
 					evo.StartScreen(pokemon, newspecies);
 					evo.Evolution();
@@ -1481,20 +1481,20 @@ public static class MultipleForms {
 			return false;
 		}
 		string moveName = Moves.GetName(move);
-		if (pokemon.Egg() && !PokemonGlobal.DEBUG) {
-			Messaging.Message("Eggs can't be taught any moves.")
+		if (pokemon.Egg() && !Settings.DEBUG) {
+			Messaging.Message("Eggs can't be taught any moves.");
 			return false;
 		}
 		string pokemonName = pokemon.name;
 		for (int i=0; i < 4; i++) 
 		{
-			if (pokemon.moves[i].id == move) {
+			if (pokemon.moves[i].Id == move) {
 				if (!ignoreIfKnown) {
-					Messaging.Message(string.Format("{0} already knows {1}."pkmnName, moveName));
+					Messaging.Message(string.Format("{0} already knows {1}.", pokemonName, moveName));
 				}
 				return false;
 			}
-			if (pokemon.moves[i].id == 0) {
+			if (pokemon.moves[i].Id == 0) {
 				Messaging.Message(string.Format("\\se[]{0} learned {1}!\\se[Pkmn move learnt]", pokemonName, moveName));
 				return true;
 			}
@@ -1504,11 +1504,11 @@ public static class MultipleForms {
 			Messaging.Message(string.Format("Please choose a move that will be replaced with {0}.", moveName));
 			int forgetMove = MultipleForms.ForgetMove(pokemon, move);
 			if (forgetMove >= 0) {
-				string oldMoveName = Moves.GetName(pokemon.moves[forgetMove].id);
+				string oldMoveName = Moves.GetName(pokemon.moves[forgetMove].Id);
 				int oldMovePP = pokemon.moves[forgetMove].pp;
-				pokemon.moves[forgetMove] = Moves.Move(move);
+				pokemon.moves[forgetMove] = new Moves.Move(move);
 				if (byMachine) {
-					pokemon.moves[forgetMove].pp = Math.Min(oldMovePP, pokemon.moves[forgetMove].totalPP);
+					pokemon.moves[forgetMove].pp = Math.Min(oldMovePP, pokemon.moves[forgetMove].TotalPP());
 				}
 				Messaging.Message(string.Format("1,\\wt[16] 2, and\\wt[16]...\\wt[16] ...\\wt[16] ... Ta-da!\\se[Battle ball drop]\\1"));
 				Messaging.Message(string.Format("{0} forgot how to use {1}.\\nAnd...\\1", pokemonName, oldMoveName));
@@ -1523,9 +1523,9 @@ public static class MultipleForms {
 
 	public static int ForgetMove(Pokemon pokemon, int moveToLearn) {
 		int ret = -1;
-		Graphics.FadeOutScene(99999, new Action() {
+		Graphics.FadeOutScene(99999, delegate() {
 			PokemonSummaryScene scene = new PokemonSummaryScene();
-			PokemonSummaryScene.SummaryScreen = new PokemonSummaryScene.SummaryScreen(scene);
+			PokemonSummaryScene.SummaryScreen screen = new PokemonSummaryScene.SummaryScreen(scene);
 			ret = screen.StartForgetScreen(new Pokemon[]{pokemon}, 0, moveToLearn);
 		});
 		return ret;
@@ -1535,6 +1535,6 @@ public static class MultipleForms {
 		if (species <= 0) {
 			return false;
 		}
-		return Moves.CanLearn(species, move);
+		return Moves.CanLearnMove(species, move);
 	}
 }

@@ -143,6 +143,7 @@ public static class Settings {
 		false,
 		false
 	};
+	public static int MAILBOX_SIZE = 10;
 
 	/**
 	 - The name of the person who created the Pokemon storage system

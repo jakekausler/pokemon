@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,11 @@ using System.Text.RegularExpressions;
 using System.IO;
 
 public class Graphics : MonoBehaviour {
-	static List<string> Borders;
-	static List<string> Speeches;
+	public static List<string> Borders;
+	public static List<string> Speeches;
+
+	public static int width;
+	public static int height;
 
 	static Graphics() {
 		Borders = new List<string>();
@@ -42,11 +46,27 @@ public class Graphics : MonoBehaviour {
 	}
 
 	public static void FadeOutInWithMusic(int t, Action f) {
+		// TODO
 		f();
 	}
 
 	public static void FadeOut(int t, Action f) {
+		// TODO
 		f();
+	}
+
+	public static void FadeOutIn(int t, Action f) {
+		// TODO
+		f();
+	}
+
+	public static void FadeOutScene(int t, Action f) {
+		// TODO
+		f();
+	}
+
+	public static void Update() {
+		// TODO
 	}
 
 }

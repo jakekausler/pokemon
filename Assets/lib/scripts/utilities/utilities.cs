@@ -58,16 +58,16 @@ public static class Utilities {
 		return 0;
 	}
 
-	public static object GetMetadata(int mapId, int metadataType) {
+	public static int GetMetadata(int mapId, int metadataType) {
 		// TODO
-		return null;
+		return 0;
 	}
 
 	public static DateTime GetTimeNow() {
 		return DateTime.Now;
 	}
 
-	public static bool MoveTutorChoose(int move, List<int> movelist=null, bymachine=false) {
+	public static bool MoveTutorChoose(int move, List<int> movelist=null, bool bymachine=false) {
 		// TODO
 		return false;
 	}
@@ -78,6 +78,10 @@ public static class Utilities {
 	}
 
 	public static void CancelVehicles() {
+		// TODO
+	}
+
+	public static void EraseEscapePoint() {
 		// TODO
 	}
 }

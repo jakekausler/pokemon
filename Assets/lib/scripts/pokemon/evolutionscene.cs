@@ -34,24 +34,4 @@ public class EvolutionScene {
 	public void EvolutionSuccess() {
 		// TODO
 	}
-
-	public int MiniCheckEvolution(Pokemon pokemon, int evonib, int level, int newspecies) {
-		// TODO
-		return -1;
-	}
-
-	public int MiniCheckEvolutionItem(Pokemon pokemon, int evonib, int level, int newspecies, int item) {
-		// TODO
-		return -1;
-	}
-
-	public int CheckEvolutionEx(Pokemon pokemon) {
-		// TODO
-		return -1;
-	}
-
-	public int CheckEvolution(Pokemon pokemon, int item=0) {
-		// TODO
-		return -1;
-	}
 }

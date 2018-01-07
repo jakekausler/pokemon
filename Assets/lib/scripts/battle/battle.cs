@@ -1497,9 +1497,9 @@ public class Battle {
 	}
 
 	// Uses an item on an active PokÃ©mon.
-	public bool UseItemOnBattler(int item, int index, Battler userPkmn, BattleScene scene) {
+	public bool UseItemOnBattler(int item, int index, Battler userPkmn, Battle battle) {
 		Debug.Log(string.Format("[Use item] Player used {0} on {1}",Items.GetName(item), battlers[index].String(true)));
-		bool ret = Items.TriggerBattleUseOnBattler(item, battlers[index], scene);
+		bool ret = Items.TriggerBattleUseOnBattler(item, battlers[index], battle.scene);
 		if (!ret && BelongsToPlayer(userPkmn.index)) {
 			if (PokemonGlobal.Bag.CanStore(item)) {
 				PokemonGlobal.Bag.StoreItem(item);
@@ -1528,7 +1528,7 @@ public class Battle {
 		}
 		if (Items.HasUseInBattle(idxItem)) {
 			if (idxPokemon == 0) {
-				if (Items.TriggerBattleUseOnBattler(idxItem, battlers[idxPokemon], this)) {
+				if (Items.TriggerBattleUseOnBattler(idxItem, battlers[idxPokemon], scene)) {
 					Items.TriggerUseInBattle(idxItem, battlers[idxPokemon], this);
 					if (doublebattle) {
 						battlers[idxPokemon].Partner().effects[Effects.SkipTurn] = 1;
@@ -1542,7 +1542,7 @@ public class Battle {
 					return false;
 				}
 			} else {
-				if (Items.TriggerBattleUseOnBattler(idxItem, battlers[idxPokemon], this)) {
+				if (Items.TriggerBattleUseOnBattler(idxItem, battlers[idxPokemon], scene)) {
 					Display(string.Format("It's impossible to aim without being focused!"));
 				}
 			}
@@ -2984,7 +2984,7 @@ public class Battle {
 							}
 						} else if (usetype == 2 || usetype == 4) {
 							if (!Items.HasUseInBattle(item)) {
-								UseItemOnBattler(item, itemChoice[priority[i].index], priority[i], scene);
+								UseItemOnBattler(item, itemChoice[priority[i].index], priority[i], this);
 							}
 						}
 					}

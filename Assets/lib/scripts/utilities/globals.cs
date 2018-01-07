@@ -18,10 +18,18 @@ public static class Globals {
 		return switches[n];
 	}
 
+	public static void setSwitch(int n, bool b) {
+		switches[n] = b;
+	}
+
 	/**
 	 - Get the value of a variable at position n
 	**/
 	public static string getVariable(int n) {
 		return variables[n];
+	}
+
+	public static void setVariable(int n, string s) {
+		variables[n] = s;
 	}
 }

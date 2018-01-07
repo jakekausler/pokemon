@@ -362,7 +362,7 @@ class PokemonPartyPanel < SpriteWrapper
             hpzone = 0
             hpzone = 1 if @pokemon.hp<=(@pokemon.totalhp/2).floor
             hpzone = 2 if @pokemon.hp<=(@pokemon.totalhp/4).floor
-            hprect = Rect.new(0,hpzone*8,[@pokemon.hp*96/@pokemon.totalhp,2].max,8)
+            hprect = Rect.new(0,hpzone*8,[@pokemon.hp*96\@pokemon.totalhp,2].max,8)
             @overlaysprite.bitmap.blt(128,52,@hpbar.bitmap,hprect)
           end
           # Draw status

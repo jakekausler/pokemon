@@ -104,6 +104,7 @@ public class PokemonSummaryScene {
 
 	public int ChooseMoveToForget(int moveToLearn) {
 		// TODO
+		return 0;
 	}
 
 	public void Scene() {

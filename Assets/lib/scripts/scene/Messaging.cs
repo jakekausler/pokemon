@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -14,17 +15,23 @@ public class Messaging : MonoBehaviour {
 		return "";
 	}
 
-	public static void TopRightRindow(string msg) {
+	public static void TopRightWindow(string msg) {
 		// TODO
 	}
 
 	public static bool ConfirmMessage(string msg) {
 		// TODO
-		return 0;
+		return false;
 	}
 
-	public static void MessageFreeText(string msg, bool startMsg, int maxLength, int width, Action a) {
+	public static string MessageFreeText(string msg, bool startMsg, int maxLength, int width, Action a) {
 		// TODO
+		return "";
+	}
+
+	public static int Commands(string msg, string[] commands, int cancelVal) {
+		// TODO
+		return 0;
 	}
 }
 

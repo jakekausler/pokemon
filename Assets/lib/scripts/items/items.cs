@@ -552,6 +552,10 @@ public static class Items {
 	public const int SHALOURSABLE = 548;
 	public const int SURPRISEMULCH = 549;
 	public const int WHIPPEDDREAM = 550;
+	public const int EXPALLOFF = 551;
+	public const int MACHBIKE = 552;
+	public const int ACROBIKE = 553;
+	public const int PRISONBOTTLE = 554;
 
 	public static string[] itemNames = new string[550]{"REPEL","SUPERREPEL","MAXREPEL","BLACKFLUTE","WHITEFLUTE","HONEY","ESCAPEROPE","REDSHARD","YELLOWSHARD","BLUESHARD","GREENSHARD","FIRESTONE","THUNDERSTONE","WATERSTONE","LEAFSTONE","MOONSTONE","SUNSTONE","DUSKSTONE","DAWNSTONE","SHINYSTONE","REDAPRICORN","YLWAPRICORN","BLUAPRICORN","GRNAPRICORN","PNKAPRICORN","WHTAPRICORN","BLKAPRICORN","HELIXFOSSIL","DOMEFOSSIL","OLDAMBER","ROOTFOSSIL","CLAWFOSSIL","SKULLFOSSIL","ARMORFOSSIL","COVERFOSSIL","PLUMEFOSSIL","PRETTYWING","TINYMUSHROOM","BIGMUSHROOM","BALMMUSHROOM","PEARL","BIGPEARL","PEARLSTRING","STARDUST","STARPIECE","COMETSHARD","NUGGET","BIGNUGGET","HEARTSCALE","SLOWPOKETAIL","RAREBONE","RELICCOPPER","RELICSILVER","RELICGOLD","RELICVASE","RELICBAND","RELICSTATUE","RELICCROWN","GROWTHMULCH","DAMPMULCH","STABLEMULCH","GOOEYMULCH","SHOALSALT","SHOALSHELL","ODDKEYSTONE","AIRBALLOON","BRIGHTPOWDER","EVIOLITE","FLOATSTONE","DESTINYKNOT","ROCKYHELMET","EJECTBUTTON","REDCARD","SHEDSHELL","SMOKEBALL","LUCKYEGG","EXPSHARE","AMULETCOIN","SOOTHEBELL","CLEANSETAG","CHOICEBAND","CHOICESPECS","CHOICESCARF","HEATROCK","DAMPROCK","SMOOTHROCK","ICYROCK","LIGHTCLAY","GRIPCLAW","BINDINGBAND","BIGROOT","BLACKSLUDGE","LEFTOVERS","SHELLBELL","MENTALHERB","WHITEHERB","POWERHERB","ABSORBBULB","CELLBATTERY","LIFEORB","EXPERTBELT","METRONOME","MUSCLEBAND","WISEGLASSES","RAZORCLAW","SCOPELENS","WIDELENS","ZOOMLENS","KINGSROCK","RAZORFANG","LAGGINGTAIL","QUICKCLAW","FOCUSBAND","FOCUSSASH","FLAMEORB","TOXICORB","STICKYBARB","IRONBALL","RINGTARGET","MACHOBRACE","POWERWEIGHT","POWERBRACER","POWERBELT","POWERLENS","POWERBAND","POWERANKLET","LAXINCENSE","FULLINCENSE","LUCKINCENSE","PUREINCENSE","SEAINCENSE","WAVEINCENSE","ROSEINCENSE","ODDINCENSE","ROCKINCENSE","CHARCOAL","MYSTICWATER","MAGNET","MIRACLESEED","NEVERMELTICE","BLACKBELT","POISONBARB","SOFTSAND","SHARPBEAK","TWISTEDSPOON","SILVERPOWDER","HARDSTONE","SPELLTAG","DRAGONFANG","BLACKGLASSES","METALCOAT","SILKSCARF","FLAMEPLATE","SPLASHPLATE","ZAPPLATE","MEADOWPLATE","ICICLEPLATE","FISTPLATE","TOXICPLATE","EARTHPLATE","SKYPLATE","MINDPLATE","INSECTPLATE","STONEPLATE","SPOOKYPLATE","DRACOPLATE","DREADPLATE","IRONPLATE","FIREGEM","WATERGEM","ELECTRICGEM","GRASSGEM","ICEGEM","FIGHTINGGEM","POISONGEM","GROUNDGEM","FLYINGGEM","PSYCHICGEM","BUGGEM","ROCKGEM","GHOSTGEM","DRAGONGEM","DARKGEM","STEELGEM","NORMALGEM","LIGHTBALL","LUCKYPUNCH","METALPOWDER","QUICKPOWDER","THICKCLUB","STICK","SOULDEW","DEEPSEATOOTH","DEEPSEASCALE","ADAMANTORB","LUSTROUSORB","GRISEOUSORB","DOUSEDRIVE","SHOCKDRIVE","BURNDRIVE","CHILLDRIVE","EVERSTONE","DRAGONSCALE","UPGRADE","DUBIOUSDISC","PROTECTOR","ELECTIRIZER","MAGMARIZER","REAPERCLOTH","PRISMSCALE","OVALSTONE","REDSCARF","BLUESCARF","PINKSCARF","GREENSCARF","YELLOWSCARF","POTION","SUPERPOTION","HYPERPOTION","MAXPOTION","FULLRESTORE","SACREDASH","AWAKENING","ANTIDOTE","BURNHEAL","PARALYZEHEAL","ICEHEAL","FULLHEAL","LAVACOOKIE","OLDGATEAU","CASTELIACONE","REVIVE","MAXREVIVE","BERRYJUICE","RAGECANDYBAR","SWEETHEART","FRESHWATER","SODAPOP","LEMONADE","MOOMOOMILK","ENERGYPOWDER","ENERGYROOT","HEALPOWDER","REVIVALHERB","ETHER","MAXETHER","ELIXIR","MAXELIXIR","PPUP","PPMAX","HPUP","PROTEIN","IRON","CALCIUM","ZINC","CARBOS","HEALTHWING","MUSCLEWING","RESISTWING","GENIUSWING","CLEVERWING","SWIFTWING","RARECANDY","MASTERBALL","ULTRABALL","GREATBALL","POKEBALL","SAFARIBALL","SPORTBALL","NETBALL","DIVEBALL","NESTBALL","REPEATBALL","TIMERBALL","LUXURYBALL","PREMIERBALL","DUSKBALL","HEALBALL","QUICKBALL","CHERISHBALL","FASTBALL","LEVELBALL","LUREBALL","HEAVYBALL","LOVEBALL","FRIENDBALL","MOONBALL","TM01","TM02","TM03","TM04","TM05","TM06","TM07","TM08","TM09","TM10","TM11","TM12","TM13","TM14","TM15","TM16","TM17","TM18","TM19","TM20","TM21","TM22","TM23","TM24","TM25","TM26","TM27","TM28","TM29","TM30","TM31","TM32","TM33","TM34","TM35","TM36","TM37","TM38","TM39","TM40","TM41","TM42","TM43","TM44","TM45","TM46","TM47","TM48","TM49","TM50","TM51","TM52","TM53","TM54","TM55","TM56","TM57","TM58","TM59","TM60","TM61","TM62","TM63","TM64","TM65","TM66","TM67","TM68","TM69","TM70","TM71","TM72","TM73","TM74","TM75","TM76","TM77","TM78","TM79","TM80","TM81","TM82","TM83","TM84","TM85","TM86","TM87","TM88","TM89","TM90","TM91","TM92","TM93","TM94","TM95","HM01","HM02","HM03","HM04","HM05","HM06","CHERIBERRY","CHESTOBERRY","PECHABERRY","RAWSTBERRY","ASPEARBERRY","LEPPABERRY","ORANBERRY","PERSIMBERRY","LUMBERRY","SITRUSBERRY","FIGYBERRY","WIKIBERRY","MAGOBERRY","AGUAVBERRY","IAPAPABERRY","RAZZBERRY","BLUKBERRY","NANABBERRY","WEPEARBERRY","PINAPBERRY","POMEGBERRY","KELPSYBERRY","QUALOTBERRY","HONDEWBERRY","GREPABERRY","TAMATOBERRY","CORNNBERRY","MAGOSTBERRY","RABUTABERRY","NOMELBERRY","SPELONBERRY","PAMTREBERRY","WATMELBERRY","DURINBERRY","BELUEBERRY","OCCABERRY","PASSHOBERRY","WACANBERRY","RINDOBERRY","YACHEBERRY","CHOPLEBERRY","KEBIABERRY","SHUCABERRY","COBABERRY","PAYAPABERRY","TANGABERRY","CHARTIBERRY","KASIBBERRY","HABANBERRY","COLBURBERRY","BABIRIBERRY","CHILANBERRY","LIECHIBERRY","GANLONBERRY","SALACBERRY","PETAYABERRY","APICOTBERRY","LANSATBERRY","STARFBERRY","ENIGMABERRY","MICLEBERRY","CUSTAPBERRY","JABOCABERRY","ROWAPBERRY","GRASSMAIL","FLAMEMAIL","BUBBLEMAIL","BLOOMMAIL","TUNNELMAIL","STEELMAIL","HEARTMAIL","SNOWMAIL","SPACEMAIL","AIRMAIL","MOSAICMAIL","BRICKMAIL","XATTACK","XATTACK2","XATTACK3","XATTACK6","XDEFENSE","XDEFENSE2","XDEFENSE3","XDEFENSE6","XSPATK","XSPATK2","XSPATK3","XSPATK6","XSPDEF","XSPDEF2","XSPDEF3","XSPDEF6","XSPEED","XSPEED2","XSPEED3","XSPEED6","XACCURACY","XACCURACY2","XACCURACY3","XACCURACY6","DIREHIT","DIREHIT2","DIREHIT3","GUARDSPEC","RESETURGE","ABILITYURGE","ITEMURGE","ITEMDROP","BLUEFLUTE","YELLOWFLUTE","REDFLUTE","POKEDOLL","FLUFFYTAIL","POKETOY","BICYCLE","OLDROD","GOODROD","SUPERROD","ITEMFINDER","DOWSINGMACHINE","POKERADAR","TOWNMAP","POKEFLUTE","COINCASE","SOOTSACK","SILPHSCOPE","DEVONSCOPE","SQUIRTBOTTLE","SPRAYDUCK","WAILMERPAIL","GRACIDEA","AURORATICKET","OLDSEAMAP","DNASPLICERS","REVEALGLASS","OVALCHARM","SHINYCHARM","PIXIEPLATE","REDORB","BLUEORB","SAFETYGOGGLES","KEEBERRY","MARANGABERRY","WEAKNESSPOLICY","SNOWBALL","LUMINOUSMOSS","ASSAULTVEST","EXPALL","FAIRYGEM","ROSELIBERRY","JAWFOSSIL","SAILFOSSIL","ABILITYCAPSULE","AMAZEMULCH","BOOSTMULCH","LUMIOSEGALETTE","PASSORB","RICHMULCH","SACHET","SHALOURSABLE","SURPRISEMULCH","WHIPPEDDREAM"};
 
@@ -629,7 +633,7 @@ public static class Items {
 	}
 
 	public static int GetMachine(int item) {
-		Items.InternalItem i = Items.GetItem(item);
+		Items.Item i = Items.GetItem(item);
 		return i.Move != "" ? -1 : Moves.GetValueFromName(i.Move);
 	}
 
@@ -643,14 +647,13 @@ public static class Items {
 		return Items.GetItem(item).OutOfBattle == 3;
 	}
 
-	public static bool IsHiddenMachnine(int item) {
+	public static bool IsHiddenMachine(int item) {
 		// TODO
 		return Items.GetItem(item).OutOfBattle == 4;
 	}
 
 	public static bool IsImportantItem(int item) {
-		Items.InternalItem i = Items.GetItem(item);
-		return i.IsKeyItem(item) || i.IsHiddenMachine(item) || (Settings.INFINITE_TMS && i.IsTechnicalMachine(item));
+		return IsKeyItem(item) || IsHiddenMachine(item) || (Settings.INFINITE_TMS && IsTechnicalMachine(item));
 	}
 
 	public static bool CanHoldItem(int item) {
@@ -659,7 +662,7 @@ public static class Items {
 	}
 
 	public static bool IsMail(int item) {
-		Items.InternalItem i = Items.GetItem(item);
+		Items.Item i = Items.GetItem(item);
 		return i.SpecialItem == 1 || i.SpecialItem == 2;
 	}
 
@@ -721,7 +724,7 @@ public static class Items {
 	public static bool IsHiddenMove(int move) {
 		for (int i=1; i<=Items.MaxValue(); i++) 
 		{
-			if (!IsHiddenMachnine()) {
+			if (!IsHiddenMachine(i)) {
 				continue;
 			}
 			int atk = GetMachine(i);
@@ -735,17 +738,17 @@ public static class Items {
 	public static Dictionary<int, Func<int, int>> UseFromBag;
 	public static Dictionary<int, Func<int, bool>> ConfirmUseInField;
 	public static Dictionary<int, Func<int, int>> UseInField;
-	public static Dictionary<int, Func<int, Pokemon, BattleScene, bool>> UseOnPokemon;
+	public static Dictionary<int, Func<int, Pokemon, PokemonPartyScene.PartyScreen, bool>> UseOnPokemon;
 	public static Dictionary<int, Func<int, Battler, BattleScene, bool>> BattleUseOnBattler;
 	public static Dictionary<int, Func<int, Pokemon, Battler, BattleScene, bool>> BattleUseOnPokemon;
 	public static Dictionary<int, Func<int, Battler, Battle, int>> UseInBattle;
 	public static Dictionary<int, Func<int, string>> UseText;
 
 	public static void SetupHashes() {
-		AddUseFromBag(Items.HONEY, new Func<int, int>(int item) {
+		AddUseFromBag(Items.HONEY, delegate(int item) {
 			return 4;
 		});
-		AddUseFromBag(Items.ESCAPEROPE, new Func<int, int>(int item) {
+		AddUseFromBag(Items.ESCAPEROPE, delegate(int item) {
 			if (PokemonGlobal.HasDependentEvents()) {
 				Messaging.Message("It can't be used when you have someone with you.");
 				return 0;
@@ -757,17 +760,17 @@ public static class Items {
 				return 0;
 			}
 		});
-		AddUseFromBag(Items.BICYCLE, new Func<int, int>(int item) {
+		AddUseFromBag(Items.BICYCLE, delegate(int item) {
 			return BikeCheck() ? 2 : 0;
 		});
-		Copy(UseFromBag, Items.BICYCLE, Items.MACHBIKE, Items.ACROBIKE);
-		AddUseText(Items.BICYCLE, new Func<int, string>(int item) {
+		Copy(UseFromBag, Items.BICYCLE, new int[2]{Items.MACHBIKE, Items.ACROBIKE});
+		AddUseText(Items.BICYCLE, delegate(int item) {
 			return (PokemonGlobal.bicycle) ? "Walk" : "Use";
 		});
-		Copy(UseText, Items.BICYCLE, Items.MACHBIKE, Items.ACROBIKE);
-		AddUseFromBag(Items.OLDROD, new Func<int, int>(int item) {
+		Copy(UseText, Items.BICYCLE, new int[2]{Items.MACHBIKE, Items.ACROBIKE});
+		AddUseFromBag(Items.OLDROD, delegate(int item) {
 			int terrain = PokemonGlobal.FacingTerrainTag();
-			bool notCliff = PokemonGlobal.Passable(PokemonGlobal.playerX, PokemonGlobal.playerY, PokemonGlobal.playerDirection); 
+			bool notCliff = PokemonGlobal.Passable(PokemonGlobal.playerX, PokemonGlobal.playerY, PokemonGlobal.direction); 
 			if ((Terrain.IsWater(terrain) && !PokemonGlobal.surfing && notCliff) || (Terrain.IsWater(terrain) && PokemonGlobal.surfing)) {
 				return 2;
 			} else {
@@ -775,12 +778,12 @@ public static class Items {
 				return 0;
 			}
 		});
-		Copy(UseFromBag, Items.OLDROD, Items.GOODROD, Items.SUPERROD);
-		AddUseFromBag(Items.ITEMFINDER, new Func<int, int>(int item) {
+		Copy(UseFromBag, Items.OLDROD, new int[2]{Items.GOODROD, Items.SUPERROD});
+		AddUseFromBag(Items.ITEMFINDER, delegate(int item) {
 			return 2;
 		});
-		Copy(UseFromBag, Items.ITEMFINDER, Items.DOWSINGMACHINE, Items.DOWSINGMCHN);
-		AddConfirmUseInField(Items.ESCAPEROPE, new Func<int, bool>(int item) {
+		Copy(UseFromBag, Items.ITEMFINDER, new int[1]{Items.DOWSINGMACHINE});
+		AddConfirmUseInField(Items.ESCAPEROPE, delegate(int item) {
 			int[] escape = PokemonGlobal.escapePoint;
 			if (escape == null || escape.Length == 0) {
 				Messaging.Message("It cant be used here.");
@@ -793,16 +796,16 @@ public static class Items {
 			string mapName = Utilities.GetMapNameFromId(escape[0]);
 			return Messaging.ConfirmMessage(string.Format("Want to escape from here and return to {0}?", mapName));
 		});
-		AddUseFromBag(Items.REPEL, new Func<int, int>(int item) {
+		AddUseFromBag(Items.REPEL, delegate(int item) {
 			return Repel(item, 100);
 		});
-		AddUseFromBag(Items.SUPERREPEL, new Func<int, int>(int item) {
+		AddUseFromBag(Items.SUPERREPEL, delegate(int item) {
 			return Repel(item, 200);
 		});
-		AddUseFromBag(Items.MAXREPEL, new Func<int, int>(int item) {
+		AddUseFromBag(Items.MAXREPEL, delegate(int item) {
 			return Repel(item, 250);
 		});
-		Events.Add(Events.OnStepTaken, new Action() {
+		Events.Add(Events.OnStepTaken, delegate() {
 			if (!Terrain.IsIce(PokemonGlobal.GetTerrainTag())) {
 				if (PokemonGlobal.repel > 0) {
 					PokemonGlobal.repel--;
@@ -810,10 +813,10 @@ public static class Items {
 						if (PokemonGlobal.Bag.HasItem(Items.REPEL) || PokemonGlobal.Bag.HasItem(Items.SUPERREPEL) || PokemonGlobal.Bag.HasItem(Items.MAXREPEL)) {
 							if (Messaging.ConfirmMessage("The repellent's effect wore off!\r\nWould you like to use another one?")) {
 								int ret = 0;
-								Graphics.FadeOutIn(99999, Action() {
-									BagScene scene = new BagScene();
-									BagScene.BagScreen screen = new BagScene.BagScreen();
-									ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+								Graphics.FadeOutIn(99999, delegate() {
+									BagScene scene = new BagScene(PokemonGlobal.Bag);
+									BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
+									ret = screen.ChooseItemScreen(delegate(int item) {
 										return item == Items.REPEL || item == Items.SUPERREPEL || item == Items.MAXREPEL;
 									});
 								});
@@ -828,28 +831,28 @@ public static class Items {
 				}
 			}
 		});
-		AddUseInField(Items.BLACKFLUTE, new Func<int, int>(int item) {
+		AddUseInField(Items.BLACKFLUTE, delegate(int item) {
 			UseItemMessage(item);
 			Messaging.Message("Wild Pokémon will be repelled.");
 			PokemonGlobal.Map.blackFluteUsed = true;
 			PokemonGlobal.Map.whiteFluteUsed = false;
 			return 1;
 		});
-		AddUseInField(Items.WHITEFLUTE, new Func<int, int>(int item) {
+		AddUseInField(Items.WHITEFLUTE, delegate(int item) {
 			UseItemMessage(item);
 			Messaging.Message("Wild Pokémon will be lured.");
 			PokemonGlobal.Map.blackFluteUsed = false;
 			PokemonGlobal.Map.whiteFluteUsed = true;
 			return 1;
 		});
-		AddUseInField(Items.HONEY, new Func<int, int>(int item) {
+		AddUseInField(Items.HONEY, delegate(int item) {
 			UseItemMessage(item);
 			FieldMoves.SweetScent();
 			return 3;
 		});
-		AddUseInField(Items.ESCAPEROPE, new Func<int, int>(int item) {
+		AddUseInField(Items.ESCAPEROPE, delegate(int item) {
 			int[] escape = PokemonGlobal.escapePoint;
-			if (escape == null || escape.Count == 0) {
+			if (escape == null || escape.Length == 0) {
 				Messaging.Message("It cant be used here.");
 				return 0;
 			}
@@ -858,7 +861,7 @@ public static class Items {
 				return 0;
 			}
 			UseItemMessage(item);
-			Graphics.FadeOutIn(99999, new Action() {
+			Graphics.FadeOutIn(99999, delegate() {
 				PokemonTemp.newMapId = escape[0];
 				PokemonTemp.newX = escape[1];
 				PokemonTemp.newY = escape[2];
@@ -871,15 +874,15 @@ public static class Items {
 			Utilities.EraseEscapePoint();
 			return 3;
 		});
-		AddUseInField(Items.SACREDASH, new Func<int, int>(int item) {
+		AddUseInField(Items.SACREDASH, delegate(int item) {
 			if (PokemonGlobal.Trainer.PokemonCount() == 0) {
 				Messaging.Message("There are no Pokémon.");
 				return 0;
 			}
 			bool canRevive = false;
-			for (int i=0; i < PokemonGlobal.Trainer.pokemonParty.Length; i++) 
+			for (int i=0; i < PokemonGlobal.Trainer.party.Length; i++) 
 			{
-				if (PokemonGlobal.Trainer.pokemonParty[i].Fainted()) {
+				if (PokemonGlobal.Trainer.party[i].Fainted()) {
 					canRevive = true;
 					break;
 				}
@@ -889,9 +892,9 @@ public static class Items {
 				return 0;
 			}
 			int revived = 0;
-			Graphics.FadeOutIn(99999, new Action() {
+			Graphics.FadeOutIn(99999, delegate() {
 				PokemonPartyScene scene = new PokemonPartyScene();
-				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen(scene, PokemonGlobal.Trainer.Party);
+				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen(scene, PokemonGlobal.Trainer.party);
 				screen.StartScene("Using Item...", false);
 				for (int i=0; i<PokemonGlobal.Trainer.party.Length; i++) 
 				{
@@ -909,7 +912,7 @@ public static class Items {
 			});
 			return revived == 0 ? 0 : 3;
 		});
-		AddUseInField(Items.BICYCLE, new Func<int, int>(int item) {
+		AddUseInField(Items.BICYCLE, delegate(int item) {
 			if (BikeCheck()) {
 				if (PokemonGlobal.bicycle) {
 					PokemonGlobal.DismountBike();
@@ -920,425 +923,417 @@ public static class Items {
 			}
 			return 0;
 		});
-		Copy(UseInField, Items.BICYCLE,Items.MACHBIKE,Items.ACROBIKE);
-		AddUseInField(Items.OLDROD, new Func<int, int>(int item) {
-			
+		Copy(UseInField, Items.BICYCLE, new int[2]{Items.MACHBIKE,Items.ACROBIKE});
+		AddUseInField(Items.OLDROD, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.GOODROD, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.GOODROD, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.SUPERROD, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.SUPERROD, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.ITEMFINDER, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.ITEMFINDER, delegate(int item) {
+			return 0;
 		});
-		Copy(UseInField, Items.ITEMFINDER,Items.DOWSINGMCHN,Items.DOWSINGMACHINE);
-		AddUseInField(Items.TOWNMAP, new Func<int, int>(int item) {
-			
+		Copy(UseInField, Items.ITEMFINDER, new int[1]{Items.DOWSINGMACHINE});
+		AddUseInField(Items.TOWNMAP, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.COINCASE, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.COINCASE, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.EXPALL, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.EXPALL, delegate(int item) {
+			return 0;
 		});
-		AddUseInField(Items.EXPALLOFF, new Func<int, int>(int item) {
-			
+		AddUseInField(Items.EXPALLOFF, delegate(int item) {
+			return 0;
 		});
-		AddIfUseOnPokemon(new Func<int, bool>(int item) {
-			
-		}, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddIfUseOnPokemon(delegate(int item) {
+			return false;
+		}, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.POTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.POTION, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.SUPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.SUPERPOTION, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.HYPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.HYPERPOTION, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.MAXPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.MAXPOTION, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.BERRYJUICE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.BERRYJUICE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.RAGECANDYBAR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.RAGECANDYBAR, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.SWEETHEART, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.SWEETHEART, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.FRESHWATER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.FRESHWATER, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.SODAPOP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.SODAPOP, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.LEMONADE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.LEMONADE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.MOOMOOMILK, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.MOOMOOMILK, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ORANBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ORANBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.SITRUSBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.SITRUSBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.AWAKENING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.AWAKENING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.AWAKENING,Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE);
-		AddUseOnPokemon(Items.ANTIDOTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.AWAKENING, new int[3]{Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE});
+		AddUseOnPokemon(Items.ANTIDOTE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.ANTIDOTE,Items.PECHABERRY);
-		AddUseOnPokemon(Items.BURNHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.ANTIDOTE, new int[1]{Items.PECHABERRY});
+		AddUseOnPokemon(Items.BURNHEAL, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.BURNHEAL,Items.RAWSTBERRY);
-		AddUseOnPokemon(Items.PARLYZHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.BURNHEAL, new int[1]{Items.RAWSTBERRY});
+		AddUseOnPokemon(Items.PARALYZEHEAL, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.PARLYZHEAL,Items.PARALYZEHEAL,Items.CHERIBERRY);
-		AddUseOnPokemon(Items.ICEHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.PARALYZEHEAL, new int[1]{Items.CHERIBERRY});
+		AddUseOnPokemon(Items.ICEHEAL, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.ICEHEAL,Items.ASPEARBERRY);
-		AddUseOnPokemon(Items.FULLHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.ICEHEAL, new int[1]{Items.ASPEARBERRY});
+		AddUseOnPokemon(Items.FULLHEAL, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.FULLHEAL,
-		AddUseOnPokemon(Items.FULLRESTORE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.FULLHEAL, new int[6]{Items.LAVACOOKIE,Items.OLDGATEAU,Items.CASTELIACONE,Items.LUMIOSEGALETTE,Items.SHALOURSABLE,Items.LUMBERRY});
+		AddUseOnPokemon(Items.FULLRESTORE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.REVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.REVIVE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.MAXREVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.MAXREVIVE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ENERGYPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ENERGYPOWDER, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ENERGYROOT, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ENERGYROOT, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.HEALPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.HEALPOWDER, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.REVIVALHERB, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.REVIVALHERB, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ETHER, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		Copy(UseOnPokemon, Items.ETHER,Items.LEPPABERRY);
-		AddUseOnPokemon(Items.MAXETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		Copy(UseOnPokemon, Items.ETHER, new int[1]{Items.LEPPABERRY});
+		AddUseOnPokemon(Items.MAXETHER, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ELIXIR, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.MAXELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.MAXELIXIR, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.PPUP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.PPUP, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.PPMAX, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.PPMAX, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.HPUP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.HPUP, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.PROTEIN, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.PROTEIN, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.IRON, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.IRON, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.CALCIUM, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.CALCIUM, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ZINC, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ZINC, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.CARBOS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.CARBOS, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.HEALTHWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.HEALTHWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.MUSCLEWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.MUSCLEWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.RESISTWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.RESISTWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.GENIUSWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.GENIUSWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.CLEVERWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.CLEVERWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.SWIFTWING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.SWIFTWING, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.RARECANDY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.RARECANDY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.POMEGBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.POMEGBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.KELPSYBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.KELPSYBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.QUALOTBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.QUALOTBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.HONDEWBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.HONDEWBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.GREPABERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.GREPABERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.TAMATOBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.TAMATOBERRY, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.GRACIDEA, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.GRACIDEA, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.REVEALGLASS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.REVEALGLASS, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.DNASPLICERS, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.DNASPLICERS, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.PRISONBOTTLE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.PRISONBOTTLE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddUseOnPokemon(Items.ABILITYCAPSULE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, BattleScene scene) {
-			
+		AddUseOnPokemon(Items.ABILITYCAPSULE, delegate(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.POTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.POTION, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.SUPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.SUPERPOTION, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.HYPERPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.HYPERPOTION, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.MAXPOTION, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.MAXPOTION, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.BERRYJUICE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.BERRYJUICE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.RAGECANDYBAR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.RAGECANDYBAR, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.SWEETHEART, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.SWEETHEART, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.FRESHWATER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.FRESHWATER, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.SODAPOP, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.SODAPOP, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.LEMONADE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.LEMONADE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.MOOMOOMILK, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.MOOMOOMILK, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.ORANBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.ORANBERRY, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.SITRUSBERRY, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.SITRUSBERRY, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.AWAKENING, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.AWAKENING, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.AWAKENING,Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE);
-		AddBattleUseOnPokemon(Items.ANTIDOTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.AWAKENING, new int[3]{Items.CHESTOBERRY,Items.BLUEFLUTE,Items.POKEFLUTE});
+		AddBattleUseOnPokemon(Items.ANTIDOTE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.ANTIDOTE,Items.PECHABERRY);
-		AddBattleUseOnPokemon(Items.BURNHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.ANTIDOTE, new int[1]{Items.PECHABERRY});
+		AddBattleUseOnPokemon(Items.BURNHEAL, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.BURNHEAL,Items.RAWSTBERRY);
-		AddBattleUseOnPokemon(Items.PARLYZHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.BURNHEAL, new int[1]{Items.RAWSTBERRY});
+		AddBattleUseOnPokemon(Items.PARALYZEHEAL, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.PARLYZHEAL,Items.PARALYZEHEAL,Items.CHERIBERRY);
-		AddBattleUseOnPokemon(Items.ICEHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon,Items.PARALYZEHEAL,new int[1]{Items.CHERIBERRY});
+		AddBattleUseOnPokemon(Items.ICEHEAL, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.ICEHEAL,Items.ASPEARBERRY);
-		AddBattleUseOnPokemon(Items.FULLHEAL, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.ICEHEAL, new int[1]{Items.ASPEARBERRY});
+		AddBattleUseOnPokemon(Items.FULLHEAL, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.FULLHEAL,
-		AddBattleUseOnPokemon(Items.FULLRESTORE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.FULLHEAL, new int[6]{Items.LAVACOOKIE,Items.OLDGATEAU,Items.CASTELIACONE,Items.LUMIOSEGALETTE,Items.SHALOURSABLE,Items.LUMBERRY});
+		AddBattleUseOnPokemon(Items.FULLRESTORE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.REVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.REVIVE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.MAXREVIVE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.MAXREVIVE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.ENERGYPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.ENERGYPOWDER, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.ENERGYROOT, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.ENERGYROOT, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.HEALPOWDER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.HEALPOWDER, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.REVIVALHERB, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.REVIVALHERB, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.ETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.ETHER, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.ETHER,Items.LEPPABERRY);
-		AddBattleUseOnPokemon(Items.MAXETHER, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.ETHER, new int[1]{Items.LEPPABERRY});
+		AddBattleUseOnPokemon(Items.MAXETHER, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.ELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.ELIXIR, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.MAXELIXIR, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.MAXELIXIR, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.REDFLUTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.REDFLUTE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnPokemon(Items.YELLOWFLUTE, new Func<int, Pokemon, BattleScene, bool>(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnPokemon(Items.YELLOWFLUTE, delegate(int item, Pokemon pokemon, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnPokemon, Items.YELLOWFLUTE,Items.PERSIMBERRY);
-		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnPokemon, Items.YELLOWFLUTE, new int[1]{Items.PERSIMBERRY});
+		AddBattleUseOnBattler(Items.XATTACK, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XATTACK2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XATTACK3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XATTACK, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XATTACK6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XDEFENSE, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XDEFEND,Items.XDEFENSE);
-		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XDEFENSE2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XDEFEND2,Items.XDEFENSE2);
-		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XDEFENSE3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XDEFEND3,Items.XDEFENSE3);
-		AddBattleUseOnBattler(Items.XDEFEND, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XDEFENSE6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XDEFEND6,Items.XDEFENSE6);
-		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPATK, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XSPECIAL,Items.XSPATK);
-		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPATK2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XSPECIAL2,Items.XSPATK2);
-		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPATK3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XSPECIAL3,Items.XSPATK3);
-		AddBattleUseOnBattler(Items.XSPECIAL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPATK6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.XSPECIAL6,Items.XSPATK6);
-		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPDEF, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPDEF2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPDEF3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPDEF, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPDEF6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPEED, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPEED2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPEED3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XSPEED, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XSPEED6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XACCURACY, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XACCURACY2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XACCURACY3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.XACCURACY, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.XACCURACY6, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.DIREHIT, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.DIREHIT2, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.DIREHIT, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.DIREHIT3, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.GUARDSPEC, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.GUARDSPEC, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddBattleUseOnBattler(Items.POKEDOLL, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		AddBattleUseOnBattler(Items.POKEDOLL, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		Copy(BattleUseOnBattler, Items.POKEDOLL,Items.FLUFFYTAIL,Items.POKETOY);
-		AddIfBattleUseOnBattler(new Func<int, bool>(int item) {
-			
-		}, new Func<int, Battler, BattleScene, bool>(int item, Battler battler, BattleScene scene) {
-			
+		Copy(BattleUseOnBattler, Items.POKEDOLL, new int[2]{Items.FLUFFYTAIL,Items.POKETOY});
+		AddIfBattleUseOnBattler(delegate(int item) {
+			return false;
+		}, delegate(int item, Battler battler, BattleScene scene) {
+			return false;
 		});
-		AddUseInBattle(Items.POKEDOLL, new Func<int, Battler, Battle, bool>(int item, Battler battler, Battle battle) {
-			
+		AddUseInBattle(Items.POKEDOLL, delegate(int item, Battler battler, Battle battle) {
+			return 0;
 		});
-		Copy(UseInBattle, Items.POKEDOLL,Items.FLUFFYTAIL,Items.POKETOY);
-		AddIfUseInBattle(new Func<int, bool>(int item) {
-			
-		}, new Func<int, Battler, Battle, bool>(int item, Battler battler, Battle battle) {
-			
+		Copy(UseInBattle, Items.POKEDOLL, new int[2]{Items.FLUFFYTAIL,Items.POKETOY});
+		AddIfUseInBattle(delegate(int item) {
+			return false;
+		}, delegate(int item, Battler battler, Battle battle) {
+			return 0;
 		});
 	}
 
@@ -1354,19 +1349,43 @@ public static class Items {
 	}
 
 	// Copy i1 to the params in d
-	public static void Copy(Dictionary<int, Func<int, int>> d, int i1, params int[] to) {
+	public static void Copy(Dictionary<int, Func<int, int>> d, int i1, int[] to) {
 		for (int i=0; i<to.Length; i++) 
 		{
 			d[to[i]] = d[i1];
 		}
 	}
-	public static void Copy(Dictionary<int, Func<int, bool>> d, int i1, params int[] to) {
+	public static void Copy(Dictionary<int, Func<int, bool>> d, int i1, int[] to) {
 		for (int i=0; i<to.Length; i++) 
 		{
 			d[to[i]] = d[i1];
 		}
 	}
-	public static void Copy(Dictionary<int, Func<int, string>> d, int i1, params int[] to) {
+	public static void Copy(Dictionary<int, Func<int, Pokemon, PokemonPartyScene.PartyScreen, bool>> d, int i1, int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, Battler, BattleScene, bool>> d, int i1, int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, Pokemon, Battler, BattleScene, bool>> d, int i1, int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, Battler, Battle, int>> d, int i1, int[] to) {
+		for (int i=0; i<to.Length; i++) 
+		{
+			d[to[i]] = d[i1];
+		}
+	}
+	public static void Copy(Dictionary<int, Func<int, string>> d, int i1, int[] to) {
 		for (int i=0; i<to.Length; i++) 
 		{
 			d[to[i]] = d[i1];
@@ -1377,15 +1396,15 @@ public static class Items {
 		UseFromBag.Add(item, f);
 	}
 
-	public static void AddUseInField(int item, Func<int, bool> f) {
+	public static void AddUseInField(int item, Func<int, int> f) {
 		UseInField.Add(item, f);
 	}
 
-	public static void AddConfirmUseInField(int item, Func<int, int> f) {
+	public static void AddConfirmUseInField(int item, Func<int, bool> f) {
 		ConfirmUseInField.Add(item, f);
 	}
 
-	public static void AddUseOnPokemon(int item, Func<int, Pokemon, BattleScene, bool> f) {
+	public static void AddUseOnPokemon(int item, Func<int, Pokemon, PokemonPartyScene.PartyScreen, bool> f) {
 		UseOnPokemon.Add(item, f);
 	}
 
@@ -1397,7 +1416,7 @@ public static class Items {
 		BattleUseOnPokemon.Add(item, f);
 	}
 
-	public static void AddUseInBattle(int item, Func<int, Battler, Battle, bool> f) {
+	public static void AddUseInBattle(int item, Func<int, Battler, Battle, int> f) {
 		UseInBattle.Add(item, f);
 	}
 
@@ -1408,31 +1427,31 @@ public static class Items {
 	public static void AddIfUseFromBag(Func<int, bool> condition, Func<int, int> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				UseFromBag.Add(item, f);
+				UseFromBag.Add(i, f);
 			}
 		}
 	}
 
-	public static void AddIfUseInField(Func<int, bool> condition, Func<int, bool> f) {
+	public static void AddIfUseInField(Func<int, bool> condition, Func<int, int> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				UseInField.Add(item, f);
+				UseInField.Add(i, f);
 			}
 		}
 	}
 
-	public static void AddIfConfirmUseInField(Func<int, bool> condition, Func<int, int> f) {
+	public static void AddIfConfirmUseInField(Func<int, bool> condition, Func<int, bool> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				ConfirmUseInField.Add(item, f);
+				ConfirmUseInField.Add(i, f);
 			}
 		}
 	}
 
-	public static void AddIfUseOnPokemon(Func<int, bool> condition, Func<int, Pokemon, BattleScene, bool> f) {
+	public static void AddIfUseOnPokemon(Func<int, bool> condition, Func<int, Pokemon, PokemonPartyScene.PartyScreen, bool> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				UseOnPokemon.Add(item, f);
+				UseOnPokemon.Add(i, f);
 			}
 		}
 	}
@@ -1440,7 +1459,7 @@ public static class Items {
 	public static void AddIfBattleUseOnBattler(Func<int, bool> condition, Func<int, Battler, BattleScene, bool> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				BattleUseOnBattler.Add(item, f);
+				BattleUseOnBattler.Add(i, f);
 			}
 		}
 	}
@@ -1448,15 +1467,15 @@ public static class Items {
 	public static void AddIfBattleUseOnPokemon(Func<int, bool> condition, Func<int, Pokemon, Battler, BattleScene, bool> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				BattleUseOnPokemon.Add(item, f);
+				BattleUseOnPokemon.Add(i, f);
 			}
 		}
 	}
 
-	public static void AddIfUseInBattle(Func<int, bool> condition, Func<int, Battler, Battle, bool> f) {
+	public static void AddIfUseInBattle(Func<int, bool> condition, Func<int, Battler, Battle, int> f) {
 		for (int i=1; i <= MaxValue(); i++) {
 			if (condition(i)) {
-				UseInBattle.Add(item, f);
+				UseInBattle.Add(i, f);
 			}
 		}
 	}
@@ -1538,14 +1557,14 @@ public static class Items {
 		return UseInField[item](item);
 	}
 
-	public static bool TriggerUseOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
+	public static bool TriggerUseOnPokemon(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
 		if (!HasUseOnPokemon(item)) {
 			return false;
 		}
 		return UseOnPokemon[item](item, pokemon, scene);
 	}
 
-	public static bool TriggerBattleUseOnBattler(int item, Battler battler, Battle scene) {
+	public static bool TriggerBattleUseOnBattler(int item, Battler battler, BattleScene scene) {
 		if (!HasBattleUseOnBattler(item)) {
 			return false;
 		}
@@ -1559,9 +1578,9 @@ public static class Items {
 		return BattleUseOnPokemon[item](item, pokemon, battler, scene);
 	}
 
-	public static void TriggerUseInBattle(int item, Battler battler, Battle battle) {
+	public static int TriggerUseInBattle(int item, Battler battler, Battle battle) {
 		if (!HasUseInBattle(item)) {
-			return false;
+			return 0;
 		}
 		return UseInBattle[item](item, battler, battle);
 	}
@@ -1599,37 +1618,36 @@ public static class Items {
 			scene.Display(string.Format("It won't have any effect."));
 			return false;
 		}
-		int hpGain;
 		if (battler != null) {
-			hpGain = battler.RestoreHP(restoreHP);
+			battler.RecoverHP(restoreHP, false);
 		} else {
-			hpGain = Items.RestoreHP(pokemon, restoreHP);
+			Items.RestoreHP(pokemon, restoreHP);
 		}
 		scene.Display(string.Format("{0}'s HP was restored.", pokemon.name));
 		return true;
 	}
 
 	public static int RestorePP(Pokemon pokemon, int moveIdx, int restorePP) {
-		if (pokemon.moves[move].id == 0) {
+		if (pokemon.moves[moveIdx].Id == 0) {
 			return 0;
 		}
-		if (pokemon.moves[move].totalPP == 0) {
+		if (pokemon.moves[moveIdx].TotalPP() == 0) {
 			return 0;
 		}
 		int newPP = pokemon.moves[moveIdx].pp + restorePP;
-		if (newPP > pokemon.moves[move].totalPP) {
-			newPP = pokemon.moves[move].totalPP;
+		if (newPP > pokemon.moves[moveIdx].TotalPP()) {
+			newPP = pokemon.moves[moveIdx].TotalPP();
 		}
-		int oldPP = pokemon.moves[move].pp;
-		pokemon.moves[move].pp = newPP;
+		int oldPP = pokemon.moves[moveIdx].pp;
+		pokemon.moves[moveIdx].pp = newPP;
 		return newPP - oldPP;
 	}
 
-	public static bool BattleRestorePPItem(Pokemon pokemon, Battler battler, int moveIdx, int restorePP) {
+	public static int BattleRestorePPItem(Pokemon pokemon, Battler battler, int moveIdx, int restorePP) {
 		int ret = Items.RestorePP(pokemon, moveIdx, restorePP);
 		if (ret > 0) {
 			if (battler != null) {
-				battler.SetPP(battler.moves[move], pokemon.moves[move.pp]);
+				battler.SetPP(battler.moves[moveIdx], pokemon.moves[moveIdx].pp);
 			}
 		}
 		return ret;
@@ -1711,7 +1729,7 @@ public static class Items {
 			return false;
 		}
 		if (PokemonGlobal.bicycle) {
-			if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataBicycleAlways)) {
+			if (Utilities.GetMetadata(PokemonGlobal.Map.MapID, MiscData.MetadataBicycleAlways) > 0) {
 				Messaging.Message("It can't be dismounted here.");
 				return false;
 			}
@@ -1730,10 +1748,10 @@ public static class Items {
 	}
 
 	public static GameMap.GameEvent ClosestHiddenItem(int ignoreAfterDistance=8) {
-		List<int> res = new List<int>();
+		List<GameMap.GameEvent> res = new List<GameMap.GameEvent>();
 		int x = PokemonGlobal.playerX;
 		int y = PokemonGlobal.playerY;
-		for (int i=0; i < PokemonGlobal.Map.events.Length(); i++) {
+		for (int i=0; i < PokemonGlobal.Map.events.Length; i++) {
 			GameMap.GameEvent e = PokemonGlobal.Map.events[i];
 			if (e.name != "HiddenItem") {
 				continue;
@@ -1747,10 +1765,10 @@ public static class Items {
 			res.Add(e);
 		}
 		GameMap.GameEvent ret = null;
-		if (res.Length == 0) {
+		if (res.Count == 0) {
 			return ret;
 		}
-		int retMin = 0;
+		double retMin = 0;
 		for (int i=0; i < res.Count; i++) {
 			GameMap.GameEvent e = res[i];
 			double dist = (Math.Pow(x-e.x, 2) + Math.Pow(y-e.y, 2));
@@ -1763,7 +1781,7 @@ public static class Items {
 	}
 
 	public static int UseItem(PokemonBag bag, int item, BagScene bagScene=null) {
-		Items.InternalItem itm = Items.GetItem(item);
+		Items.Item itm = Items.GetItem(item);
 		if (itm.OutOfBattle == 3 || itm.OutOfBattle == 4) {
 			if (PokemonGlobal.Trainer.PokemonCount() == 0) {
 				Messaging.Message("There are no Pokémon.");
@@ -1793,16 +1811,16 @@ public static class Items {
 			bool ret = false;
 			List<string> annotation = new List<string>();
 			if (IsEvolutionStone(item)) {
-				for (int i=0; i<PokemonGlobal.Trainer.party; i++) 
+				for (int i=0; i<PokemonGlobal.Trainer.party.Length; i++) 
 				{
-					bool eligible = CheckEvolution(PokemonGlobal.Trainer.party[i], item) > 0;
+					bool eligible = Evolution.CheckEvolution(PokemonGlobal.Trainer.party[i], item) > 0;
 					annotation.Add(eligible ? "ABLE" : "NOT ABLE");
 				}
 			}
-			Graphics.FadeOutIn(99999, new Action() {
+			Graphics.FadeOutIn(99999, delegate() {
 				PokemonPartyScene scene = new PokemonPartyScene();
-				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen();
-				screen.StartScene("Use on which Pokémon?", false, annotation);
+				PokemonPartyScene.PartyScreen screen = new PokemonPartyScene.PartyScreen(scene, PokemonGlobal.Trainer.party);
+				screen.StartScene("Use on which Pokémon?", false, annotation.ToArray());
 				while (true) {
 					scene.SetHelpText("Use on which Pokémon?");
 					int chosen = screen.ChoosePokemon();
@@ -1855,16 +1873,16 @@ public static class Items {
 		}
 	}
 
-	public static bool UseItemOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
-		Items.InternalItem itm = Items.GetItem(item);
+	public static bool UseItemOnPokemon(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
+		Items.Item itm = Items.GetItem(item);
 		if (itm.OutOfBattle == 3 || itm.OutOfBattle == 4) {
-			machine = GetMachine(item);
+			int machine = GetMachine(item);
 			if (machine < 1) {
 				return false;
 			}
-			string moveName == Moves.GetName(machine);
+			string moveName = Moves.GetName(machine);
 			if (!pokemon.IsCompatibleWithMove(machine)) {
-				Messaging.Message("{0} can't learn {1}.", pokemon.name, moveName);
+				Messaging.Message(string.Format("{0} can't learn {1}.", pokemon.name, moveName));
 			} else {
 				Messaging.Message(string.Format("\\se[PC access]You booted up {0}.\\1", Items.GetName(item)));
 				if (!Messaging.ConfirmMessage(string.Format("Do you want to teach {0} to {1}?", moveName, pokemon.name))) {
@@ -1885,7 +1903,7 @@ public static class Items {
 				PokemonGlobal.Bag.DeleteItem(item);
 			}
 			if (!PokemonGlobal.Bag.HasItem(item)) {
-				Messaging.Message(string.Format("You used your last {0}.", Items.GetName(item)))
+				Messaging.Message(string.Format("You used your last {0}.", Items.GetName(item)));
 			}
 			return ret;
 		}
@@ -1902,13 +1920,13 @@ public static class Items {
 	}
 
 	public static void ConsumeItemInBattle(PokemonBag bag, int item) {
-		Items.InternalItem itm = GetItem(item);
+		Items.Item itm = GetItem(item);
 		if (item > 0 && itm.InBattle != 3 && itm.InBattle != 4 && itm.InBattle != 0) {
 			PokemonGlobal.Bag.DeleteItem(item);
 		}
 	}
 
-	public static string UseItemMessage(int item) {
+	public static void UseItemMessage(int item) {
 		string itemname = GetName(item);
 		switch (itemname.Substring(0, 1).ToLower()) 
 		{
@@ -1925,11 +1943,11 @@ public static class Items {
 		}
 	}
 
-	public static bool CheckUseOnPokemon(int item, Pokemon pokemon, BattleScene scene) {
+	public static bool CheckUseOnPokemon(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
 		return pokemon != null && !pokemon.Egg();
 	}
 
-	public static bool GiveItemToPokemon(int item, Pokemon pokemon, BattleScene scene, int pkmnid=0) {
+	public static bool GiveItemToPokemon(int item, Pokemon pokemon, PokemonPartyScene.PartyScreen scene, int pkmnid=0) {
 		string newItemName = GetName(item);
 		if (pokemon.Egg()) {
 			scene.Display("Eggs can't hold items.");
@@ -1979,7 +1997,7 @@ public static class Items {
 						}
 					} else {
 						pokemon.SetItem(item);
-						scene.Display(string.Format("Took the {0} from {1} and gave it the {2}."), oldItemName, pokemon.name, newItemName);
+						scene.Display(string.Format("Took the {0} from {1} and gave it the {2}.", oldItemName, pokemon.name, newItemName));
 						return true;
 					}
 				}
@@ -1988,14 +2006,14 @@ public static class Items {
 			if (!IsMail(item) || Mail.WriteMail(item, pokemon, pkmnid, scene)) {
 				PokemonGlobal.Bag.DeleteItem(item);
 				pokemon.SetItem(item);
-				scene.Display(string.Format("{0} is now holding the {1}.", pokemon.name, newItemName))
+				scene.Display(string.Format("{0} is now holding the {1}.", pokemon.name, newItemName));
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public static bool TakeItemFromPokemon(Pokemon pokemon, BattleScene scene) {
+	public static bool TakeItemFromPokemon(Pokemon pokemon, PokemonPartyScene.PartyScreen scene) {
 		bool ret = false;
 		if (!pokemon.HasItem()) {
 			scene.Display(string.Format("{0} isn't holding anything.", pokemon.name));
@@ -2003,12 +2021,12 @@ public static class Items {
 			scene.Display("The Bag is full. The Pokémon's item could not be removed.");
 		} else if (pokemon.mail != null) {
 			if (scene.Confirm("Save the removed mail in your PC?")) {
-				if (!MoveToMailbox(pokemon)) {
+				if (!Mail.MoveToMailbox(pokemon)) {
 					scene.Display("Your PC's Mailbox is full.");
 				} else {
 					scene.Display("The mail was saved in your PC.");
 					pokemon.SetItem(0);
-					ret = 0;
+					ret = false;
 				}
 			} else if (scene.Confirm("If the mail is removed, its message will be lost. OK?")) {
 				PokemonGlobal.Bag.StoreItem(pokemon.item);
@@ -2030,43 +2048,43 @@ public static class Items {
 
 	public static int ChooseItem(int var=0) {
 		int ret = 0;
-		Graphics.FadeOutIn(99999, new Action() {
-			BagScene scene = new BagScene();
+		Graphics.FadeOutIn(99999, delegate() {
+			BagScene scene = new BagScene(PokemonGlobal.Bag);
 			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
 			ret = screen.ChooseItemScreen();
 		});
 		if (var > 0) {
-			Globals.SetVariable(var, ret);
+			Globals.setVariable(var, ""+ret);
 		}
 		return ret;
 	}
 
 	public static int ChooseApricorn(int var=0) {
 		int ret = 0;
-		Graphics.FadeOutIn(99999, new Action() {
-			BagScene scene = new BagScene();
+		Graphics.FadeOutIn(99999, delegate() {
+			BagScene scene = new BagScene(PokemonGlobal.Bag);
 			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
-			ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+			ret = screen.ChooseItemScreen(delegate(int item) {
 				return IsApricorn(item);
 			});
 		});
 		if (var > 0) {
-			Globals.SetVariable(var, ret);
+			Globals.setVariable(var, ""+ret);
 		}
 		return ret;
 	}
 
 	public static int ChooseFossil(int var=0) {
 		int ret = 0;
-		Graphics.FadeOutIn(99999, new Action() {
-			BagScene scene = new BagScene();
+		Graphics.FadeOutIn(99999, delegate() {
+			BagScene scene = new BagScene(PokemonGlobal.Bag);
 			BagScene.BagScreen screen = new BagScene.BagScreen(scene, PokemonGlobal.Bag);
-			ret = screen.ChooseItemScreen(new Func<int, bool>(int item) {
+			ret = screen.ChooseItemScreen(delegate(int item) {
 				return IsFossil(item);
 			});
 		});
 		if (var > 0) {
-			Globals.SetVariable(var, ret);
+			Globals.setVariable(var, ""+ret);
 		}
 		return ret;
 	}
@@ -2079,21 +2097,21 @@ public static class Items {
 			int id = args[i];
 			if (PokemonGlobal.Bag.HasItem(id)) {
 				commands.Add(Items.GetName(id));
-				itemid.Add(id)
+				itemid.Add(id);
 			}
 		}
-		if (commands.Length == 0) {
-			Global.SetVariable(variable, 0);
+		if (commands.Count == 0) {
+			Globals.setVariable(var, "0");
 			return 0;
 		}
 		commands.Add("Cancel");
 		itemid.Add(0);
-		int ret = Messaging.Commands(message, commands, -1);
-		if (ret < 0 || ret >= commands.Length-1) {
-			Globals.SetVariable(variable, -1);
+		int ret = Messaging.Commands(message, commands.ToArray(), -1);
+		if (ret < 0 || ret >= commands.Count-1) {
+			Globals.setVariable(var, "-1");
 			return -1;
 		} else {
-			Globals.SetVariable(variable, ret);
+			Globals.setVariable(var, ""+ret);
 			return itemid[ret];
 		}
 	}
@@ -2162,7 +2180,7 @@ public static class Items {
 				if (battler.HasType(Types.BUG) || battler.HasType(Types.WATER)) {
 					catchRate *= 3;
 				}
-				return catchRate
+				return catchRate;
 			case Items.DIVEBALL:
 				if (battle.environment == Environment.Underwater) {
 					catchRate = (int)(catchRate*7.0/2);
@@ -2170,16 +2188,16 @@ public static class Items {
 				return catchRate;
 			case Items.NESTBALL:
 				if (battler.level <= 40) {
-					catchRate *= (int)Math.Max((41-battler.level/10.0), 1)
+					catchRate *= (int)Math.Max((41-battler.level/10.0), 1);
 				}
 				return catchRate;
 			case Items.REPEATBALL:
-				if (battle.Player.owned[battler.species]) {
+				if (battle.Player().owned[battler.species]) {
 					catchRate *= 3;
 				}
 				return catchRate;
 			case Items.TIMERBALL:
-				double multiplier = Math.Min(1 + (0.3 * battle.turncount), 4);
+				double multiplier = Math.Min(1 + (0.3 * battle.turnCount), 4);
 				catchRate = (int)(catchRate*multiplier);
 				return catchRate;
 			case Items.DUSKBALL:
@@ -2188,12 +2206,12 @@ public static class Items {
 				}
 				return catchRate;
 			case Items.QUICKBALL:
-				if (battle.turncount <= 1) {
+				if (battle.turnCount <= 1) {
 					catchRate *= 5;
 				}
 				return catchRate;
 			case Items.FASTBALL:
-				int basespeed = Species.GetSpecies(battler.species).BaseStats[Stats.SPEED];
+				int basespeed = Species.GetSpecies(battler.species).BaseStats.Speed;
 				if (basespeed >= 100) {
 					catchRate *= 4;
 				}
@@ -2212,12 +2230,12 @@ public static class Items {
 				}
 				return (int)Math.Min(catchRate, 255);
 			case Items.LUREBALL:
-				if (PkmnTemp.encounterType == EncounterTypes.OldRod || PkmnTemp.encounterType == EncounterTypes.GoodRod || PkmnTemp.encounterType == EncounterTypes.SuperRod) {
+				if (PokemonTemp.encounterType == EncounterTypes.OldRod || PokemonTemp.encounterType == EncounterTypes.GoodRod || PokemonTemp.encounterType == EncounterTypes.SuperRod) {
 					catchRate *= 3;
 				}
 				return (int)Math.Min(catchRate, 255);
 			case Items.HEAVYBALL:
-				int weight = battler.weight;
+				int weight = battler.weight();
 				if (weight >= 4096) {
 					catchRate += 40;
 				} else if (weight >= 3072) {
@@ -2229,20 +2247,20 @@ public static class Items {
 				}
 				return (int)Math.Min(Math.Max(catchRate, 1), 255);
 			case Items.LOVEBALL:
-				Battler pbattler = battle.battlers[0];
-				Battler pbattler2 = null;
+				Battler pb = battle.battlers[0];
+				Battler pb2 = null;
 				if (battle.battlers[2] != null) {
-					pbattler2 = battle.battlers[2];
+					pb2 = battle.battlers[2];
 				}
-				if (pbattler.species == battler.species && ((battler.gender == 0) && (pbattler.gender == 1)) || ((battler.gender == 1) && (pbattler.gender == 0))) {
+				if (pb.species == battler.species && ((battler.gender == 0) && (pb.gender == 1)) || ((battler.gender == 1) && (pb.gender == 0))) {
 					catchRate *= 8;
-				} else if (pbattler2.species == battler.species && ((battler.gender == 0) && (pbattler2.gender == 1)) || ((battler.gender == 1) && (pbattler2.gender == 0))) {
+				} else if (pb2.species == battler.species && ((battler.gender == 0) && (pb2.gender == 1)) || ((battler.gender == 1) && (pb2.gender == 0))) {
 					catchRate *= 8;
 				}
 				return (int)Math.Min(catchRate, 255);
 			case Items.MOONBALL:
 				int[] sp = new int[16]{Species.NIDORANfE, Species.NIDORINA, Species.NIDOQUEEN, Species.NIDORANmA, Species.NIDORINO, Species.NIDOKING, Species.CLEFFA, Species.CLEFAIRY, Species.CLEFABLE, Species.IGGLYBUFF, Species.JIGGLYPUFF, Species.WIGGLYTUFF, Species.SKITTY, Species.DELCATTY, Species.MUNNA, Species.MUSHARNA};
-				if (Array.IndexOf(sp, battler.species)) {
+				if (Array.IndexOf(sp, battler.species) > -1) {
 					catchRate *= 4;
 				}
 				return (int)Math.Min(catchRate, 255);
@@ -2255,10 +2273,10 @@ public static class Items {
 	public static void OnCatchHandler(int ball, Battle battle, Battler battler) {
 		switch (ball) {
 			case Items.HEALBALL:
-				pokemon.Heal();
+				battler.pokemon.Heal();
 				break;
 			case Items.FRIENDBALL:
-				pokemon.happiness = 200;
+				battler.pokemon.happiness = 200;
 				break;
 		}
 	}
